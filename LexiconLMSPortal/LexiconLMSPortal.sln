@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexiconLMSPortal", "LexiconLMSPortal\LexiconLMSPortal.csproj", "{ED44E79E-28BA-4378-9D11-561FE54F5134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexiconLMSPortal.Tests", "LexiconLMSPortal.Tests\LexiconLMSPortal.Tests.csproj", "{CC2D17CE-BA76-4F65-9BF1-A37D0AAD0084}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED44E79E-28BA-4378-9D11-561FE54F5134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED44E79E-28BA-4378-9D11-561FE54F5134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED44E79E-28BA-4378-9D11-561FE54F5134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED44E79E-28BA-4378-9D11-561FE54F5134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2D17CE-BA76-4F65-9BF1-A37D0AAD0084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2D17CE-BA76-4F65-9BF1-A37D0AAD0084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2D17CE-BA76-4F65-9BF1-A37D0AAD0084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2D17CE-BA76-4F65-9BF1-A37D0AAD0084}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
