@@ -73,4 +73,9 @@ textarea {
 
 /*teacher index page*/
 
-
+#TeacherCourseList {
+    max-width: 500px;
+    background-color: lightgray;
+    border-radius:5px;
+    
+}
