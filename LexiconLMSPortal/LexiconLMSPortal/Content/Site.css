@@ -22,3 +22,39 @@ select,
 textarea {
     max-width: 280px;
 }
+
+[tooltip]:before {
+    /* needed - do not touch */
+    content: attr(tooltip);
+    position: absolute;
+    opacity: 0;
+    /* customizable */
+    transition: all 0.15s ease;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #237ace;
+    left: 100%;
+}
+
+[tooltip]:hover:before {
+    /* needed - do not touch */
+    opacity: 1;
+    /* customizable */
+    background: #2b97ff;
+    left: 101%;
+}
+
+[tooltip]:not([tooltip-persistent]):before {
+    pointer-events: none;
+}
+
+.edit-cog {
+    transition: all 0.1s;
+    vertical-align:central;
+    font-size:20px;
+}
+
+.edit-cog:hover{
+    font-size: 28px;
+}
