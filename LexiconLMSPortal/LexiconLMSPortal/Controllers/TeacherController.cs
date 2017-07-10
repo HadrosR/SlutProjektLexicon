@@ -40,15 +40,30 @@ namespace LexiconLMSPortal.Controllers
             // Add viewmodels for every module
             foreach(var m in course.Modules)
             {
+                List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
                 vm.Modules.Add(new ModulesViewModel
                 {
                     Name = m.Name,
                     Description = m.Description,
                     StartDate = m.StartDate,
-                    EndDate = m.EndDate
+                    EndDate = m.EndDate,
 
                     /* Activities here */
+                    Activities = newActivityList
                 });
+
+                //Add viewmodels for every activity in a module
+                foreach ( var t in m.Activities )
+                {
+                    newActivityList.Add(new ActivityViewModel
+                    {
+                        Name = t.Name,
+                        Description = t.Description,
+                        StartDate = t.StartDate,
+                        EndDate = t.EndDate,
+                    });
+                }
+
             }
 
             return View("Course", vm);
