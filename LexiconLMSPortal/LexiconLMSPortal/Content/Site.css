@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+
+/*THIES STYLES ARE FOR THE LOG IN PAGE*/
+
+#EmailForm {
+    margin-top: 25%;
+}
+
+#loginbtn {
+    margin-left: 9rem;
+}
