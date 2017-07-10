@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LexiconLMSPortal.Models;
+using LexiconLMSPortal.Models.ViewModels;
 
 namespace LexiconLMSPortal.Controllers
 {
