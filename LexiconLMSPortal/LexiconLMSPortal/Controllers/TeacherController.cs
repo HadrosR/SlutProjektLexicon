@@ -125,5 +125,23 @@ namespace LexiconLMSPortal.Controllers
             //returns the list to the partial view
             return View(tl);
         }
+
+        public ActionResult _StudentListPartial()
+        {
+
+            List<_StudentListPartial> sl = new List<Models.ViewModels._StudentListPartial>();
+
+            var students = context.Courses.Find().Students.ToList();
+
+            foreach (var s in students)
+            {
+                sl.Add(new _StudentListPartial
+                {
+                    FirstName = s.FirstName,
+                    LastName = s.LastName
+                });
+            }
+            return View();
+        }
     }
 }
