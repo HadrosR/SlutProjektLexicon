@@ -51,8 +51,8 @@ textarea {
 
 .edit-cog {
     transition: all 0.1s;
-    vertical-align:central;
-    font-size:20px;
+    color: white;
+    font-size: 20px;
 }
 
 .edit-cog:hover{

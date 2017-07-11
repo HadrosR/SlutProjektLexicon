@@ -67,6 +67,7 @@ namespace LexiconLMSPortal.Controllers
             ModulesViewViewModel vm = new ModulesViewViewModel
             {
                 Name = course.Name,
+                Description = course.Description,
                 Modules = new List<ModulesViewModel>()
             };
 
@@ -98,6 +99,7 @@ namespace LexiconLMSPortal.Controllers
                 }
 
             }
+
 
             return View("Course", vm);
         }

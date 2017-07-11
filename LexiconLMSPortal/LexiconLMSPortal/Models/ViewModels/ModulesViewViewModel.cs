@@ -10,6 +10,7 @@ namespace LexiconLMSPortal.Models.ViewModels
     {
         [Required]
         public string Name { get; set; }
+        public string Description { get; set; }
 
         public List<ModulesViewModel> Modules { get; set; }
     }
