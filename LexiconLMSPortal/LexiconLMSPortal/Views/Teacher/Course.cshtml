@@ -10,34 +10,45 @@
 
 <div class="row">
     <div class="col-xs-8">
-        @foreach (var item in Model.Modules) {
-            <div class="col-xs-12 course-module" tooltip="@Html.DisplayFor(modelItem => item.Description)">
-                <div class="row">
-                    <div class="col-xs-4"><h3>@Html.DisplayFor(modelItem => item.Name)</h3></div>
-                    <div class="col-xs-4">
-                        <p>@Html.DisplayFor(modelItem => item.StartDate) to<br />@Html.DisplayFor(modelItem => item.EndDate)</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="col-xs-12" style="height:33%;">&nbsp;</div>
-                        <div class="col-xs-12" style="height:33%; text-align:right;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div>
-                        <div class="col-xs-12" style="height:33%;">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            foreach (var activity in item.Activities)
+        <div class="panel-group" id="module-accordion" role="tablist" aria-multiselectable="true">
+            @{int moduleid = 0; }
+            @foreach (var item in Model.Modules)
             {
-                <div class="col-xs-11" style="color: white; border:1px solid #2a6fa8; border-radius:5px; margin:0 10px; background-color: #358844" tooltip="@Html.DisplayFor(modelItem => activity.Description )">
-                    <div class="row">
-                        <div class="col-xs-4"><h3>@Html.DisplayFor(modelItem => activity.Name)</h3></div>
-                        <div class="col-xs-4">
-                            <p>@Html.DisplayFor(modelItem => activity.StartDate)</p>
-                            <p>@Html.DisplayFor(modelItem => activity.EndDate)</p>
+                
+
+                <div class="panel panel-default">
+                    <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading"+moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" aria->
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <h4 class="panel-title">
+                                    <a class="module-accordion-link" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse"+moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse"+moduleid)">
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="col-xs-4">@Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
+                            <div class="col-xs-4" style="text-align:right;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div>
                         </div>
-                        <div class="col-xs-4"><div style=" float:right; text-align:center; vertical-align:middle;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div></div>
+
+
+                    </div>
+                    <div id="@Html.Raw("collapse"+moduleid)" class="panel-collapse collapse @(moduleid == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="@Html.Raw("heading"+moduleid)">
+                        @foreach (var activity in item.Activities)
+                        {
+                            <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
+                                <div class="row">
+                                    <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.Name)</div>
+                                    <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) to @Html.DisplayFor(modelItem => activity.EndDate)</div>
+                                    <div class="col-xs-4" style="text-align:right;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
+
+                moduleid++;
             }
-        }
+        </div>
     </div>
 </div>
 
