@@ -1,0 +1,48 @@
+﻿@model LexiconLMSPortal.Models.ViewModels._TeacherListPartialModel
+
+@{
+    ViewBag.Title = "Add Teacher";
+    Layout = "";
+}
+
+<!-- Large modal -->
+<div data-toggle="modal" data-target="#AddTeacherModal"><a>Add</a></div>
+
+<div id="AddTeacherModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addTeacherModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">New teacher</h4>
+            </div>
+
+            <div class="modal-body">
+                <form method="post" action="@Url.Action()" class="form-group">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">E-mail:</label>
+                        <input type="text" class="form-control" id="teacher-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Password:</label>
+                        <input type="text" class="form-control" id="teacher-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">First Name:</label>
+                        <input type="text" class="form-control" id="teacher-first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Last Name:</label>
+                        <input type="text" class="form-control" id="teacher-last-name">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary form-group">Add</button>
+            </div>
+
+        </div>
+    </div>
+</div>

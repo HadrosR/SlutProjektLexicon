@@ -8,15 +8,20 @@
         <th>
             @Html.DisplayNameFor(model => model.FullName)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
+        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+        <td>@Html.Action("EditTeacher", "Teacher", item)</td>
+        <td>@Html.Action("DeleteTeacher", "Teacher", item)</td>
     </tr>
 }
+
+    <tr>
+        <td>
+            @Html.Action("AddTeacher", "Teacher")
+        </td>
+    </tr>
 
 </table>
