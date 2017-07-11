@@ -24,7 +24,19 @@
                     </div>
                 </div>
             </div>
-
+            foreach (var activity in item.Activities)
+            {
+                <div class="col-xs-11" style="color: white; border:1px solid #2a6fa8; border-radius:5px; margin:0 10px; background-color: #358844" tooltip="@Html.DisplayFor(modelItem => activity.Description )">
+                    <div class="row">
+                        <div class="col-xs-4"><h3>@Html.DisplayFor(modelItem => activity.Name)</h3></div>
+                        <div class="col-xs-4">
+                            <p>@Html.DisplayFor(modelItem => activity.StartDate)</p>
+                            <p>@Html.DisplayFor(modelItem => activity.EndDate)</p>
+                        </div>
+                        <div class="col-xs-4"><div style=" float:right; text-align:center; vertical-align:middle;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div></div>
+                    </div>
+                </div>
+            }
         }
     </div>
 </div>
