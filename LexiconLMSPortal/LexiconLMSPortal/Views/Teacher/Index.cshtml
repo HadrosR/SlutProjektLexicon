@@ -9,6 +9,38 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div class="row">
+    <div>
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-8" style="margin:10px"id="TeacherCourseList" tooltip="@Html.DisplayFor(modelItem => item.Description)">
+                <div>
+                    <h1>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </h1>
+                </div>
+            <div class="text-center">
+                Starts:
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </div>
+            <div class="text-center">
+                Ends:
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </div>
+            <div class="text-right" style="color:black">
+                <a href="@Url.Action("Delete","Teacher")">
+                    <i class="glyphicon glyphicon-remove-circle"></i>
+                </a>
+                <a href="@Url.Action("Edit","Teacher")">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </div>
+
+        </div>  
+        }
+                      
+    </div>
+</div>
 <table class="table">
 
 
