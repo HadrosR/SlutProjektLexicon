@@ -8,8 +8,6 @@ using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using LexiconLMSPortal.Models.Classes;
-using LexiconLMSPortal.Models.Identity;
-using LexiconLMSPortal.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -41,7 +39,24 @@ namespace LexiconLMSPortal.Controllers
             }
             return View(aktivCourses);
         }
+        public ActionResult Create()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        [Authorize(Roles ="Teacher")]
+        public ActionResult Create([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseModels course)
+        {
+            if (ModelState.IsValid)
+            {
 
+                context.Courses.Add(course);
+                context.SaveChanges();
+                return PartialView();
+            }
+
+            return View(course);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

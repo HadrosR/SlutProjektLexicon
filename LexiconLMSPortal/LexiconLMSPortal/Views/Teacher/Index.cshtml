@@ -35,12 +35,43 @@
 
                 </div>
             </a>
-        }
-                      
+        }                 
     </div>
     <div id="TList">
         @Html.Action("_TeacherListPartial", "Teacher")
     </div>
+    <div class="col-xs-8">
+        @Html.Action("Create","Teacher")
+    </div>
+    @*@using (Html.BeginForm("Create","Teacher"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-xs-8 CreateFormControl">
+            <h2>Create a new course</h2>
+            <form method="post" action="@Url.Action("Create","TeacherController")">
+                <div class="form-group col-xs-12">
+                    <label for="CourseName">Course Name</label>
+                    <input type="text" class="form-control" id="CourseName" placeholder="Course name" />
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="CourseStartTime">Start date</label>
+                    <input type="date" class="form-control" id="CourseStartTime" />
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="CourseEndTime">End date</label>
+                    <input type="date" class="form-control" id="CourseEndTime" />
+                </div>
+                <div class="form-group col-xs-10">
+                    <label for="Description">Description</label>
+                    <textarea class="form-control" rows="3" placeholder="Description text here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-default">Create</button>
+            </form>
+        </div>
+        
+    }*@
+    
+    
 </div>
 
 

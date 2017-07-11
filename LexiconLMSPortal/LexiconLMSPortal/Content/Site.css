@@ -34,7 +34,7 @@ textarea {
     color: white;
     border-radius: 5px;
     border: 1px solid #237ace;
-    left: 90%;
+    left: 99%;
 }
 
 [tooltip]:hover:before {
@@ -42,7 +42,7 @@ textarea {
     opacity: 1;
     /* customizable */
     background: #2b97ff;
-    left: 92%;
+    left: 101%;
 }
 
 [tooltip]:not([tooltip-persistent]):before {
@@ -107,4 +107,9 @@ textarea {
     color: white;
 
 }
-
+.CreateFormControl{
+    border-radius:5px;
+    background-color:lightcyan;
+    border-color:black;
+    border-style:groove;
+}
