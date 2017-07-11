@@ -22,8 +22,6 @@ namespace LexiconLMSPortal.Models.ViewModels
         [Required]
         [Display(Name ="End Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime EndDate { get; set; }
-        [Required]
-        public virtual ICollection<Identity.ApplicationUser> Teachers { get; set; }
+        public DateTime EndDate { get; set; }     
     }
 }

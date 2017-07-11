@@ -34,5 +34,7 @@ namespace LexiconLMSPortal.Models.ViewModels
         public DateTime EndDate { get; set; }
 
         /* Insert activity list here */
+        public List<ActivityViewModel> Activities { get; set; }
+
     }
 }

@@ -10,6 +10,8 @@ using System.Data.Entity;
 using LexiconLMSPortal.Models.Classes;
 using LexiconLMSPortal.Models.Identity;
 using LexiconLMSPortal.Models.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LexiconLMSPortal.Controllers
 {
@@ -72,19 +74,52 @@ namespace LexiconLMSPortal.Controllers
             // Add viewmodels for every module
             foreach(var m in course.Modules)
             {
+                List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
                 vm.Modules.Add(new ModulesViewModel
                 {
                     Name = m.Name,
                     Description = m.Description,
                     StartDate = m.StartDate,
-                    EndDate = m.EndDate
+                    EndDate = m.EndDate,
 
                     /* Activities here */
+                    Activities = newActivityList
                 });
+
+                //Add viewmodels for every activity in a module
+                foreach ( var t in m.Activities )
+                {
+                    newActivityList.Add(new ActivityViewModel
+                    {
+                        Name = t.Name,
+                        Description = t.Description,
+                        StartDate = t.StartDate,
+                        EndDate = t.EndDate,
+                    });
+                }
+
             }
 
 
             return View("Course", vm);
+        }
+
+        public ActionResult _TeacherListPartial()
+        {
+            List<_TeacherListPartialModel> tl = new List<_TeacherListPartialModel>();
+
+            var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
+
+            foreach (var t in teachers )
+            {
+                tl.Add(new _TeacherListPartialModel
+                {
+                    FirstName = t.FirstName,
+                    LastName = t.LastName
+                });
+            }
+
+            return View(tl);
         }
     }
 }
