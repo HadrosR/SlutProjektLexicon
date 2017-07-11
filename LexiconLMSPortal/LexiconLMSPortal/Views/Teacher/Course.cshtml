@@ -14,8 +14,6 @@
             @{int moduleid = 0; }
             @foreach (var item in Model.Modules)
             {
-                
-
                 <div class="panel panel-default">
                     <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading"+moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" aria->
                         <div class="row">
@@ -29,7 +27,6 @@
                             <div class="col-xs-4">@Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
                             <div class="col-xs-4" style="text-align:right;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div>
                         </div>
-
 
                     </div>
                     <div id="@Html.Raw("collapse"+moduleid)" class="panel-collapse collapse @(moduleid == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="@Html.Raw("heading"+moduleid)">
