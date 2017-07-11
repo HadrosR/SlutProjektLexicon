@@ -55,10 +55,6 @@ textarea {
     font-size: 20px;
 }
 
-.edit-cog:hover{
-    font-size: 28px;
-}
-
 
 
 /*THIES STYLES ARE FOR THE LOG IN PAGE*/
@@ -81,3 +77,20 @@ textarea {
     margin-bottom:10px;
     
 }
+
+.course-module {
+    color: white;
+    border:1px solid #2a6fa8; 
+    border-radius:5px; 
+    margin:0 10px; 
+    background-color: #358fdc;
+}
+
+    .course-module h3{
+        margin-top:20px;
+        padding:0px;
+    }
+
+    .course-module p {
+        margin-top: 15px;
+    }
