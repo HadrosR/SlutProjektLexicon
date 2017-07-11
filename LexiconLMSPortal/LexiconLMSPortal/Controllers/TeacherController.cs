@@ -106,10 +106,13 @@ namespace LexiconLMSPortal.Controllers
 
         public ActionResult _TeacherListPartial()
         {
+            //Creates a list of _TeacherListparialModel
             List<_TeacherListPartialModel> tl = new List<_TeacherListPartialModel>();
 
+            // Checks the database for all users with the role of "Teacher"
             var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
 
+            //All the users that was found above are put in to a list
             foreach (var t in teachers )
             {
                 tl.Add(new _TeacherListPartialModel
@@ -119,6 +122,7 @@ namespace LexiconLMSPortal.Controllers
                 });
             }
 
+            //returns the list to the partial view
             return View(tl);
         }
     }
