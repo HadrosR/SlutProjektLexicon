@@ -10,6 +10,8 @@ using System.Data.Entity;
 using LexiconLMSPortal.Models.Classes;
 using LexiconLMSPortal.Models.Identity;
 using LexiconLMSPortal.Models.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LexiconLMSPortal.Controllers
 {
@@ -83,6 +85,24 @@ namespace LexiconLMSPortal.Controllers
             }
 
             return View("Course", vm);
+        }
+
+        public ActionResult _TeacherListPartial()
+        {
+            List<_TeacherListPartialModel> tl = new List<_TeacherListPartialModel>();
+
+            var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
+
+            foreach (var t in teachers )
+            {
+                tl.Add(new _TeacherListPartialModel
+                {
+                    FirstName = t.FirstName,
+                    LastName = t.LastName
+                });
+            }
+
+            return View(tl);
         }
     }
 }

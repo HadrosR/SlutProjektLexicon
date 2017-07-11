@@ -12,32 +12,37 @@
 <table class="table">
 
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit","Teacher")" class="btn-outline btn-default">
-                <i class="glyphicon glyphicon-pencil"></i>
-            </a>
-            <a href="@Url.Action("Delete","Teacher")" class="btn-outline btn-default">
-                <i class="glyphicon glyphicon-remove-circle"></i>
-            </a>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Teacher")" class="btn-outline btn-default">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+                <a href="@Url.Action("Delete","Teacher")" class="btn-outline btn-default">
+                    <i class="glyphicon glyphicon-remove-circle"></i>
+                </a>
 
-            
-        </td>
-    </tr>
-}
+
+            </td>
+        </tr>
+    }
 
 </table>
+<div class="col-md-offset-2">
+    @Html.Action("_TeacherListPartial", "Teacher")
+</div>
+
 
