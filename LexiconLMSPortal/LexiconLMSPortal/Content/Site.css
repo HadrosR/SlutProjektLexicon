@@ -71,12 +71,40 @@ textarea {
 /*teacher index page*/
 
 #TeacherCourseList {
+    display:block;
+    color:black;
     max-width: 700px;
     background-color: lightgray;
     border-radius:5px;
     border-color:black;
     margin-bottom:10px;
     
+
+    
+}
+
+#TeacherCourseList:hover {
+    background-color: dimgray;
+    color: black;
+    text-decoration: none;
+}
+.TeacherLink {
+    color: black;
+    text-decoration: none;
+}
+.TeacherLink:hover {
+    color: black;
+    text-decoration: none;
+}
+.TeacherLinkIcon {
+    color: black;
+    text-decoration: none;
+}
+.TeacherLinkIcon:hover {
+    color: white;
+
+}
+
 }
 
 .course-module {
