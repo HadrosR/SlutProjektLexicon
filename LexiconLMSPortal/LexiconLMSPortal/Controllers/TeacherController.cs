@@ -19,6 +19,45 @@ namespace LexiconLMSPortal.Controllers
     {
         ApplicationDbContext context = new ApplicationDbContext();
 
+        //GET: AddTeacher
+        public ActionResult AddTeacher()
+        {
+            return View();
+        }
+        
+        //POST: AddTeacher //UNFINISHED!
+        [HttpPost]
+        public void AddTeacher(_TeacherListPartialModel arg)
+        {
+            if ( arg != null )
+            {
+                if ( !arg.FirstName.Equals("") && !arg.LastName.Equals(""))
+                {
+                    //Add contents of arg to a new post in the database
+                    UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                    UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+                    Models.Identity.ApplicationUser user = new Models.Identity.ApplicationUser { UserName = arg.EMail, Email = arg.EMail, FirstName = arg.FirstName, LastName = arg.LastName };
+                    var result = userManager.Create(user, "victor");
+                    if (result.Succeeded)
+                    {
+                        context.Users.Add(user);
+                    }
+                }
+            }
+        }
+
+        //GET: DeleteTeacher
+        public ActionResult DeleteTeacher(_TeacherListPartialModel arg)
+        {
+            return View(arg);
+        }
+
+        //GET: EditTeacher
+        public ActionResult EditTeacher(_TeacherListPartialModel arg)
+        {
+            return View(arg);
+        }
+        
         // GET: Teacher
         public ActionResult Index()
         {
@@ -100,7 +139,6 @@ namespace LexiconLMSPortal.Controllers
 
             }
 
-
             return View("Course", vm);
         }
 
@@ -113,7 +151,7 @@ namespace LexiconLMSPortal.Controllers
             var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
 
             //All the users that was found above are put in to a list
-            foreach (var t in teachers )
+            foreach (var t in teachers)
             {
                 tl.Add(new _TeacherListPartialModel
                 {
