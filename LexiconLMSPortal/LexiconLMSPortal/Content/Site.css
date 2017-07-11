@@ -34,7 +34,7 @@ textarea {
     color: white;
     border-radius: 5px;
     border: 1px solid #237ace;
-    left: 100%;
+    left: 90%;
 }
 
 [tooltip]:hover:before {
@@ -42,7 +42,7 @@ textarea {
     opacity: 1;
     /* customizable */
     background: #2b97ff;
-    left: 101%;
+    left: 92%;
 }
 
 [tooltip]:not([tooltip-persistent]):before {
@@ -74,9 +74,10 @@ textarea {
 /*teacher index page*/
 
 #TeacherCourseList {
-    max-width: 500px;
+    max-width: 700px;
     background-color: lightgray;
     border-radius:5px;
     border-color:black;
+    margin-bottom:10px;
     
 }

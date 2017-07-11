@@ -4,16 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <div class="row">
-    <div>
+    <div  class="col-md-8">
+        
         @foreach (var item in Model)
         {
-            <div class="col-xs-12" style="margin:10px"id="TeacherCourseList" tooltip="@Html.DisplayFor(modelItem => item.Description)">
+            <div id="TeacherCourseList" tooltip="@Html.DisplayFor(modelItem => item.Description)">
                 <div>
                     <h1>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -40,41 +36,9 @@
         }
                       
     </div>
-</div>
-<table class="table">
-
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                <a href="@Url.Action("Edit","Teacher")" class="btn-outline btn-default">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                </a>
-                <a href="@Url.Action("Delete","Teacher")" class="btn-outline btn-default">
-                    <i class="glyphicon glyphicon-remove-circle"></i>
-                </a>
-
-
-            </td>
-        </tr>
-    }
-
-</table>
-<div class="col-md-offset-2">
-    @Html.Action("_TeacherListPartial", "Teacher")
+    <div>
+        @Html.Action("_TeacherListPartial", "Teacher")
+    </div>
 </div>
 
 
