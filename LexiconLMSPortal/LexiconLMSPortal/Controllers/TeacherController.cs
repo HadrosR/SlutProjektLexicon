@@ -98,12 +98,20 @@ namespace LexiconLMSPortal.Controllers
         [HttpPost]
         [Authorize(Roles ="Teacher")]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseModels course)
+        public ActionResult CreateCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CreateCourseViewModel course)
         {
             if (ModelState.IsValid)
             {
-
-                context.Courses.Add(course);
+                CourseModels coursetemp = new CourseModels
+                {
+                    Id = course.Id,
+                    Description = course.Description,
+                    Name = course.Name,
+                    StartDate = course.StartDate,
+                    EndDate = course.EndDate
+                
+                };
+                context.Courses.Add(coursetemp);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -119,21 +127,39 @@ namespace LexiconLMSPortal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CourseModels course = context.Courses.Find(id);
+            CreateCourseViewModel coursetemp = new CreateCourseViewModel
+            {
+                Id = course.Id,
+                Description = course.Description,
+                Name = course.Name,
+                StartDate = course.StartDate,
+                EndDate = course.EndDate
+
+            };
             if (course==null)
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return View(coursetemp);
         }
         //Post: Course Edit
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseModels course)
+        public ActionResult EditCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CreateCourseViewModel course)
         {
             if (ModelState.IsValid)
             {
-                context.Entry(course).State = EntityState.Modified;
+                CourseModels coursetemp = new CourseModels
+                {
+                    Id = course.Id,
+                    Description = course.Description,
+                    Name = course.Name,
+                    StartDate = course.StartDate,
+                    EndDate = course.EndDate
+
+                };
+                context.Entry(coursetemp).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
