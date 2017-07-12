@@ -90,9 +90,9 @@ namespace LexiconLMSPortal.Controllers
         }
         //Get: Course Create
         [Authorize(Roles ="Teacher")]
-        public ActionResult CreateCourse()
+        public ActionResult _CreateCourse()
         {
-            return View();
+            return PartialView("_CreateCourse");
         }
         //Post: Course Create
         [HttpPost]
