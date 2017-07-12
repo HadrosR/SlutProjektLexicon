@@ -85,31 +85,39 @@ textarea {
 
     
 }
-
+    /*teacher index page*/
 #TeacherCourseList:hover {
     background-color: dimgray;
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLink {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLink:hover {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLinkIcon {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLinkIcon:hover {
     color: white;
-
 }
-.CreateFormControl{
-    border-radius:5px;
-    background-color:lightcyan;
-    border-color:black;
-    border-style:groove;
+    /*teacher index page*/
+.TeacherListTable{
+    background-color: lightgray;
+    margin-top:21px;
+}
+    /*teacher index page*/
+.CreateButton{
+    align-items:center;
+    justify-content:center;
+    height:110px;
 }

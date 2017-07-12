@@ -19,6 +19,7 @@ namespace LexiconLMSPortal.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
 
         //GET: AddTeacher
+        [Authorize(Roles = "Teacher")]
         public ActionResult AddTeacher()
         {
             return View();
@@ -26,6 +27,7 @@ namespace LexiconLMSPortal.Controllers
         
         //POST: AddTeacher //UNFINISHED!
         [HttpPost]
+        [Authorize(Roles = "Teacher")]
         public void AddTeacher(_TeacherListPartialModel arg)
         {
             if ( arg != null )
@@ -46,18 +48,21 @@ namespace LexiconLMSPortal.Controllers
         }
 
         //GET: DeleteTeacher
+        [Authorize(Roles = "Teacher")]
         public ActionResult DeleteTeacher(_TeacherListPartialModel arg)
         {
             return View(arg);
         }
 
         //GET: EditTeacher
+        [Authorize(Roles = "Teacher")]
         public ActionResult EditTeacher(_TeacherListPartialModel arg)
         {
             return View(arg);
         }
         
         // GET: Teacher
+        [Authorize(Roles ="Teacher")]
         public ActionResult Index()
         {
             
@@ -171,7 +176,8 @@ namespace LexiconLMSPortal.Controllers
         }
 
         // GET: Teacher/Courses/id
-        public ActionResult Courses(int id)
+        [Authorize(Roles = "Teacher")]
+        public ActionResult Courses(int? id)
         {
             // Get the specifik course
             var course = context.Courses.FirstOrDefault(n => n.Id == id);
@@ -221,7 +227,7 @@ namespace LexiconLMSPortal.Controllers
 
             return View("Course", vm);
         }
-
+        [Authorize(Roles = "Teacher")]
         public ActionResult _TeacherListPartial()
         {
             //Creates a list of _TeacherListparialModel
