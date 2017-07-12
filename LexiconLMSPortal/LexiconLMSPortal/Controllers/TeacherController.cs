@@ -8,10 +8,9 @@ using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using LexiconLMSPortal.Models.Classes;
-using LexiconLMSPortal.Models.Identity;
-using LexiconLMSPortal.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net;
 
 namespace LexiconLMSPortal.Controllers
 {
@@ -20,6 +19,7 @@ namespace LexiconLMSPortal.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
 
         //GET: AddTeacher
+        [Authorize(Roles = "Teacher")]
         public ActionResult AddTeacher()
         {
             return View();
@@ -27,6 +27,7 @@ namespace LexiconLMSPortal.Controllers
         
         //POST: AddTeacher //UNFINISHED!
         [HttpPost]
+        [Authorize(Roles = "Teacher")]
         public void AddTeacher(_TeacherListPartialModel arg)
         {
             if ( arg != null )
@@ -47,18 +48,21 @@ namespace LexiconLMSPortal.Controllers
         }
 
         //GET: DeleteTeacher
+        [Authorize(Roles = "Teacher")]
         public ActionResult DeleteTeacher(_TeacherListPartialModel arg)
         {
             return View(arg);
         }
 
         //GET: EditTeacher
+        [Authorize(Roles = "Teacher")]
         public ActionResult EditTeacher(_TeacherListPartialModel arg)
         {
             return View(arg);
         }
         
         // GET: Teacher
+        [Authorize(Roles ="Teacher")]
         public ActionResult Index()
         {
             
@@ -66,6 +70,10 @@ namespace LexiconLMSPortal.Controllers
             //skapar en ny lista
             List<CourseViewModel> aktivCourses = new List<CourseViewModel>();
             //fyller den nya listan med alla curser från CourseViewModel
+            if (courses == null)
+            {
+                return HttpNotFound();
+            }
             foreach (var c in courses)
             {
                 aktivCourses.Add(new CourseViewModel
@@ -80,6 +88,83 @@ namespace LexiconLMSPortal.Controllers
             }
             return View(aktivCourses);
         }
+        //Get: Course Create
+        [Authorize(Roles ="Teacher")]
+        public ActionResult CreateCourse()
+        {
+            return View();
+        }
+        //Post: Course Create
+        [HttpPost]
+        [Authorize(Roles ="Teacher")]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseModels course)
+        {
+            if (ModelState.IsValid)
+            {
+
+                context.Courses.Add(course);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(course);
+        }
+        //GET: Course Edit
+        [Authorize(Roles ="Teacher")]
+        public ActionResult EditCourse(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CourseModels course = context.Courses.Find(id);
+            if (course==null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+        //Post: Course Edit
+        [HttpPost]
+        [Authorize(Roles = "Teacher")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseModels course)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(course).State = EntityState.Modified;
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(course);
+        }
+        //GET: Course delete
+        [Authorize(Roles ="Teacher")]
+        public ActionResult DeleteCourse(int? id)
+        {
+            if (id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CourseModels course = context.Courses.Find(id);
+            if (course==null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+        //Post: Course Delete
+        [HttpPost, ActionName("DeleteCourse")]
+        [Authorize(Roles = "Teacher")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            CourseModels course = context.Courses.Find(id);
+            context.Courses.Remove(course);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -91,7 +176,8 @@ namespace LexiconLMSPortal.Controllers
         }
 
         // GET: Teacher/Courses/id
-        public ActionResult Courses(int id)
+        [Authorize(Roles = "Teacher")]
+        public ActionResult Courses(int? id)
         {
             // Get the specifik course
             var course = context.Courses.FirstOrDefault(n => n.Id == id);
@@ -141,7 +227,7 @@ namespace LexiconLMSPortal.Controllers
 
             return View("Course", vm);
         }
-
+        [Authorize(Roles = "Teacher")]
         public ActionResult _TeacherListPartial()
         {
             //Creates a list of _TeacherListparialModel

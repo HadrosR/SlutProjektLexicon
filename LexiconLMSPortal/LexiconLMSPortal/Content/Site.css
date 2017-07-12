@@ -34,8 +34,8 @@ textarea {
     color: white;
     border-radius: 5px;
     border: 1px solid #237ace;
-    left: 90%;
     z-index:1041;
+    left: 99%;
 }
 
 [tooltip]:hover:before {
@@ -43,7 +43,7 @@ textarea {
     opacity: 1;
     /* customizable */
     background: #2b97ff;
-    left: 92%;
+    left: 101%;
 }
 
 [tooltip]:not([tooltip-persistent]):before {
@@ -82,29 +82,41 @@ textarea {
 
     
 }
-
+    /*teacher index page*/
 #TeacherCourseList:hover {
     background-color: dimgray;
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLink {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLink:hover {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLinkIcon {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLinkIcon:hover {
     color: white;
-
 }
-
+    /*teacher index page*/
+.TeacherListTable{
+    background-color: lightgray;
+    margin-top:21px;
+}
+    /*teacher index page*/
+.CreateButton{
+    align-items:center;
+    justify-content:center;
+    height:110px;
 }
 
 .course-module {
