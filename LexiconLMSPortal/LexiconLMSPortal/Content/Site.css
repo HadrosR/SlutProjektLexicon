@@ -34,6 +34,7 @@ textarea {
     color: white;
     border-radius: 5px;
     border: 1px solid #237ace;
+    z-index:1041;
     left: 99%;
 }
 
@@ -51,13 +52,9 @@ textarea {
 
 .edit-cog {
     transition: all 0.1s;
-    color: white;
+    color: black;
     font-size: 20px;
 }
-
-    .edit-cog:hover {
-        font-size: 28px;
-    }
 
 
 
@@ -120,6 +117,28 @@ textarea {
     align-items:center;
     justify-content:center;
     height:110px;
+}
+
+.course-module {
+    color: white;
+    border:1px solid #2a6fa8; 
+    border-radius:5px; 
+    margin:0 10px; 
+    background-color: #358fdc;
+}
+
+    .course-module h3{
+        margin-top:20px;
+        padding:0px;
+    }
+
+    .course-module p {
+        margin-top: 15px;
+    }
+
+.module-accordion-heading:hover{
+    cursor: pointer;
+}
 }
 .modal-content {
     width: 600px !important;

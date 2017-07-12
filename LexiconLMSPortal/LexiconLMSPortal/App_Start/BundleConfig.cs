@@ -8,9 +8,10 @@ namespace LexiconLMSPortal
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/LMSScript").Include(
-                        "~/Scripts/LexiconLMSPortal2.js"));
-            
+            bundles.Add(new ScriptBundle("~/bundles/LexiconLMS").Include(
+                "~/Scripts/Scripts.js",
+                "~/Scripts/LexiconLMSPortal2.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         
