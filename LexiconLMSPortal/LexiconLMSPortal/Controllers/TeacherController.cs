@@ -296,6 +296,10 @@ namespace LexiconLMSPortal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CourseModels course = context.Courses.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
             CreateCourseViewModel coursetemp = new CreateCourseViewModel
             {
                 Id = course.Id,
@@ -303,13 +307,9 @@ namespace LexiconLMSPortal.Controllers
                 Name = course.Name,
                 StartDate = course.StartDate,
                 EndDate = course.EndDate
-
             };
-            if (course==null)
-            {
-                return HttpNotFound();
-            }
-            return View(coursetemp);
+            
+            return PartialView(coursetemp);
         }
         //Post: Course Edit
         [HttpPost]
@@ -317,6 +317,10 @@ namespace LexiconLMSPortal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CreateCourseViewModel course)
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("CourseListView");
+            }
             if (ModelState.IsValid)
             {
                 CourseModels coursetemp = new CourseModels
@@ -330,9 +334,9 @@ namespace LexiconLMSPortal.Controllers
                 };
                 context.Entry(coursetemp).State = EntityState.Modified;
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CourseListView");
             }
-            return View(course);
+            return View("CourseListView");
         }
         //GET: Course delete
         [Authorize(Roles ="Teacher")]
