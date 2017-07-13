@@ -7,14 +7,14 @@ using System.Web;
 
 namespace LexiconLMSPortal.Models.ViewModels
 {
-    public class _TeacherListPartialModel
+    public class _StudentListPartial
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string EMail { get; set; }
-        public string Password { get; set; }
-        [Display(Name ="Teachers")]
+        [Display(Name = "Students:")]
         public string FullName { get { return FirstName + " " + LastName; } }
-    }
+
+        //public virtual ICollection<ApplicationUser> Course { get; set; }
+    } 
 }
