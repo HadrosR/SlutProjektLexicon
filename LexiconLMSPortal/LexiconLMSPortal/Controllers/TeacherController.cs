@@ -139,6 +139,7 @@ namespace LexiconLMSPortal.Controllers
                     FirstName = teacher.FirstName,
                     LastName = teacher.LastName,
                     Email = teacher.Email,
+                    Id = id
                 };
             }
 
@@ -165,11 +166,17 @@ namespace LexiconLMSPortal.Controllers
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
 
-            ApplicationUser teacher = userManager.FindByName(edited.Email);
+            ApplicationUser teacher = userManager.FindById(edited.Id);
+
+            if(teacher == null)
+            {
+                return RedirectToAction("_TeacherListPartial");
+            }
 
             teacher.FirstName = edited.FirstName;
             teacher.LastName = edited.LastName;
             teacher.Email = edited.Email;
+            teacher.UserName = edited.Email;
 
             var result = userManager.Update(teacher);
 
@@ -526,6 +533,7 @@ namespace LexiconLMSPortal.Controllers
                     FirstName = student.FirstName,
                     LastName = student.LastName,
                     Email = student.Email,
+                    Id = ID
                 };
             }
             return PartialView("_EditStudentPartial", esvm);
@@ -550,11 +558,17 @@ namespace LexiconLMSPortal.Controllers
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
 
-            ApplicationUser student = userManager.FindByName(editStudentViewModel.Email);
+            ApplicationUser student = userManager.FindById(editStudentViewModel.Id);
+
+            if(student == null)
+            {
+                return RedirectToAction("_StudentListPartial");
+            }
 
             student.FirstName = editStudentViewModel.FirstName;
             student.LastName = editStudentViewModel.LastName;
             student.Email = editStudentViewModel.Email;
+            student.UserName = editStudentViewModel.Email;
 
             var result = userManager.Update(student);
 
