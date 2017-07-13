@@ -111,6 +111,7 @@ textarea {
 .TeacherListTable{
     background-color: lightgray;
     margin-top:21px;
+    border-radius:5px;
 }
     /*teacher index page*/
 .CreateButton{
