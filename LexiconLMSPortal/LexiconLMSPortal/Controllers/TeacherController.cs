@@ -1,4 +1,5 @@
-﻿using LexiconLMSPortal.Models.Identity;
+﻿
+using LexiconLMSPortal.Models.Identity;
 using LexiconLMSPortal.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,6 @@ using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using LexiconLMSPortal.Models.Classes;
-using LexiconLMSPortal.Models.Identity;
-using LexiconLMSPortal.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -22,7 +21,7 @@ namespace LexiconLMSPortal.Controllers
         // GET: Teacher
         public ActionResult Index()
         {
-            
+
             var courses = context.Courses;
             //skapar en ny lista
             List<CourseViewModel> aktivCourses = new List<CourseViewModel>();
@@ -58,7 +57,7 @@ namespace LexiconLMSPortal.Controllers
             var course = context.Courses.FirstOrDefault(n => n.Id == id);
 
             // Wrong id check
-            if(course == null)
+            if (course == null)
             {
                 return HttpNotFound();
             }
@@ -66,13 +65,14 @@ namespace LexiconLMSPortal.Controllers
             // Create a ModulesViewViewModel
             ModulesViewViewModel vm = new ModulesViewViewModel
             {
+                Id = course.Id,
                 Name = course.Name,
                 Description = course.Description,
                 Modules = new List<ModulesViewModel>()
             };
 
             // Add viewmodels for every module
-            foreach(var m in course.Modules)
+            foreach (var m in course.Modules)
             {
                 List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
                 vm.Modules.Add(new ModulesViewModel
@@ -87,7 +87,7 @@ namespace LexiconLMSPortal.Controllers
                 });
 
                 //Add viewmodels for every activity in a module
-                foreach ( var t in m.Activities )
+                foreach (var t in m.Activities)
                 {
                     newActivityList.Add(new ActivityViewModel
                     {
@@ -113,7 +113,7 @@ namespace LexiconLMSPortal.Controllers
             var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
 
             //All the users that was found above are put in to a list
-            foreach (var t in teachers )
+            foreach (var t in teachers)
             {
                 tl.Add(new _TeacherListPartialModel
                 {
@@ -126,12 +126,11 @@ namespace LexiconLMSPortal.Controllers
             return View(tl);
         }
 
-        public ActionResult _StudentListPartial()
+        public ActionResult _StudentListPartial(int id)
         {
 
-            List<_StudentListPartial> sl = new List<Models.ViewModels._StudentListPartial>();
-
-            var students = context.Courses.Find().Students.ToList();
+            List<_StudentListPartial> sl = new List<_StudentListPartial>();
+            var students = context.Courses.FirstOrDefault(t => t.Id == id).Students;
 
             foreach (var s in students)
             {
@@ -141,7 +140,44 @@ namespace LexiconLMSPortal.Controllers
                     LastName = s.LastName
                 });
             }
-            return View();
+            return View(sl);
+        }
+
+        [HttpGet]
+        //this action result returns the partial containing the modal
+        public ActionResult CreateStudent(int id)
+        {
+            CreateSudentViewModel csvm = new CreateSudentViewModel
+            {
+                CourseModel_Id = id
+            };
+
+            return View("CreateStudent", csvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateStudent([Bind(Include = "Id,FirstName,LastName,Email,Password,CourseModel_Id")] CreateSudentViewModel createSudentViewModel)
+        {
+            var course = context.Courses.FirstOrDefault(d => d.Id == createSudentViewModel.Id);
+
+            if (ModelState.IsValid)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                Models.Identity.ApplicationUser user = new Models.Identity.ApplicationUser { UserName = createSudentViewModel.Email, Email = createSudentViewModel.Email, FirstName = createSudentViewModel.FirstName, LastName = createSudentViewModel.LastName, };
+                var result = userManager.Create(user, createSudentViewModel.Password);
+                if (!result.Succeeded)
+                {
+                    throw new Exception(string.Join("\n", result.Errors));
+                }
+
+                course.Students.Add(user);
+
+                context.SaveChanges();
+            }
+            return RedirectToAction("_StudentListPartial", new { id = course.Id });
         }
     }
 }

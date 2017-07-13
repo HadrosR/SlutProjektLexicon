@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LexiconLMSPortal.Models.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace LexiconLMSPortal.Models.ViewModels
         public string LastName { get; set; }
         [Display(Name = "Students:")]
         public string FullName { get { return FirstName + " " + LastName; } }
-    }
+
+        //public virtual ICollection<ApplicationUser> Course { get; set; }
+    } 
 }
