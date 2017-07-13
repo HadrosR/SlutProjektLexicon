@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@*Creates the course list with a partialview*@
 <div class="row">
     <div  class="col-xs-8">
        @Html.Action("CourseListView","Teacher")       
     </div>
+    @*Creates the teacher list with a partialview*@
     <div id="TList">
         @Html.Action("_TeacherListPartial", "Teacher", new { @class ="model-link"})
     </div>
