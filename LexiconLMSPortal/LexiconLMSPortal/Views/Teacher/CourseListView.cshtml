@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LexiconLMSPortal.Models.ViewModels.CourseViewModel>
+
+@*Creates the list*@
+<div id="CList">
+    @foreach (var item in Model)
+    {
+        //Make it so if you click it it will take you to that course view 
+        <a href="@Url.Action("Courses","Teacher", new { @id = item.Id})" class="TeacherLink">
+            @*Makes it so that the Description is displayed as a tooltop on the side*@ 
+            <div id="TeacherCourseList" tooltip="@Html.DisplayFor(modelItem => item.Description)">
+                <div>
+                    <h1>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </h1>
+                </div>
+                @*Prints all the start and end date to the center of the "button"*@
+                <div class="text-center">
+                    Starts:
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </div>
+                <div class="text-center">
+                    Ends:
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </div>
+                @*2 icons for edit and delete*@  
+                <div class="text-right">
+                    <a href="@Url.Action("EditCourse","Teacher",new { @id=item.Id})" class="TeacherLinkIcon">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                    <a href="@Url.Action("DeleteCourse","Teacher",new { @id=item.Id})" class="TeacherLinkIcon">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                    </a>
+                </div>
+
+            </div>
+        </a>
+    }  
+</div>
+               

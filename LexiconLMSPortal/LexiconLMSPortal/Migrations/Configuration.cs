@@ -108,8 +108,41 @@ namespace LexiconLMSPortal.Migrations
                     Description = "Brief introduction to loops",
                     StartDate = new DateTime(2017, 09, 11),
                     EndDate = new DateTime(2017, 09, 13),
-                    Activities = new List<ActivityModels>()
+                    Activities = new List<ActivityModels>
+                    {
+                        new ActivityModels
+                        {
+                            Name = "Loops excercise",
+                            Description = "Learn how to implement for, while, and do-while loops",
+                            StartDate = new DateTime(2017, 09, 11),
+                            EndDate = new DateTime(2017, 09, 12)
+                        },
+                        new ActivityModels
+                        {
+                            Name = "Garage 2.0",
+                            Description = "Garage excercise",
+                            StartDate = new DateTime(2017, 09, 12),
+                            EndDate = new DateTime(2017, 09, 13)
+                        }
+                    }
 
+                },
+                new ModuleModels
+                {
+                    Name = "Try, Catch and Exceptions",
+                    Description = "Errors and exception handling",
+                    StartDate = new DateTime(2017, 09, 14),
+                    EndDate = new DateTime(2017, 09, 16),
+                    Activities = new List<ActivityModels>
+                    {
+                        new ActivityModels
+                        {
+                            Name = "Exception excercise",
+                            Description = "Learn how to implement exception handling",
+                            StartDate = new DateTime(2017, 09, 14),
+                            EndDate = new DateTime(2017, 09, 15)
+                        }
+                    }
                 },
                 new ModuleModels
                 {
@@ -117,46 +150,26 @@ namespace LexiconLMSPortal.Migrations
                     Description = "Brief introduction to MVC",
                     StartDate = new DateTime(2017, 10, 11),
                     EndDate = new DateTime(2017, 10, 20),
-                    Activities = new List<ActivityModels>()
-                }
-            };
-
-            ActivityModels[] activities = new ActivityModels[]
-            {
-                new ActivityModels
-                {
-                    Name = "Garage 2.0",
-                    Description = "Garage excercise",
-                    StartDate = new DateTime(2017, 09, 11),
-                    EndDate = new DateTime(2017, 09, 12)
-                },
-
-                new ActivityModels
-                {
-                    Name = "Controller excercise",
-                    Description = "Practice creating MVC-controllers",
-                    StartDate = new DateTime(2017, 10, 11),
-                    EndDate = new DateTime(2017, 10, 12)
+                    Activities = new List<ActivityModels>
+                    {
+                        new ActivityModels
+                        {
+                            Name = "Controller excercise",
+                            Description = "Practice creating MVC-controllers",
+                            StartDate = new DateTime(2017, 10, 11),
+                            EndDate = new DateTime(2017, 10, 12)
+                        }
+                    }
                 }
             };
             courses[0].Students.Add(students.ElementAt(0));
             courses[1].Students.Add(students.ElementAt(1));
 
             courses[0].Modules.Add(modules[0]);
-            courses[1].Modules.Add(modules[1]);
+            courses[0].Modules.Add(modules[1]);
+            courses[1].Modules.Add(modules[2]);
+
             context.SaveChanges();
-
-            courses[0].Modules.ElementAt(0).Activities.Add(activities[0]);
-            courses[1].Modules.ElementAt(0).Activities.Add(activities[1]);
-
-            //ApplicationUser memberUser = userManager.FindByName("John@lexicon.se");
-            //userManager.AddToRole(memberUser.Id, "Member");
-            //memberUser = userManager.FindByName("editor@lexicon.se");
-            //userManager.AddToRole(memberUser.Id, "Member");
-            //memberUser = userManager.FindByName("Bob@lexicon.se");
-            //userManager.AddToRole(memberUser.Id, "Member");
-
-
         }
     }
 }

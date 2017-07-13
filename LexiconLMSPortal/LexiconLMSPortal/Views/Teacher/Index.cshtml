@@ -1,0 +1,25 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+@*Creates the course list with a partialview*@
+<div class="row">
+    <div  class="col-xs-8">
+       @Html.Action("CourseListView","Teacher")       
+    </div>
+    @*Creates the teacher list with a partialview*@
+    <div id="TList">
+        @Html.Action("_TeacherListPartial", "Teacher", new { @class ="model-link"})
+    </div>
+    <div class="col-xs-8" style="margin-top:10px">
+        <a class="ajax-link btn btn-default" data-target="#CreateCourse">Create Course</a>
+    </div>
+</div>
+
+<!--Modals-->
+@Html.Action("AddTeacher", "Teacher")
+@Html.Action("EditTeacher", "Teacher")
+@Html.Action("DeleteTeacher", "Teacher")
+@Html.Action("CreateCourse","Teacher")
+
