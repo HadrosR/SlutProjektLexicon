@@ -22,43 +22,189 @@ namespace LexiconLMSPortal.Controllers
         [Authorize(Roles = "Teacher")]
         public ActionResult AddTeacher()
         {
-            return View();
+            return PartialView();
         }
         
-        //POST: AddTeacher //UNFINISHED!
+        //POST: AddTeacher
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Teacher")]
-        public void AddTeacher(_TeacherListPartialModel arg)
+        public ActionResult AddTeacher(RegisterViewModel arg)
+        
         {
-            if ( arg != null )
+            if (arg == null)
             {
-                if ( !arg.FirstName.Equals("") && !arg.LastName.Equals(""))
-                {
-                    //Add contents of arg to a new post in the database
-                    UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
-                    UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
-                    Models.Identity.ApplicationUser user = new Models.Identity.ApplicationUser { UserName = arg.EMail, Email = arg.EMail, FirstName = arg.FirstName, LastName = arg.LastName };
-                    var result = userManager.Create(user, "victor");
-                    if (result.Succeeded)
-                    {
-                        context.Users.Add(user);
-                    }
-                }
+                return HttpNotFound();
             }
+
+            //Add contents of arg to a new post in the database
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+            ApplicationUser user = new Models.Identity.ApplicationUser { UserName = arg.Email, Email = arg.Email, FirstName = arg.FirstName, LastName = arg.LastName };
+
+            var result = userManager.Create(user, arg.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error);
+                }
+
+                return RedirectToAction("_TeacherListPartial");
+            }
+
+            userManager.AddToRole(user.Id, "Teacher");
+
+            context.SaveChanges();
+
+            return RedirectToAction("_TeacherListPartial");
         }
 
         //GET: DeleteTeacher
         [Authorize(Roles = "Teacher")]
-        public ActionResult DeleteTeacher(_TeacherListPartialModel arg)
+        public ActionResult DeleteTeacher(string id)
         {
-            return View(arg);
+            _TeacherListPartialModel vm = new _TeacherListPartialModel();
+
+            if (id != null)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                var teacher = userManager.FindById(id);
+
+                if (teacher == null)
+                {
+                    return HttpNotFound();
+                }
+
+                vm = new _TeacherListPartialModel
+                {
+                    FirstName = teacher.FirstName,
+                    LastName = teacher.LastName,
+                    EMail = teacher.Email,
+                    Id = teacher.Id
+                };
+            }
+
+            return PartialView(vm);
+        }
+
+        //POST: DeleteTeacher
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTeacher(_TeacherListPartialModel teacher)
+        {
+            if(teacher == null)
+            {
+                return RedirectToAction("_TeacherListPartial");
+            }
+
+            var dbteacher = context.Users.Find(teacher.Id);
+
+            if(dbteacher == null)
+            {
+                RedirectToAction("_TeacherListPartial");
+            }
+
+            context.Entry(dbteacher).State = EntityState.Deleted;
+
+            context.SaveChanges();
+
+            return RedirectToAction("_TeacherListPartial");
         }
 
         //GET: EditTeacher
-        [Authorize(Roles = "Teacher")]
-        public ActionResult EditTeacher(_TeacherListPartialModel arg)
+        public ActionResult EditTeacher(string id)
         {
-            return View(arg);
+            EditTeacherViewModel etvm = new EditTeacherViewModel();
+
+            if (id != null)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                var teacher = userManager.FindById(id);
+
+                if(teacher == null)
+                {
+                    return HttpNotFound();
+                }
+
+                etvm = new EditTeacherViewModel
+                {
+                    FirstName = teacher.FirstName,
+                    LastName = teacher.LastName,
+                    Email = teacher.Email,
+                };
+            }
+
+            return  PartialView(etvm);
+        }
+
+        //POST: EditTeacher
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Teacher")]
+        public ActionResult EditTeacher(EditTeacherViewModel edited)
+        {
+            if(!ModelState.IsValid)
+            {
+                return RedirectToAction("_TeacherListPartial");
+            }
+
+            if (edited == null)
+            {
+                return HttpNotFound();
+            }
+
+            //Add contents of arg to a new post in the database
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+            ApplicationUser teacher = userManager.FindByName(edited.Email);
+
+            teacher.FirstName = edited.FirstName;
+            teacher.LastName = edited.LastName;
+            teacher.Email = edited.Email;
+            
+            var result = userManager.Update(teacher);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error);
+                }
+
+                return RedirectToAction("_TeacherListPartial");
+            }
+
+            // Want to change password?
+            if(edited.Password != null)
+            {
+                if(edited.Password == edited.ConfirmPassword )
+                {
+                    //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+
+                    PasswordHasher ph = new PasswordHasher();
+
+                    string hashed = ph.HashPassword(edited.Password);
+
+                    var updatedUserPw = context.Users.Find(teacher.Id);
+
+                    updatedUserPw.PasswordHash = hashed;
+
+                    context.Entry(updatedUserPw).State = EntityState.Modified;
+                }
+            }
+
+            context.SaveChanges();
+
+            return RedirectToAction("_TeacherListPartial");
+        
         }
         
         // GET: Teacher
@@ -267,8 +413,10 @@ namespace LexiconLMSPortal.Controllers
             {
                 tl.Add(new _TeacherListPartialModel
                 {
+                    Id = t.Id,
                     FirstName = t.FirstName,
-                    LastName = t.LastName
+                    LastName = t.LastName,
+                    EMail = t.Email
                 });
             }
 

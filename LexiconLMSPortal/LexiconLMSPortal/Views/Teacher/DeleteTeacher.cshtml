@@ -1,16 +1,8 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels._TeacherListPartialModel
 
 @{
-    ViewBag.Title = "Delete Teacher";
     Layout = "";
 }
-
-<!-- Large modal -->
-<div data-toggle="modal" data-target="#DeleteTeacherModal">
-    <a href="@Url.Action("DeleteTeacher", "Teacher", Model)" class="TeacherLinkIcon">
-        <i class="glyphicon glyphicon-remove-circle"></i>
-    </a>
-</div>
 
 <div id="DeleteTeacherModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteTeacherModal">
     <div class="modal-dialog modal-lg" role="document">
@@ -23,14 +15,20 @@
 
             <div class="modal-body">
                 <p>Are you sure you want to delete this Teacher?</p>
-                <p>@Model.FullName</p>
+                <p>Name: @Model.FullName</p>
+                <p>Name: @Model.EMail</p>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Delete</button>
-            </div>
+                <form method="post" action="@Url.Action("DeleteTeacher", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#TeacherListPartial">
+                    @Html.AntiForgeryToken()
 
+                    <div class="form-actions no-color">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Delete" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

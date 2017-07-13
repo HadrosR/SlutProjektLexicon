@@ -207,6 +207,7 @@
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateCourseViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditTeacherViewModel.cs" />
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\ActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\ModulesViewViewModel.cs" />
