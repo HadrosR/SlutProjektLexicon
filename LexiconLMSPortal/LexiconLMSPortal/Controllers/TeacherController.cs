@@ -207,7 +207,10 @@ namespace LexiconLMSPortal.Controllers
             return RedirectToAction("_TeacherListPartial");
         
         }
-        
+        /// <summary>
+        /// CourseList to list all the courses on index page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CourseListView()
         {
 
@@ -236,18 +239,32 @@ namespace LexiconLMSPortal.Controllers
         }
 
         // GET: Teacher
+        /// <summary>
+        /// Index page for teachers with partialviews that displays courses and teacher list 
+        /// </summary>
+        /// <returns></returns>
         [Authorize(Roles ="Teacher")]
         public ActionResult Index()
         {
             return View();
         }
         //Get: Course Create
+        /// <summary>
+        /// Get function for CreateCourse returns a PartialView PartialView
+        /// </summary>
+        /// <returns></returns>
         [Authorize(Roles ="Teacher")]
         public ActionResult CreateCourse()
         {
             return PartialView();
         }
         //Post: Course Create
+        /// <summary>
+        /// Post function for CreateCourse. Creates a new course and returns the new CourseListView 
+        /// with all the courses
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles ="Teacher")]
         [ValidateAntiForgeryToken]

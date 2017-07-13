@@ -3,7 +3,7 @@
 @{
     Layout = "";
 }
-
+@*Setup to send it with ajax*@ 
 <div id="CreateCourse" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateCourse">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -12,6 +12,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel">Create Course</h4>
             </div>
+            @*The form for the create action*@
             <form method="post" action="@Url.Action("CreateCourse", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#CList">
                 @Html.AntiForgeryToken()
                 <div class="modal-body">
@@ -50,7 +51,7 @@
 
 
                 </div>
-
+                @*Button to submit or cancel*@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary form-group">Create</button>

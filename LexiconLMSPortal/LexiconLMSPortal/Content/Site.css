@@ -68,7 +68,7 @@ textarea {
     margin-left: 9rem;
 }
 
-/*teacher index page*/
+    /*teacher index page*/
 
 #TeacherCourseList {
     display:block;
@@ -82,38 +82,38 @@ textarea {
 
     
 }
-    /*teacher index page*/
+    /*Course List */
 #TeacherCourseList:hover {
     background-color: dimgray;
     color: black;
     text-decoration: none;
 }
-    /*teacher index page*/
+/*Course List */
 .TeacherLink {
     color: black;
     text-decoration: none;
 }
-    /*teacher index page*/
+    /*Course List */
 .TeacherLink:hover {
     color: black;
     text-decoration: none;
 }
-    /*teacher index page*/
+    /*Course List */
 .TeacherLinkIcon {
     color: black;
     text-decoration: none;
 }
-    /*teacher index page*/
+    /*Course List */
 .TeacherLinkIcon:hover {
     color: white;
 }
-    /*teacher index page*/
+    /*Course List */
 .TeacherListTable{
     background-color: lightgray;
     margin-top:21px;
     border-radius:5px;
 }
-    /*teacher index page*/
+    /*Course List */
 .CreateButton{
     align-items:center;
     justify-content:center;
@@ -123,6 +123,7 @@ textarea {
     color:black;
     width:inherit;
 }
+    /*Course List */
 .CreateButton:hover {
     background-color: dimgray;
     color: black;
