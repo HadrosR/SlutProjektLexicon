@@ -207,10 +207,11 @@ namespace LexiconLMSPortal.Controllers
             return RedirectToAction("_TeacherListPartial");
 
         }
-
-        // GET: Teacher
-        [Authorize(Roles = "Teacher")]
-        public ActionResult Index()
+        /// <summary>
+        /// CourseList to list all the courses on index page
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult CourseListView()
         {
 
             var courses = context.Courses;
@@ -233,15 +234,37 @@ namespace LexiconLMSPortal.Controllers
 
                 });
             }
-            return View(aktivCourses);
+
+            return PartialView("CourseListView", aktivCourses);
+        }
+
+        // GET: Teacher
+        /// <summary>
+        /// Index page for teachers with partialviews that displays courses and teacher list 
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles ="Teacher")]
+        public ActionResult Index()
+        {
+            return View();
         }
         //Get: Course Create
-        [Authorize(Roles = "Teacher")]
-        public ActionResult _CreateCourse()
+        /// <summary>
+        /// Get function for CreateCourse returns a PartialView PartialView
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles ="Teacher")]
+        public ActionResult CreateCourse()
         {
-            return PartialView("_CreateCourse");
+            return PartialView();
         }
         //Post: Course Create
+        /// <summary>
+        /// Post function for CreateCourse. Creates a new course and returns the new CourseListView 
+        /// with all the courses
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
@@ -251,7 +274,6 @@ namespace LexiconLMSPortal.Controllers
             {
                 CourseModels coursetemp = new CourseModels
                 {
-                    Id = course.Id,
                     Description = course.Description,
                     Name = course.Name,
                     StartDate = course.StartDate,
@@ -260,10 +282,10 @@ namespace LexiconLMSPortal.Controllers
                 };
                 context.Courses.Add(coursetemp);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CourseListView");
             }
 
-            return View(course);
+            return View("CourseListView");
         }
         //GET: Course Edit
         [Authorize(Roles = "Teacher")]
