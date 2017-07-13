@@ -14,11 +14,11 @@
             @foreach (var item in Model.Modules)
             {
                 <div class="panel panel-default">
-                    <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading"+moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" aria->
+                    <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading" + moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" aria->
                         <div class="row">
                             <div class="col-xs-4">
                                 <h4 class="panel-title">
-                                    <a class="module-accordion-link" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse"+moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse"+moduleid)">
+                                    <a class="module-accordion-link" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)">
                                         @Html.DisplayFor(modelItem => item.Name)
                                     </a>
                                 </h4>
@@ -28,7 +28,7 @@
                         </div>
 
                     </div>
-                    <div id="@Html.Raw("collapse"+moduleid)" class="panel-collapse collapse @(moduleid == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="@Html.Raw("heading"+moduleid)">
+                    <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse @(moduleid == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
                         @foreach (var activity in item.Activities)
                         {
                             <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
@@ -41,29 +41,27 @@
                         }
                     </div>
                 </div>
-        }
+                moduleid++;
+
+            }
+        </div>
     </div>
-    <div id="SList" class="col-xs-3" >
+    <div id="SList" class="col-xs-3">
         @Html.Action("_StudentListPartial", "Teacher")
-        <a href="#TheModal" class=" btn btn-primary pull-right" role="button" id="modalbtn"  data-toggle="modal" >Add Student</a>
+        <a href="#TheModal" class=" btn btn-primary pull-right" role="button" id="modalbtn" data-toggle="modal">Add Student</a>
     </div>
 </div>
 
 
-    <!-- modal placeholder-->
-    <div id="TheModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div id="modal-content">
+<!-- modal placeholder-->
+<div id="TheModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modal-content">
 
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/openmodal.js")
-}
+</div>
