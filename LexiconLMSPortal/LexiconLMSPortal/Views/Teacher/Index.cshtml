@@ -41,7 +41,7 @@
         @Html.Action("_TeacherListPartial", "Teacher", new { @class ="model-link"})
     </div>
     <div class="col-xs-8" style="margin-top:10px">
-        @Html.ActionLink("CreateCourse ", "_CreateCourse", "Teacher", null, new { @class = "modal-link btn CreateButton" })
+        <a class="ajax-link btn btn-default" data-target="#CreateCourse">Create Course</a>
     </div>
 </div>
 <div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
@@ -54,4 +54,5 @@
 @Html.Action("AddTeacher", "Teacher")
 @Html.Action("EditTeacher", "Teacher")
 @Html.Action("DeleteTeacher", "Teacher")
+@Html.Action("CreateCourse","Teacher")
 

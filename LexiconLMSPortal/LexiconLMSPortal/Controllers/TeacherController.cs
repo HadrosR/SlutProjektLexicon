@@ -236,9 +236,9 @@ namespace LexiconLMSPortal.Controllers
         }
         //Get: Course Create
         [Authorize(Roles ="Teacher")]
-        public ActionResult _CreateCourse()
+        public ActionResult CreateCourse()
         {
-            return PartialView("_CreateCourse");
+            return PartialView();
         }
         //Post: Course Create
         [HttpPost]
@@ -262,7 +262,7 @@ namespace LexiconLMSPortal.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(course);
+            return View("CreateCourse");
         }
         //GET: Course Edit
         [Authorize(Roles ="Teacher")]
