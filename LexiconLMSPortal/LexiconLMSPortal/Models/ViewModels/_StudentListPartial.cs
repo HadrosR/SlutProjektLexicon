@@ -9,7 +9,7 @@ namespace LexiconLMSPortal.Models.ViewModels
 {
     public class _StudentListPartial
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [Display(Name = "Students:")]

@@ -25,13 +25,13 @@ namespace LexiconLMSPortal.Controllers
         {
             return PartialView();
         }
-        
+
         //POST: AddTeacher
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Teacher")]
         public ActionResult AddTeacher(RegisterViewModel arg)
-        
+
         {
             if (arg == null)
             {
@@ -98,14 +98,14 @@ namespace LexiconLMSPortal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteTeacher(_TeacherListPartialModel teacher)
         {
-            if(teacher == null)
+            if (teacher == null)
             {
                 return RedirectToAction("_TeacherListPartial");
             }
 
             var dbteacher = context.Users.Find(teacher.Id);
 
-            if(dbteacher == null)
+            if (dbteacher == null)
             {
                 RedirectToAction("_TeacherListPartial");
             }
@@ -129,7 +129,7 @@ namespace LexiconLMSPortal.Controllers
 
                 var teacher = userManager.FindById(id);
 
-                if(teacher == null)
+                if (teacher == null)
                 {
                     return HttpNotFound();
                 }
@@ -142,7 +142,7 @@ namespace LexiconLMSPortal.Controllers
                 };
             }
 
-            return  PartialView(etvm);
+            return PartialView(etvm);
         }
 
         //POST: EditTeacher
@@ -151,7 +151,7 @@ namespace LexiconLMSPortal.Controllers
         [Authorize(Roles = "Teacher")]
         public ActionResult EditTeacher(EditTeacherViewModel edited)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return RedirectToAction("_TeacherListPartial");
             }
@@ -170,7 +170,7 @@ namespace LexiconLMSPortal.Controllers
             teacher.FirstName = edited.FirstName;
             teacher.LastName = edited.LastName;
             teacher.Email = edited.Email;
-            
+
             var result = userManager.Update(teacher);
 
             if (!result.Succeeded)
@@ -184,9 +184,9 @@ namespace LexiconLMSPortal.Controllers
             }
 
             // Want to change password?
-            if(edited.Password != null)
+            if (edited.Password != null)
             {
-                if(edited.Password == edited.ConfirmPassword )
+                if (edited.Password == edited.ConfirmPassword)
                 {
                     //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
 
@@ -205,11 +205,11 @@ namespace LexiconLMSPortal.Controllers
             context.SaveChanges();
 
             return RedirectToAction("_TeacherListPartial");
-        
+
         }
-        
+
         // GET: Teacher
-        [Authorize(Roles ="Teacher")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult Index()
         {
 
@@ -236,14 +236,14 @@ namespace LexiconLMSPortal.Controllers
             return View(aktivCourses);
         }
         //Get: Course Create
-        [Authorize(Roles ="Teacher")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult _CreateCourse()
         {
             return PartialView("_CreateCourse");
         }
         //Post: Course Create
         [HttpPost]
-        [Authorize(Roles ="Teacher")]
+        [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
         public ActionResult CreateCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CreateCourseViewModel course)
         {
@@ -256,7 +256,7 @@ namespace LexiconLMSPortal.Controllers
                     Name = course.Name,
                     StartDate = course.StartDate,
                     EndDate = course.EndDate
-                
+
                 };
                 context.Courses.Add(coursetemp);
                 context.SaveChanges();
@@ -266,7 +266,7 @@ namespace LexiconLMSPortal.Controllers
             return View(course);
         }
         //GET: Course Edit
-        [Authorize(Roles ="Teacher")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult EditCourse(int? id)
         {
             if (id == null)
@@ -283,7 +283,7 @@ namespace LexiconLMSPortal.Controllers
                 EndDate = course.EndDate
 
             };
-            if (course==null)
+            if (course == null)
             {
                 return HttpNotFound();
             }
@@ -313,15 +313,15 @@ namespace LexiconLMSPortal.Controllers
             return View(course);
         }
         //GET: Course delete
-        [Authorize(Roles ="Teacher")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult DeleteCourse(int? id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CourseModels course = context.Courses.Find(id);
-            if (course==null)
+            if (course == null)
             {
                 return HttpNotFound();
             }
@@ -437,7 +437,9 @@ namespace LexiconLMSPortal.Controllers
                 sl.Add(new _StudentListPartial
                 {
                     FirstName = s.FirstName,
-                    LastName = s.LastName
+                    LastName = s.LastName,
+                    Id = s.Id
+
                 });
             }
             return View(sl);
@@ -478,6 +480,127 @@ namespace LexiconLMSPortal.Controllers
                 context.SaveChanges();
             }
             return RedirectToAction("_StudentListPartial", new { id = course.Id });
+        }
+
+        [HttpGet]
+        public ActionResult EditStudent(string ID)
+        {
+            EditStudentViewModel esvm = new EditStudentViewModel();
+
+            if (ID != null)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                var student = userManager.FindById(ID);
+
+                if (student == null)
+                {
+                    return HttpNotFound();
+                }
+
+                esvm = new EditStudentViewModel
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Email = student.Email,
+                };
+            }
+            return PartialView("_EditStudentPartial", esvm);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditStudent(EditStudentViewModel editStudentViewModel)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("_StudentListPartial");
+            }
+
+            if (editStudentViewModel == null)
+            {
+                return HttpNotFound();
+            }
+
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+            ApplicationUser student = userManager.FindByName(editStudentViewModel.Email);
+
+            student.FirstName = editStudentViewModel.FirstName;
+            student.LastName = editStudentViewModel.LastName;
+            student.Email = editStudentViewModel.Email;
+
+            var result = userManager.Update(student);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error);
+                }
+            }
+
+            return RedirectToAction("_StudentListPartial", new { id = student.CourseId.Id });
+        }
+
+        //GET: DeleteStudent
+        [Authorize(Roles = "Teacher")]
+        public ActionResult DeleteStudent(string id)
+        {
+            _StudentListPartial vm = new _StudentListPartial();
+
+            if (id != null)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                var student = userManager.FindById(id);
+
+                if (student == null)
+                {
+                    return HttpNotFound();
+                }
+
+                vm = new _StudentListPartial
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Id = student.Id
+                };
+            }
+
+            return PartialView("_DeleteStudentPartial",vm);
+        }
+
+        //POST: DeleteTeacher
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteStudent(_StudentListPartial student)
+        {
+            if (student == null)
+            {
+                return RedirectToAction("_StudentListPartial"); // Will generate yellow screen of death
+            }
+
+            var dbstudent = context.Users.Find(student.Id);
+            int cid = dbstudent.CourseId.Id;
+
+            if (dbstudent == null)
+            {
+                RedirectToAction("_StudentListPartial", new { id = cid });
+            }
+
+            
+            context.Entry(dbstudent).State = EntityState.Deleted;
+
+            context.SaveChanges();
+
+            return RedirectToAction("_StudentListPartial", new { id = cid });
+
         }
     }
 }

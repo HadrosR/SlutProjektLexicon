@@ -1,5 +1,6 @@
-﻿$('#modalbtn').click(function (eve) {
-    $('#modal-content').load('/Teacher/CreateStudent/1');
+﻿$("body").on("click", '#modalbtn', function (eve) {
+    eve.preventDefault();
+    $('#modal-content').load($(this).data("url"));
 });
 
 // Ajax Request
