@@ -207,11 +207,8 @@ namespace LexiconLMSPortal.Controllers
         
         }
         
-        // GET: Teacher
-        [Authorize(Roles ="Teacher")]
-        public ActionResult Index()
+        public ActionResult CourseListView()
         {
-            
             var courses = context.Courses;
             //skapar en ny lista
             List<CourseViewModel> aktivCourses = new List<CourseViewModel>();
@@ -232,7 +229,15 @@ namespace LexiconLMSPortal.Controllers
 
                 });
             }
-            return View(aktivCourses);
+
+            return PartialView("CourseListView", aktivCourses);
+        }
+
+        // GET: Teacher
+        [Authorize(Roles ="Teacher")]
+        public ActionResult Index()
+        {
+            return View();
         }
         //Get: Course Create
         [Authorize(Roles ="Teacher")]
@@ -250,7 +255,6 @@ namespace LexiconLMSPortal.Controllers
             {
                 CourseModels coursetemp = new CourseModels
                 {
-                    Id = course.Id,
                     Description = course.Description,
                     Name = course.Name,
                     StartDate = course.StartDate,
@@ -259,10 +263,10 @@ namespace LexiconLMSPortal.Controllers
                 };
                 context.Courses.Add(coursetemp);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CourseListView");
             }
 
-            return View("CreateCourse");
+            return View("CourseListView");
         }
         //GET: Course Edit
         [Authorize(Roles ="Teacher")]
