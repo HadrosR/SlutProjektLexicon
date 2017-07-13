@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LexiconLMSPortal.Models.ViewModels.CourseViewModel>
+﻿
 
 @{
     ViewBag.Title = "Index";
@@ -6,52 +6,13 @@
 
 <div class="row">
     <div  class="col-xs-8">
-        
-        @foreach (var item in Model)
-        {
-            <a href="@Url.Action("Courses","Teacher", new { @id = item.Id})" class="TeacherLink">
-                <div id="TeacherCourseList" tooltip="@Html.DisplayFor(modelItem => item.Description)">
-                    <div>
-                        <h1>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </h1>
-                    </div>
-                    <div class="text-center">
-                        Starts:
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </div>
-                    <div class="text-center">
-                        Ends:
-                        @Html.DisplayFor(modelItem => item.EndDate)
-                    </div>
-                    <div class="text-right">
-                        <a href="@Url.Action("EditCourse","Teacher",new { @id=item.Id})" class="TeacherLinkIcon">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                        </a>
-                        <a href="@Url.Action("DeleteCourse","Teacher",new { @id=item.Id})"class="TeacherLinkIcon">
-                            <i class="glyphicon glyphicon-remove-circle"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </a>
-        }                 
+       @Html.Action("CourseListView","Teacher")       
     </div>
     <div id="TList">
         @Html.Action("_TeacherListPartial", "Teacher", new { @class ="model-link"})
     </div>
-    @Html.ActionLink("CreateCourse ", "_CreateCourse", "Teacher",null, new { @class = "modal-link btn btn-success" })
     <div class="col-xs-8" style="margin-top:10px">
-        <a href="@Url.Action("_CreateCourse","Teacher")" class="TeacherLink">
-            <div id="TeacherCourseList" class="text-center CreateButton">
-                <br />
-                <h2>Create a new Course</h2>
-            </div>
-        </a>
-    </div>
-</div>
-<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-content">
+        <a class="ajax-link btn btn-default" data-target="#CreateCourse">Create Course</a>
     </div>
 </div>
 
@@ -59,4 +20,5 @@
 @Html.Action("AddTeacher", "Teacher")
 @Html.Action("EditTeacher", "Teacher")
 @Html.Action("DeleteTeacher", "Teacher")
+@Html.Action("CreateCourse","Teacher")
 
