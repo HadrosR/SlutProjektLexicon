@@ -117,6 +117,15 @@ textarea {
     align-items:center;
     justify-content:center;
     height:110px;
+    text-align:center;
+    background-color:lightgray;
+    color:black;
+    width:inherit;
+}
+.CreateButton:hover {
+    background-color: dimgray;
+    color: black;
+    text-decoration: none;
 }
 
 .course-module {
@@ -141,6 +150,7 @@ textarea {
 }
 }
 .modal-content {
+    background-color:grey;
     width: 600px !important;
     margin: 30px auto !important;
 }
