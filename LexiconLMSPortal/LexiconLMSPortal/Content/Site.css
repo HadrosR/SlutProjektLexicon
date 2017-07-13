@@ -34,7 +34,8 @@ textarea {
     color: white;
     border-radius: 5px;
     border: 1px solid #237ace;
-    left: 90%;
+    z-index:1041;
+    left: 99%;
 }
 
 [tooltip]:hover:before {
@@ -42,7 +43,7 @@ textarea {
     opacity: 1;
     /* customizable */
     background: #2b97ff;
-    left: 92%;
+    left: 101%;
 }
 
 [tooltip]:not([tooltip-persistent]):before {
@@ -51,13 +52,9 @@ textarea {
 
 .edit-cog {
     transition: all 0.1s;
-    color: white;
+    color: black;
     font-size: 20px;
 }
-
-    .edit-cog:hover {
-        font-size: 28px;
-    }
 
 
 
@@ -85,26 +82,66 @@ textarea {
 
     
 }
-
+    /*teacher index page*/
 #TeacherCourseList:hover {
     background-color: dimgray;
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLink {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLink:hover {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLinkIcon {
     color: black;
     text-decoration: none;
 }
+    /*teacher index page*/
 .TeacherLinkIcon:hover {
     color: white;
-
+}
+    /*teacher index page*/
+.TeacherListTable{
+    background-color: lightgray;
+    margin-top:21px;
+    border-radius:5px;
+}
+    /*teacher index page*/
+.CreateButton{
+    align-items:center;
+    justify-content:center;
+    height:110px;
 }
 
+.course-module {
+    color: white;
+    border:1px solid #2a6fa8; 
+    border-radius:5px; 
+    margin:0 10px; 
+    background-color: #358fdc;
+}
+
+    .course-module h3{
+        margin-top:20px;
+        padding:0px;
+    }
+
+    .course-module p {
+        margin-top: 15px;
+    }
+
+.module-accordion-heading:hover{
+    cursor: pointer;
+}
+}
+.modal-content {
+    width: 600px !important;
+    margin: 30px auto !important;
+}

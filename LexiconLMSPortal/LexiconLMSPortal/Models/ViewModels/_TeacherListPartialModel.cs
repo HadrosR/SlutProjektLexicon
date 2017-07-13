@@ -9,10 +9,12 @@ namespace LexiconLMSPortal.Models.ViewModels
 {
     public class _TeacherListPartialModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Display(Name ="Teachers:")]
+        public string EMail { get; set; }
+        public string Password { get; set; }
+        [Display(Name ="Teachers")]
         public string FullName { get { return FirstName + " " + LastName; } }
     }
 }

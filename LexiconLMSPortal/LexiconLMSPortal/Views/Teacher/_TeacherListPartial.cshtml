@@ -2,21 +2,28 @@
 @{
     Layout = "";
 }
+<div id="TeacherListPartial">
+    <table class="TeacherListTable">
+        <tr>
+            <th>
+                Teachers
+            </th>
+        </tr>
 
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td><a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditTeacher", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditTeacherModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteTeacher", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteTeacherModal"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-    </tr>
-}
+        <tr>
+            <td>
+                <a class="ajax-link btn btn-default" data-target="#AddTeacherModal">Add Teacher</a>
+            </td>
+        </tr>
 
-</table>
+    </table>
+</div>
