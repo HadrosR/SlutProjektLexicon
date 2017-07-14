@@ -1,80 +1,82 @@
-Som användare skall jag kunna logga in på lärsystemet.
+DONE
+Som anvÃ¤ndare skall jag kunna logga in pÃ¥ lÃ¤rsystemet.
 
-Som lärare skall jag kunna lägga till användare (elev/lärare) i lärsystemet.
+Som lÃ¤rare skall jag kunna lÃ¤gga till anvÃ¤ndare (elev/lÃ¤rare) i lÃ¤rsystemet.
 
-Som lärare skall jag kunna redigera användare (elev/lärare) i lärsystemet.
+Som lÃ¤rare skall jag kunna redigera anvÃ¤ndare (elev/lÃ¤rare) i lÃ¤rsystemet.
 
-Som lärare skall jag kunna ta bort användare (elev/lärare) i lärsystemet.
+Som lÃ¤rare skall jag kunna ta bort anvÃ¤ndare (elev/lÃ¤rare) i lÃ¤rsystemet.
 
-Som lärare skall jag kunna lägga till en kurs i lärsystemet.
+Som lÃ¤rare skall jag kunna lÃ¤gga till en kurs i lÃ¤rsystemet.
 
-Som lärare skall jag kunna lägga till en elev till en existerande kurs.
+Som lÃ¤rare skall jag kunna lÃ¤gga till en elev till en existerande kurs.
 
-Som lärare skall jag kunna lägga till en modul till en existerande kurs.
+Som lÃ¤rare skall jag kunna redigera en existerande kurs i lÃ¤rsystemet.
 
-Som lärare skall jag kunna lägga till en aktivitet till en existerande modul.
+Som lÃ¤rare skall jag kunna radera en existerande kurs i lÃ¤rsystemet.
 
-Som lärare skall jag kunna redigera en existerande kurs i lärsystemet.
+Som lÃ¤rare skall jag kunna se information om alla existerande kurser.
 
-Som lärare skall jag kunna redigera en existerande modul till en existerande kurs.
+Som lÃ¤rare skall jag kunna se information om alla existerande aktiviteter i en modul.
 
-Som lärare skall jag kunna redigera en existerande aktivitet till en existerande modul.
+Som lÃ¤rare skall jag kunna se information om alla existerande moduler i en kurs.
 
-Som lärare skall jag kunna radera en existerande kurs i lärsystemet.
+TO DO
+Som lÃ¤rare skall jag kunna lÃ¤gga till en modul till en existerande kurs.
 
-Som lärare skall jag kunna radera en existerande modul från en existerande kurs.
+Som lÃ¤rare skall jag kunna lÃ¤gga till en aktivitet till en existerande modul.
 
-Som lärare skall jag kunna radera en existerande aktivitet från en existerande modul.
+Som lÃ¤rare skall jag kunna redigera en existerande modul till en existerande kurs.
 
-Som lärare skall jag kunna se information om alla existerande kurser.
+Som lÃ¤rare skall jag kunna redigera en existerande aktivitet till en existerande modul.
 
-Som lärare skall jag kunna se information om alla existerande moduler i en kurs.
+Som lÃ¤rare skall jag kunna radera en existerande modul frÃ¥n en existerande kurs.
 
-Som lärare skall jag kunna se information om alla existerande aktiviteter i en modul.
+Som lÃ¤rare skall jag kunna radera en existerande aktivitet frÃ¥n en existerande modul.
 
-Som elev skall jag kunna se information om den kurs jag är med i.
+Som elev skall jag kunna se information om den kurs jag Ã¤r med i.
 
-Som elev skall jag kunna se information om alla moduler i den kurs jag är med i.
+Som elev skall jag kunna se information om alla moduler i den kurs jag Ã¤r med i.
 
-Som elev skall jag kunna se information om alla aktiviteter i en modul jag skall genomföra.
+Som elev skall jag kunna se information om alla aktiviteter i en modul jag skall genomfÃ¶ra.
 
 DOKUMENT (I FRAMTIDEN ?):
 
-Som lärare skall jag kunna ladda upp en fil till en existerande kurs.
+Som lÃ¤rare skall jag kunna ladda upp en fil till en existerande kurs.
 
-Som lärare skall jag kunna ladda ned en fil från en existerande kurs.
+Som lÃ¤rare skall jag kunna ladda ned en fil frÃ¥n en existerande kurs.
 
-Som lärare skall jag kunna ladda upp en fil till en existerande modul.
+Som lÃ¤rare skall jag kunna ladda upp en fil till en existerande modul.
 
-Som lärare skall jag kunna ladda ned en fil från en existerande modul.
+Som lÃ¤rare skall jag kunna ladda ned en fil frÃ¥n en existerande modul.
 
-Som lärare skall jag kunna ladda upp en fil till en existerande aktivitet.
+Som lÃ¤rare skall jag kunna ladda upp en fil till en existerande aktivitet.
 
-Som lärare skall jag kunna ladda ned en fil från en existerande aktivitet.
+Som lÃ¤rare skall jag kunna ladda ned en fil frÃ¥n en existerande aktivitet.
 
-Som lärare skall jag kunna se existerande filer kopplade till en existerande kurs/modul/aktivitet.
+Som lÃ¤rare skall jag kunna se existerande filer kopplade till en existerande kurs/modul/aktivitet.
 
-Som lärare skall jag kunna läsa filer elever laddat upp till en kurs.
+Som lÃ¤rare skall jag kunna lÃ¤sa filer elever laddat upp till en kurs.
 
-Som lärare skall jag kunna ladda ned en fil från systemet.
+Som lÃ¤rare skall jag kunna ladda ned en fil frÃ¥n systemet.
 
-Som elev skall jag kunna ladda ned en fil från en existerande kurs.
+Som elev skall jag kunna ladda ned en fil frÃ¥n en existerande kurs.
 
-Som elev skall jag kunna ladda ned en fil från en existerande modul.
+Som elev skall jag kunna ladda ned en fil frÃ¥n en existerande modul.
 
-Som elev skall jag kunna ladda ned en fil från en existerande aktivitet.
+Som elev skall jag kunna ladda ned en fil frÃ¥n en existerande aktivitet.
 
 Som elev skall jag kunna se existerande filer kopplade till en existerande kurs/modul/aktivitet.
 
-INLÄMNINGSUPPGIFTSSYTEM (SENARE):
+INLÃ„MNINGSUPPGIFTSSYTEM (SENARE):
 
-Som elev skall jag kunna se befintliga övningsuppgifter för en modul/aktivitet.
+Som elev skall jag kunna se befintliga Ã¶vningsuppgifter fÃ¶r en modul/aktivitet.
 
-Som elev skall jag kunna se information om befintliga övningsuppgifter.
+Som elev skall jag kunna se information om befintliga Ã¶vningsuppgifter.
 
-Som elev skall jag kunna ladda ned befintliga övningsuppgifter från systemet.
+Som elev skall jag kunna ladda ned befintliga Ã¶vningsuppgifter frÃ¥n systemet.
 
-Som elev skall jag kunna ladda upp lösningar till befintliga övningsuppgifter till tillhörande modul/aktivitet.
+Som elev skall jag kunna ladda upp lÃ¶sningar till befintliga Ã¶vningsuppgifter till tillhÃ¶rande modul/aktivitet.
 
-Som lärare skall jag kunna se befintliga lösningar uppladdade av elever till en befintlig övningsuppgift.
+Som lÃ¤rare skall jag kunna se befintliga lÃ¶sningar uppladdade av elever till en befintlig Ã¶vningsuppgift.
 
