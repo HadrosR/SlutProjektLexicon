@@ -448,6 +448,27 @@ namespace LexiconLMSPortal.Controllers
             return View(sl);
         }
 
+        public ActionResult FullStudentList()
+        {
+            List<_StudentListPartial> sl = new List<_StudentListPartial>();
+            
+            // Checks the database for all users with the role of "Student"
+            var students = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Student").Id)).ToList();
+
+            foreach (var s in students)
+            {
+                sl.Add(new _StudentListPartial
+                {
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    EMail = s.Email,
+                    CourseId = s.CourseId,
+                    Id = s.Id
+                });
+            }
+            return View(sl);
+        }
+
         [HttpGet]
         //this action result returns the partial containing the modal
         public ActionResult CreateStudent(int id)

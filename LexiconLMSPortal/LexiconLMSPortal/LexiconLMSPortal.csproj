@@ -349,6 +349,7 @@
     <Content Include="Views\Student\_ActivityListPartial.cshtml" />
     <Content Include="Views\Student\ModuleStudent.cshtml" />
     <Content Include="Views\Student\_StudentModulePartial.cshtml" />
+    <Content Include="Views\Teacher\FullStudentList.cshtml" />
     <Content Include="Views\Teacher\TeacherCourseModulesPartial.cshtml" />
     <Content Include="Views\Teacher\CreateModulePartial.cshtml" />
     <Content Include="Views\Teacher\DeleteModulePartial.cshtml" />
