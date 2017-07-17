@@ -66,6 +66,7 @@ namespace LexiconLMSPortal.Controllers
         {
             return View();
         }
+
         // GET: Student modul view 
         public ActionResult ModuleStudent()
         {
@@ -87,6 +88,7 @@ namespace LexiconLMSPortal.Controllers
             ViewBag.Course = course.Name;
             return View();
         }
+
         //GET ModulList for students
         public ActionResult _StudentModulsPartial()
         {
@@ -127,8 +129,18 @@ namespace LexiconLMSPortal.Controllers
         }
 
         //Returns the Scedule in a partialview
-        public ActionResult Schedule()
+        public ActionResult Schedule(int id)
         {
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+            var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
+
+            List<ActivityViewModel> activityList = new List<ActivityViewModel>();
+
+            var module = db.Courses.FirstOrDefault(t => t.Id == courseID).Modules.FirstOrDefault(m => m.Id == id);
+
+
 
             return PartialView("_Schedule");
         }
