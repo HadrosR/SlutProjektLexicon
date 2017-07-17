@@ -1,4 +1,4 @@
-﻿@model IEnumerable < LexiconLMSPortal.Models.ViewModels._StudentModuleList>
+﻿@model IEnumerable<LexiconLMSPortal.Models.ViewModels._StudentModuleList>
 
 <div class="panel-group" id="module-accordion" role="tablist" aria-multiselectable="true">
     @{int moduleid = 0; }
@@ -20,18 +20,9 @@
                 </div>
 
             </div>
-            @*<div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse @(moduleid == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
-                @foreach (var activity in item.Activities)
-                {
-                    <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
-                        <div class="row">
-                            <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.Name)</div>
-                            <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) to @Html.DisplayFor(modelItem => activity.EndDate)</div>
-                            <div class="col-xs-4" style="text-align:right;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div>
-                        </div>
-                    </div>
-                }
-            </div>*@
+            <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse @(moduleid == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
+                @Html.Action("_ActivityListPartial", "Student",new { id = item.Id })
+            </div>
         </div>
         moduleid++;
 

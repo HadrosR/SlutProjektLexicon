@@ -23,5 +23,6 @@ namespace LexiconLMSPortal.Models.ViewModels
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
+        
     }
 }
