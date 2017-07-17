@@ -1,17 +1,11 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewModel
-@{
-    Layout = "";
-}
-<div id="ActivityListPartial">
-    <table class="table">
+
+<div>
+    <table class="table table-hover"  id="StudentActivityList">
     @foreach (var item in Model.Activities) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
+        <tr tooltip="@Html.DisplayFor(modelItem => item.Description)">
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
             <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
         </tr>
     }
