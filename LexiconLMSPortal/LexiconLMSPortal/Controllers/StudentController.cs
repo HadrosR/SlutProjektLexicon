@@ -46,16 +46,21 @@ namespace LexiconLMSPortal.Controllers
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
             var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
-            List<ActivityViewModel> activityList = new List<ActivityViewModel>();
-            
-            var module = db.Courses.FirstOrDefault(t => t.Id == courseID).Modules.FirstOrDefault(m => m.Id == id);
-
-            foreach (var m in module.Activities)
+            ModulesViewModel activityList = new ModulesViewModel()
             {
-                activityList.Add(new ActivityViewModel
+                Activities = new List<ActivityViewModel>()
+            };
+
+            var act = db.Modules.FirstOrDefault(m => m.Id == id).Activities;
+
+            foreach (var m in act)
+            {
+                activityList.Activities.Add(new ActivityViewModel
                 {
                     Name = m.Name,
-                    StartDate = m.StartDate
+                    StartDate = m.StartDate,
+                    Description = m.Description,
+                    EndDate = m.EndDate
                 });
             }
             return View(activityList);
