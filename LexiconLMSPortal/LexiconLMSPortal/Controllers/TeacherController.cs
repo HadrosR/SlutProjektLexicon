@@ -486,6 +486,7 @@ namespace LexiconLMSPortal.Controllers
             return View("CreateStudent", csvm);
         }
 
+        //POST: CreateStudent
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateStudent([Bind(Include = "Id,FirstName,LastName,Email,Password,CourseModel_Id")] CreateSudentViewModel createSudentViewModel)
@@ -511,6 +512,7 @@ namespace LexiconLMSPortal.Controllers
             return RedirectToAction("_StudentListPartial", new { id = course.Id });
         }
 
+        //GET For Editing of student
         [HttpGet]
         public ActionResult EditStudent(string ID)
         {
@@ -539,7 +541,7 @@ namespace LexiconLMSPortal.Controllers
             return PartialView("_EditStudentPartial", esvm);
         }
 
-
+        //Post: For Edit of student
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditStudent(EditStudentViewModel editStudentViewModel)
@@ -619,7 +621,7 @@ namespace LexiconLMSPortal.Controllers
         {
             if (student == null)
             {
-                return RedirectToAction("_StudentListPartial"); // Will generate yellow screen of death
+                return RedirectToAction("_StudentListPartial"); // Will generate yellow screen of death probably
             }
 
             var dbstudent = context.Users.Find(student.Id);
