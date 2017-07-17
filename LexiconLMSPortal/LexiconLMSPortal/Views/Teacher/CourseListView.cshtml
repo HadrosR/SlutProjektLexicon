@@ -24,9 +24,9 @@
                 </div>
                 @*2 icons for edit and delete*@  
                 <div class="text-right">
-                    <a href="@Url.Action("EditCourse","Teacher",new { @id=item.Id})" class="TeacherLinkIcon">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                    </a>
+                    <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil"></span></a>
+
+
                     <a href="@Url.Action("DeleteCourse","Teacher",new { @id=item.Id})" class="TeacherLinkIcon">
                         <i class="glyphicon glyphicon-remove-circle"></i>
                     </a>

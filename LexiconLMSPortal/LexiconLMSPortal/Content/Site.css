@@ -130,12 +130,18 @@ textarea {
     color: black;
     text-decoration: none;
 }
+    /*Student Activity list*/
+#StudentActivityList {
+    margin:0px;
+
+
+}
 
 .course-module {
     color: white;
-    border:1px solid #2a6fa8; 
-    border-radius:5px; 
-    margin:0 10px; 
+    border: 1px solid #2a6fa8;
+    border-radius: 5px;
+    margin: 0 10px;
     background-color: #358fdc;
 }
 
