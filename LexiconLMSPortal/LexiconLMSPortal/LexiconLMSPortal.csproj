@@ -340,6 +340,7 @@
     <Content Include="Views\Teacher\CourseListView.cshtml" />
     <Content Include="Views\Teacher\_EditStudentPartial.cshtml" />
     <Content Include="Views\Teacher\_DeleteStudentPartial.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\ModuleStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
