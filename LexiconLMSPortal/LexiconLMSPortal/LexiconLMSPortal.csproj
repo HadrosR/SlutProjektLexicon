@@ -339,6 +339,7 @@
     <Content Include="Views\Teacher\CourseListView.cshtml" />
     <Content Include="Views\Teacher\_EditStudentPartial.cshtml" />
     <Content Include="Views\Teacher\_DeleteStudentPartial.cshtml" />
+    <Content Include="Views\Student\_StudentListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
