@@ -9,6 +9,9 @@ namespace LexiconLMSPortal.Models.ViewModels
     public class EditTeacherViewModel
     {
         [Required]
+        public string Id { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

@@ -48,12 +48,12 @@
     </div>
     <div id="SList" class="col-xs-3">
         @Html.Action("_StudentListPartial", "Teacher")
-        <a href="#TheModal" class=" btn btn-primary pull-right" role="button" id="modalbtn" data-toggle="modal">Add Student</a>
+        <a href="#TheModal" class=" btn btn-primary pull-right" role="button" id="modalbtn" data-toggle="modal" data-url="@Url.Action("CreateStudent",new { id = Model.Id})">Add Student</a>
     </div>
 </div>
 
 
-<!-- modal placeholder-->
+<!-- modal placeholders-->
 <div id="TheModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -65,3 +65,12 @@
         </div>
     </div>
 </div>
+
+<div id="EditStudentModal">
+
+</div>
+
+<div id="DeleteStudentModal">
+
+</div>
+

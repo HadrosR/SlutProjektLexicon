@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201707100744402_Init.Designer.cs">
       <DependentUpon>201707100744402_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707131258330_secound.cs" />
+    <Compile Include="Migrations\201707131258330_secound.Designer.cs">
+      <DependentUpon>201707131258330_secound.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\ActivityModels.cs" />
     <Compile Include="Models\Classes\CreateSudentViewModel.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateCourseViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditStudentViewModel.cs" />
     <Compile Include="Models\ViewModels\EditTeacherViewModel.cs" />
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\ActivityViewModel.cs" />
@@ -332,7 +337,8 @@
     <Content Include="Views\Teacher\CreateStudent.cshtml" />
     <Content Include="Views\Teacher\CreateCourse.cshtml" />
     <Content Include="Views\Teacher\CourseListView.cshtml" />
-    <Content Include="Views\Teacher\EditCourse.cshtml" />
+    <Content Include="Views\Teacher\_EditStudentPartial.cshtml" />
+    <Content Include="Views\Teacher\_DeleteStudentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -352,6 +358,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707100744402_Init.resx">
       <DependentUpon>201707100744402_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707131258330_secound.resx">
+      <DependentUpon>201707131258330_secound.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
