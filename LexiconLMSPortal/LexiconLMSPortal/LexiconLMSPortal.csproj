@@ -340,11 +340,11 @@
     <Content Include="Views\Teacher\CourseListView.cshtml" />
     <Content Include="Views\Teacher\_EditStudentPartial.cshtml" />
     <Content Include="Views\Teacher\_DeleteStudentPartial.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\_StudentListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
