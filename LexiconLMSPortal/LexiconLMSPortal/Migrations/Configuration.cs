@@ -26,11 +26,11 @@ namespace LexiconLMSPortal.Migrations
 
             foreach (string roleName in roleNames)
             {
-                if(!context.Roles.Any(r => r.Name == roleName))
+                if (!context.Roles.Any(r => r.Name == roleName))
                 {
                     IdentityRole role = new IdentityRole { Name = roleName };
                     IdentityResult result = roleManager.Create(role);
-                    if(!result.Succeeded)
+                    if (!result.Succeeded)
                     {
                         throw new Exception(string.Join("\n", result.Errors));
                     }
@@ -39,18 +39,18 @@ namespace LexiconLMSPortal.Migrations
 
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
-            string[] emails = new[] {"larare1@lexicon.se", "larare2@lexicon.se", "elev1@hotmail.com", "elev2@gmail.com" };
+            string[] emails = new[] { "larare1@lexicon.se", "larare2@lexicon.se", "elev1@hotmail.com", "elev2@gmail.com" };
             string[] firstName = new[] { "Dimitris", "Mats", "Sebastian", "Henrik" };
             string[] lastName = new[] { "Björlingh", "Johannesson", "Basse", "Forslin" };
 
             int i = 0;
-            foreach(string email in emails)
+            foreach (string email in emails)
             {
-                if(!context.Users.Any(u => u.UserName == email))
+                if (!context.Users.Any(u => u.UserName == email))
                 {
                     Models.Identity.ApplicationUser user = new Models.Identity.ApplicationUser { UserName = email, Email = email, FirstName = firstName[i], LastName = lastName[i] };
                     var result = userManager.Create(user, "victor");
-                    if(!result.Succeeded)
+                    if (!result.Succeeded)
                     {
                         throw new Exception(string.Join("\n", result.Errors));
                     }
@@ -83,15 +83,15 @@ namespace LexiconLMSPortal.Migrations
                 },
                 new CourseModels
                 {
-                    Name = "PHP",
-                    Description = "Introduction course to PHP",
+                    Name = "ASP.NET",
+                    Description = "Introduction course to ASP.NET MVC",
                     StartDate = new DateTime(2017, 10, 11),
                     EndDate = new DateTime(2017, 10, 25),
                     Modules = new List<ModuleModels>(),
                     Students = new List<Models.Identity.ApplicationUser>()
                 }
             };
-            
+
 
             foreach (CourseModels g in courses)
             {
@@ -157,7 +157,47 @@ namespace LexiconLMSPortal.Migrations
                             Name = "Controller excercise",
                             Description = "Practice creating MVC-controllers",
                             StartDate = new DateTime(2017, 10, 11),
+                            EndDate = new DateTime(2017, 10, 11)
+                        },
+                        new ActivityModels
+                        {
+                            Name = "Models excercise",
+                            Description = "Practice creating MVC-Models",
+                            StartDate = new DateTime(2017, 10, 12),
                             EndDate = new DateTime(2017, 10, 12)
+                        },
+                        new ActivityModels
+                        {
+                            Name = "View excercise",
+                            Description = "Practice creating MVC-View",
+                            StartDate = new DateTime(2017, 10, 13),
+                            EndDate = new DateTime(2017, 10, 13)
+                        },new ActivityModels
+                        {
+                            Name = "MVC EntityFrameWork",
+                            Description = "Framework that entity",
+                            StartDate = new DateTime(2017, 10, 14),
+                            EndDate = new DateTime(2017, 10, 14)
+                        },
+                        new ActivityModels
+                        {
+                            Name = "CRUD",
+                            Description = "Basic CRUD Stuff",
+                            StartDate = new DateTime(2017, 10, 15),
+                            EndDate = new DateTime(2017, 10, 15)
+                        },
+                        new ActivityModels
+                        {
+                            Name = "Code Along",
+                            Description = "TYPE FASTER FOOL",
+                            StartDate = new DateTime(2017, 10, 16),
+                            EndDate = new DateTime(2017, 10, 17)
+                        },new ActivityModels
+                        {
+                            Name = "Project",
+                            Description = "Don't forget to return the model",
+                            StartDate = new DateTime(2017, 10, 17),
+                            EndDate = new DateTime(2017, 10, 20)
                         }
                     }
                 }

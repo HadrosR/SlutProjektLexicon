@@ -3,10 +3,14 @@
     ViewBag.Title = "Student Index";
 }
 
+
 <h2>Student Index</h2>
 
 <div class="row">
-    <div id="SList" class="col-xs-3">
+    <div class="container col-xs-9">
+        @Html.Action("Schedule", "Student")
+    </div>
+    <div id="SList" class="col-xs-3 pull-right">
         @Html.Action("_StudentListPartial", "Student")
     </div>
 </div>

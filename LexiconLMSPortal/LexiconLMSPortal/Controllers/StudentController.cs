@@ -63,13 +63,20 @@ namespace LexiconLMSPortal.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            return View(db.Modules.ToList());
+            return View();
         }
 
         public ActionResult ModuleStudent()
         {
 
             return View();
+        }
+
+        //Returns the Scedule in a partialview
+        public ActionResult Schedule()
+        {
+
+            return PartialView("_Schedule");
         }
 
         protected override void Dispose(bool disposing)
