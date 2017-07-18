@@ -493,13 +493,13 @@ namespace LexiconLMSPortal.Controllers
                 UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
                 UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
 
-                Models.Identity.ApplicationUser user = new Models.Identity.ApplicationUser { UserName = createSudentViewModel.Email, Email = createSudentViewModel.Email, FirstName = createSudentViewModel.FirstName, LastName = createSudentViewModel.LastName, };
+                Models.Identity.ApplicationUser user = new Models.Identity.ApplicationUser { UserName = createSudentViewModel.Email, Email = createSudentViewModel.Email, FirstName = createSudentViewModel.FirstName, LastName = createSudentViewModel.LastName};
                 var result = userManager.Create(user, createSudentViewModel.Password);
                 if (!result.Succeeded)
                 {
                     throw new Exception(string.Join("\n", result.Errors));
                 }
-
+                userManager.AddToRole(user.Id, "Student");
                 course.Students.Add(user);
 
                 context.SaveChanges();
