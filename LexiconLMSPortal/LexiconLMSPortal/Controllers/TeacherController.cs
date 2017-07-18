@@ -15,6 +15,7 @@ using System.Net;
 
 namespace LexiconLMSPortal.Controllers
 {
+    [Authorize(Roles ="Teacher")]
     public class TeacherController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
@@ -448,30 +449,77 @@ namespace LexiconLMSPortal.Controllers
             return View(sl);
         }
 
-        public ActionResult FullStudentList()
+        public ActionResult FullStudentList(string sortOrder)
         {
             return View();
         }
 
-        public ActionResult _FullStudentListPartial()
+        public ActionResult _FullStudentListPartial(string sortOrder,string search)
         {
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
-            
+
+            //Creates variables that saves the users input of a sortorder
+            ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name" : "";
+            ViewBag.EmailSort = sortOrder == "email" ? "email_des" : "email";
+            ViewBag.CourseSort = sortOrder == "Course" ? "Course_des" : "Course";
             // Checks the database for all users with the role of "Student"
             var students = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Student").Id)).ToList();
-
+            //Finds the order the user wants in the list
+            var sortres = sl.OrderBy(n => n.FirstName);
             foreach (var s in students)
             {
-                sl.Add(new _StudentListPartial
+                switch (search)
                 {
-                    FirstName = s.FirstName,
-                    LastName = s.LastName,
-                    EMail = s.Email,
-                    CourseId = s.CourseId,
-                    Id = s.Id
-                });
+                    case null:
+                        sl.Add(new _StudentListPartial
+                        {
+                            FirstName = s.FirstName,
+                            LastName = s.LastName,
+                            EMail = s.Email,
+                            CourseId = s.CourseId,
+                            Id = s.Id
+                        });
+                        break;
+                    default:
+                        if (s.Email.Contains(search) || s.CourseId.Name.Contains(search) || s.FirstName.Contains(search) || s.LastName.Contains(search))
+                        {
+                            sl.Add(new _StudentListPartial
+                            {
+                                FirstName = s.FirstName,
+                                LastName = s.LastName,
+                                EMail = s.Email,
+                                CourseId = s.CourseId,
+                                Id = s.Id
+                            });
+                        }
+                        break;
+                }
             }
-            return View(sl);
+
+            switch (sortOrder)
+            {
+                case "name":
+                    sortres = sl.OrderByDescending(n => n.FirstName);
+                    break;
+                case "email":
+                    sortres = sl.OrderBy(e => e.EMail);
+                    break;
+                case "email_des":
+                    sortres = sl.OrderByDescending(e => e.EMail);
+                    break;
+                case "Course":
+                    sortres = sl.OrderBy(c => c.CourseId.Name);
+                    break;
+                case "Course_des":
+                    sortres = sl.OrderByDescending(c => c.CourseId.Name);
+                    break;
+                default:
+                    sortres = sl.OrderBy(n => n.FirstName);
+                    break;
+            }
+            
+
+            return View(sortres);
         }
 
         [HttpGet]

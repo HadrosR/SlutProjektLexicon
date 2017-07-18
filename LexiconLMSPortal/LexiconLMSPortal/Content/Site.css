@@ -162,7 +162,6 @@ textarea {
 .module-accordion-heading:hover{
     cursor: pointer;
 }
-}
 .modal-content {
     background-color:grey;
     width: 600px !important;
