@@ -213,11 +213,14 @@
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateCourseViewModel.cs" />
+    <Compile Include="Models\ViewModels\CreateModuleViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditStudentViewModel.cs" />
     <Compile Include="Models\ViewModels\EditTeacherViewModel.cs" />
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\ActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\ModulesViewViewModel.cs" />
+    <Compile Include="Models\ViewModels\ModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\_StudentListPartial.cs" />
     <Compile Include="Models\ViewModels\_StudentModuleList.cs" />
     <Compile Include="Models\ViewModels\_TeacherListPartialModel.cs" />
@@ -346,6 +349,11 @@
     <Content Include="Views\Student\_ActivityListPartial.cshtml" />
     <Content Include="Views\Student\ModuleStudent.cshtml" />
     <Content Include="Views\Student\_StudentModulePartial.cshtml" />
+    <Content Include="Views\Teacher\FullStudentList.cshtml" />
+    <Content Include="Views\Teacher\TeacherCourseModulesPartial.cshtml" />
+    <Content Include="Views\Teacher\CreateModulePartial.cshtml" />
+    <Content Include="Views\Teacher\DeleteModulePartial.cshtml" />
+    <Content Include="Views\Teacher\EditModulePartial.cshtml" />
     <Content Include="Views\Student\_Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup>

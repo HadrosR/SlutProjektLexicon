@@ -13,15 +13,14 @@
         @Html.Action("_TeacherListPartial", "Teacher", new { @class ="model-link"})
     </div>
     <div class="col-xs-8" style="margin-top:10px">
-        <a class="ajax-link btn btn-default" data-target="#CreateCourse">Create Course</a>
+        <a class="ajax-link btn btn-default" href="@Url.Action("CreateCourse","Teacher")" data-target="#CreateCourse">Create Course</a>
     </div>
 </div>
 
 <!--Modals-->
-@Html.Action("AddTeacher", "Teacher")
-@Html.Action("EditTeacher", "Teacher")
-@Html.Action("DeleteTeacher", "Teacher")
-@Html.Action("CreateCourse","Teacher")
-@Html.Action("EditCourse", "Teacher")
-
+<div id="AddTeacherModal"></div>
+<div id="EditTeacherModal"></div>
+<div id="DeleteTeacherModal"></div>
+<div id="CreateCourse"></div>
+<div id="EditCourseModal"></div>
 

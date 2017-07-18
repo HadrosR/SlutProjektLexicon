@@ -6,18 +6,9 @@ using System.Web;
 
 namespace LexiconLMSPortal.Models.ViewModels
 {
-    public class ModulesViewViewModel
+    public class ModuleViewModel
     {
-        public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
-        public string Description { get; set; }
-
-        public List<ModulesViewModel> Modules { get; set; }
-    }
-
-    public class ModulesViewModel
-    {
         public int Id { get; set; }
 
         [Required]
@@ -27,17 +18,13 @@ namespace LexiconLMSPortal.Models.ViewModels
         public string Description { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "End Date")]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
-
-        /* Insert activity list here */
-        public List<ActivityViewModel> Activities { get; set; }
-
     }
 }

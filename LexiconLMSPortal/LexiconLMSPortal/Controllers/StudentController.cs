@@ -63,7 +63,7 @@ namespace LexiconLMSPortal.Controllers
                     EndDate = m.EndDate
                 });
             }
-            return View(activityList);
+            return PartialView(activityList);
         }
 
         // GET: Student Index

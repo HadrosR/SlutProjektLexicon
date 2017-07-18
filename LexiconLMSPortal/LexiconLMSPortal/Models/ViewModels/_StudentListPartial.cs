@@ -1,4 +1,5 @@
-﻿using LexiconLMSPortal.Models.Identity;
+﻿using LexiconLMSPortal.Models.Classes;
+using LexiconLMSPortal.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,8 +13,11 @@ namespace LexiconLMSPortal.Models.ViewModels
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Display(Name ="Email")]
         public string EMail { get; set; }
-        [Display(Name = "Students:")]
+        [Display(Name ="Course")]
+        public CourseModels CourseId { get; set; }
+        [Display(Name = "Students")]
         public string FullName { get { return FirstName + " " + LastName; } }
 
         //public virtual ICollection<ApplicationUser> Course { get; set; }

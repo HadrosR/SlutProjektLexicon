@@ -41,9 +41,26 @@
     $("body").on("submit", "form[data-lms-ajax='true']", ajaxFormSubmit);
 
     // Ajax Links
-    $("body").on("click", ".ajax-link", function () {
+    $("body").on("click", ".ajax-link", function (e) {
+        e.preventDefault();
         openModal = $($(this).data("target"));
-        openModal.modal('show');
+        var link = $(this);
+
+        var options = {
+            url: link.attr("href"),
+            type: "GET"
+        }
+
+        $.ajax(options).done(function (data) {
+            var $target = $($(link).data("target"));
+            openModal.replaceWith(data);
+
+            openModal = $($(link).data("target"));
+
+            openModal.modal('show');
+
+            $.validator.unobtrusive.parse(openModal.find("form"));
+        });
     });
 
     // Ajax Edit Links
