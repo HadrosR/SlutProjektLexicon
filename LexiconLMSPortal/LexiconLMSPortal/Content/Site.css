@@ -155,22 +155,14 @@ textarea {
 }
 
 /*Here Goes Some CSS For the Student Schedule*/
-#ScheduleCellEven {
+#ScheduleCell {
     background-color: #e3e3e4;
-    width: 20%;
-    height: auto;
+    width: 18%;
+    height: 130px;
     text-align: center;
     border-style: solid;
     border-width:1px;
     border-color: #36454F;
-}
-
-#ScheduleCellOdd {
-    background-color: #cbcbcd;
-    width: 20%;
-    height: auto;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #36454F;
+    margin-right:8px;
+    margin-top:2px;
 }

@@ -1,1 +1,19 @@
-﻿@model LexiconLMSPortal.Models.ViewModels.ActivityViewModel
+﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewViewModel
+
+<h3>@ViewBag.Course</h3>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Modules)
+        {
+            foreach (var j in item.Activities) {
+            <div id="ScheduleCell" class="col-sm-2">
+                @Html.DisplayFor(modelItem => j.Name)
+
+                @Html.DisplayFor(modelItem => j.StartDate)
+
+                @Html.DisplayFor(modelItem => j.EndDate)
+            </div> 
+            }
+        }
+    </div>
+</div>

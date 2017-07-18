@@ -14,11 +14,11 @@ using LexiconLMSPortal.Models.ViewModels;
 
 namespace LexiconLMSPortal.Controllers
 {
-    [Authorize (Roles ="Student")]
+    [Authorize(Roles = "Student")]
     public class StudentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         public ActionResult _StudentListPartial()
         {
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
@@ -26,7 +26,7 @@ namespace LexiconLMSPortal.Controllers
             var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
             var students = db.Courses.FirstOrDefault(t => t.Id == courseID).Students;
-            
+
             foreach (var s in students)
             {
                 sl.Add(new _StudentListPartial
@@ -66,7 +66,7 @@ namespace LexiconLMSPortal.Controllers
             return View(activityList);
         }
 
-        // GET: Student
+        // GET: Student Index
         public ActionResult Index()
         {
             return View();
@@ -130,24 +130,60 @@ namespace LexiconLMSPortal.Controllers
                     EndDate = m.EndDate
                 });
             }
-            return PartialView("_StudentModulepartial",aktivmoduls);
+            return PartialView("_StudentModulepartial", aktivmoduls);
         }
 
         //Returns the Scedule in a partialview
-        public ActionResult Schedule(int id)
+        public ActionResult Schedule()
         {
+            string student = User.Identity.Name;
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+            ApplicationUser currentUser = userManager.FindByName(student);
 
-            var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
+            int CourseID = currentUser.CourseId.Id;
+            var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
 
-            List<ActivityViewModel> activityList = new List<ActivityViewModel>();
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
 
-            var module = db.Courses.FirstOrDefault(t => t.Id == courseID).Modules.FirstOrDefault(m => m.Id == id);
+            ModulesViewViewModel vm = new ModulesViewViewModel
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Description = course.Description,
+                Modules = new List<ModulesViewModel>()
+            };
 
+            ViewBag.Course = course.Name;
+            foreach (var m in course.Modules)
+            {
+                List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
+                foreach (var a in m.Activities)
+                {
+                    newActivityList.Add(new ActivityViewModel
+                    {
+                        Name = a.Name,
+                        StartDate = a.StartDate,
+                        Description = a.Description,
+                        EndDate = a.EndDate
+                    });
+                }
+                vm.Modules.Add(new ModulesViewModel
+                {
+                    Name = m.Name,
+                    Description = m.Description,
+                    StartDate = m.StartDate,
+                    EndDate = m.EndDate,
 
+                    Activities = newActivityList
+                });
+            }
 
-            return PartialView("_Schedule");
+           
+            return PartialView("_Schedule", vm);
         }
 
         protected override void Dispose(bool disposing)
