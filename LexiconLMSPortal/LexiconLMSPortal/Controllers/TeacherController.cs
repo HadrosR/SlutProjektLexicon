@@ -15,6 +15,7 @@ using System.Net;
 
 namespace LexiconLMSPortal.Controllers
 {
+    [Authorize(Roles ="Teacher")]
     public class TeacherController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
@@ -453,7 +454,7 @@ namespace LexiconLMSPortal.Controllers
             return View();
         }
 
-        public ActionResult _FullStudentListPartial()
+        public ActionResult _FullStudentListPartial(string sortOrder,string search)
         {
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
 
