@@ -15,6 +15,7 @@ using System.Net;
 
 namespace LexiconLMSPortal.Controllers
 {
+    [Authorize(Roles ="Teacher")]
     public class TeacherController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
@@ -448,25 +449,77 @@ namespace LexiconLMSPortal.Controllers
             return View(sl);
         }
 
-        public ActionResult FullStudentList()
+        public ActionResult FullStudentList(string sortOrder)
+        {
+            return View();
+        }
+
+        public ActionResult _FullStudentListPartial(string sortOrder,string search)
         {
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
-            
+
+            //Creates variables that saves the users input of a sortorder
+            ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name" : "";
+            ViewBag.EmailSort = sortOrder == "email" ? "email_des" : "email";
+            ViewBag.CourseSort = sortOrder == "Course" ? "Course_des" : "Course";
             // Checks the database for all users with the role of "Student"
             var students = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Student").Id)).ToList();
-
+            //Finds the order the user wants in the list
+            var sortres = sl.OrderBy(n => n.FirstName);
             foreach (var s in students)
             {
-                sl.Add(new _StudentListPartial
+                switch (search)
                 {
-                    FirstName = s.FirstName,
-                    LastName = s.LastName,
-                    EMail = s.Email,
-                    CourseId = s.CourseId,
-                    Id = s.Id
-                });
+                    case null:
+                        sl.Add(new _StudentListPartial
+                        {
+                            FirstName = s.FirstName,
+                            LastName = s.LastName,
+                            EMail = s.Email,
+                            CourseId = s.CourseId,
+                            Id = s.Id
+                        });
+                        break;
+                    default:
+                        if (s.Email.Contains(search) || s.CourseId.Name.Contains(search) || s.FirstName.Contains(search) || s.LastName.Contains(search))
+                        {
+                            sl.Add(new _StudentListPartial
+                            {
+                                FirstName = s.FirstName,
+                                LastName = s.LastName,
+                                EMail = s.Email,
+                                CourseId = s.CourseId,
+                                Id = s.Id
+                            });
+                        }
+                        break;
+                }
             }
-            return View(sl);
+
+            switch (sortOrder)
+            {
+                case "name":
+                    sortres = sl.OrderByDescending(n => n.FirstName);
+                    break;
+                case "email":
+                    sortres = sl.OrderBy(e => e.EMail);
+                    break;
+                case "email_des":
+                    sortres = sl.OrderByDescending(e => e.EMail);
+                    break;
+                case "Course":
+                    sortres = sl.OrderBy(c => c.CourseId.Name);
+                    break;
+                case "Course_des":
+                    sortres = sl.OrderByDescending(c => c.CourseId.Name);
+                    break;
+                default:
+                    sortres = sl.OrderBy(n => n.FirstName);
+                    break;
+            }
+            
+
+            return View(sortres);
         }
 
         [HttpGet]
@@ -580,6 +633,79 @@ namespace LexiconLMSPortal.Controllers
             return RedirectToAction("_StudentListPartial", new { id = student.CourseId.Id });
         }
 
+        //GET For Editing of student
+        [HttpGet]
+        public ActionResult EditStudentFullList(string ID)
+        {
+            EditStudentViewModel esvm = new EditStudentViewModel();
+
+            if (ID != null)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                var student = userManager.FindById(ID);
+
+                if (student == null)
+                {
+                    return HttpNotFound();
+                }
+
+                esvm = new EditStudentViewModel
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Email = student.Email,
+                    Id = ID
+                };
+            }
+            return PartialView("_EditStudentPartialFullList", esvm);
+        }
+
+        //Post: For Edit of student full list : UNTESTED
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditStudentFullList(EditStudentViewModel editStudentViewModel)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("_FullStudentListPartial");
+            }
+
+            if (editStudentViewModel == null)
+            {
+                return HttpNotFound();
+            }
+
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+            ApplicationUser student = userManager.FindById(editStudentViewModel.Id);
+
+            if (student == null)
+            {
+                return RedirectToAction("_FullStudentListPartial");
+            }
+
+            student.FirstName = editStudentViewModel.FirstName;
+            student.LastName = editStudentViewModel.LastName;
+            student.Email = editStudentViewModel.Email;
+            student.UserName = editStudentViewModel.Email;
+
+            var result = userManager.Update(student);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error);
+                }
+            }
+
+            return RedirectToAction("_FullStudentListPartial");
+        }
+
         //GET: DeleteStudent
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteStudent(string id)
@@ -633,6 +759,63 @@ namespace LexiconLMSPortal.Controllers
             context.SaveChanges();
 
             return RedirectToAction("_StudentListPartial", new { id = cid });
+
+        }
+
+        //GET: DeleteStudentFullList
+        [Authorize(Roles = "Teacher")]
+        public ActionResult DeleteStudentFullList(string id)
+        {
+            _StudentListPartial vm = new _StudentListPartial();
+
+            if (id != null)
+            {
+                UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
+                UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+                var student = userManager.FindById(id);
+
+                if (student == null)
+                {
+                    return HttpNotFound();
+                }
+
+                vm = new _StudentListPartial
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    EMail = student.Email,
+                    CourseId = student.CourseId,
+                    Id = student.Id
+                };
+            }
+
+            return PartialView("_DeleteStudentPartialFullList", vm);
+        }
+
+        //POST: DeleteTeacherFullList : UNTESTED
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteStudentFullList(_StudentListPartial student)
+        {
+            if (student == null)
+            {
+                return RedirectToAction("_FullStudentListPartial"); // Will generate yellow screen of death probably
+            }
+
+            var dbstudent = context.Users.Find(student.Id);
+            int cid = dbstudent.CourseId.Id;
+
+            if (dbstudent == null)
+            {
+                RedirectToAction("_FullStudentListPartial", new { id = cid });
+            }
+
+            context.Entry(dbstudent).State = EntityState.Deleted;
+
+            context.SaveChanges();
+
+            return RedirectToAction("_FullStudentListPartial", new { id = cid });
 
         }
 

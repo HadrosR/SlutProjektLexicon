@@ -360,6 +360,9 @@
     <Content Include="Views\Teacher\CreateActivityPartial.cshtml" />
     <Content Include="Views\Teacher\EditActivityPartial.cshtml" />
     <Content Include="Views\Teacher\DeleteActivityPartial.cshtml" />
+    <Content Include="Views\Teacher\_EditStudentPartialFullList.cshtml" />
+    <Content Include="Views\Teacher\_DeleteStudentPartialFullList.cshtml" />
+    <Content Include="Views\Teacher\_FullStudentListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
