@@ -1,0 +1,36 @@
+﻿@model LexiconLMSPortal.Models.ViewModels.CreateCourseViewModel
+
+
+
+
+
+<div id="DeleteCourseModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="DeleteCourse">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Delete Course</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this Course?</p>
+                <p>Course: @Model.Name</p>
+                <p>Description: @Model.Description</p>
+                <p>Start Date: @Model.StartDate</p>
+                <p>End Date: @Model.EndDate</p>
+            </div>
+
+            <div class="modal-footer">
+                <form method="post" action="@Url.Action("DeleteCourse", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#CList">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Delete" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
