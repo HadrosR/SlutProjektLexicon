@@ -3,60 +3,70 @@
 <h3>@ViewBag.Course</h3>
 <div class="container">
     <div class="row">
-        <h3>Monday</h3>
-        @foreach (var item in Model.Monday)
-        {                 
-            <div id="ScheduleCell" class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Name)
-                
-                @Html.DisplayFor(modelItem => item.StartDate)
+        <div class="col-sm-2" style="margin-left:unset">
+            <h3>Monday</h3>
+            @foreach (var item in Model.Monday)
+            {
+                <div class="col-sm-12  ScheduleCell">
+                    @Html.DisplayFor(modelItem => item.Name)
 
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </div> 
-        }
-        <h3>Tuesday</h3>
-        @foreach (var item in Model.Tuesday)
-        {
-            <div id="ScheduleCell" class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.StartDate)
 
-                @Html.DisplayFor(modelItem => item.StartDate)
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </div>
+            }
+        </div>
+        <div class="col-sm-2">
+            <h3>Tuesday</h3>
+            @foreach (var item in Model.Tuesday)
+            {
+                <div class="ScheduleCell">
+                    @Html.DisplayFor(modelItem => item.Name)
 
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </div>
-        }
-        <h3>Wednesday</h3>
-        @foreach (var item in Model.Wednesday)
-        {
-            <div id="ScheduleCell" class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.StartDate)
 
-                @Html.DisplayFor(modelItem => item.StartDate)
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </div>
+            }
+        </div>
+        <div class="col-sm-2">
+            <h3>Wednesday</h3>
+            @foreach (var item in Model.Wednesday)
+            {
+                <div class="ScheduleCell">
+                    @Html.DisplayFor(modelItem => item.Name)
 
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </div>
-        }
-        <h3>Thursday</h3>
-        @foreach (var item in Model.Thursday)
-        {
-            <div id="ScheduleCell" class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.StartDate)
 
-                @Html.DisplayFor(modelItem => item.StartDate)
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </div>
+            }
+        </div>
+        <div class="col-sm-2">
+            <h3>Thursday</h3>
+            @foreach (var item in Model.Thursday)
+            {
+                <div class="ScheduleCell">
+                    @Html.DisplayFor(modelItem => item.Name)
 
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </div>
-        }
-        <h3>Friday</h3>
-        @foreach (var item in Model.Friday)
-        {
-            <div id="ScheduleCell" class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.StartDate)
 
-                @Html.DisplayFor(modelItem => item.StartDate)
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </div>
+            }
+        </div>
+        <div class="col-sm-2">
+            <h3>Friday</h3>
+            @foreach (var item in Model.Friday)
+            {
+                <div class="ScheduleCell">
+                    @Html.DisplayFor(modelItem => item.Name)
 
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </div>
-        }
+                    @Html.DisplayFor(modelItem => item.StartDate)
+
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </div>
+            }
+        </div>
     </div>
 </div>

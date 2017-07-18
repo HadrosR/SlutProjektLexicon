@@ -186,7 +186,7 @@ namespace LexiconLMSPortal.Controllers
             //Get what week it is
             Calendar cal = new GregorianCalendar();
 
-            DateTime datevalue = new DateTime(2017, 10, 16); // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
+            DateTime datevalue = new DateTime(2017, 10, 09); // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
 
             DayOfWeek firstDay = DayOfWeek.Monday;
             CalendarWeekRule rule;
