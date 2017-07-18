@@ -448,13 +448,40 @@ namespace LexiconLMSPortal.Controllers
             return View(sl);
         }
 
-        public ActionResult FullStudentList()
+        public ActionResult FullStudentList(string sortOrder)
         {
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
-            
+
+            //Creates variables that saves the users input of a sortorder
+            ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name" : "";
+            ViewBag.EmailSort = sortOrder == "email" ? "email_des" : "email";
+            ViewBag.CourseSort = sortOrder == "Course" ? "Course_des" : "Course";
             // Checks the database for all users with the role of "Student"
             var students = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Student").Id)).ToList();
+            //Finds the order the user wants in the list
+            //switch (sortOrder)
+            //{
+            //    case "name":
+            //        students = students.OrderByDescending(n => n.FirstName); 
+            //        break;
+            //    case "email":
+            //        students = students.OrderBy(e => e.Email);
+            //        break;
+            //    case "email_des":
+            //        students = students.OrderByDescending(e => e.Email);
+            //        break;
+            //    case "Course":
+            //        students = students.OrderBy(c => c.CourseId);
+            //        break;
+            //    case "Course_des":
+            //        students = students.OrderByDescending(c => c.CourseId);
+            //        break;
+            //    default:
+            //        students = students.OrderBy(n => n.FirstName);
+            //        break;
+            //}
 
+            var sortres = sl.OrderBy(n => n.FirstName);
             foreach (var s in students)
             {
                 sl.Add(new _StudentListPartial
@@ -465,8 +492,31 @@ namespace LexiconLMSPortal.Controllers
                     CourseId = s.CourseId,
                     Id = s.Id
                 });
+                switch (sortOrder)
+                {
+                    case "name":
+                        sortres = sl.OrderByDescending(n => n.FirstName);
+                        break;
+                    case "email":
+                        sortres = sl.OrderBy(e => e.EMail);
+                        break;
+                    case "email_des":
+                        sortres = sl.OrderByDescending(e => e.EMail);
+                        break;
+                    case "Course":
+                        sortres = sl.OrderBy(c => c.CourseId.Name);
+                        break;
+                    case "Course_des":
+                        sortres = sl.OrderByDescending(c => c.CourseId.Name);
+                        break;
+                    default:
+                        sortres = sl.OrderBy(n => n.FirstName);
+                        break;
+                }
             }
-            return View(sl);
+            
+
+            return View(sortres);
         }
 
         [HttpGet]

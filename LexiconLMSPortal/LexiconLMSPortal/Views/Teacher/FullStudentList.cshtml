@@ -10,13 +10,13 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FullName)
+                @Html.ActionLink("Student", "FullStudentList", new { sortOrder = ViewBag.NameSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EMail)
+                @Html.ActionLink("Email", "FullStudentList", new { sortOrder = ViewBag.EmailSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CourseId)
+                @Html.ActionLink("Course", "FullStudentList", new { sortOrder = ViewBag.CourseSort })
             </th>
         </tr>
 
