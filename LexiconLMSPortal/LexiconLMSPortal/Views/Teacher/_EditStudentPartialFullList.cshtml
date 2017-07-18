@@ -1,6 +1,6 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.EditStudentViewModel
 
-<div id="EditStudentModal" class="modal fade in" tabindex="-1" role="dialog">
+<div id="EditStudentModalFullList" class="modal fade in" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -9,7 +9,7 @@
                 <h4 class="modal-title" id="exampleModalLabel">Edit student</h4>
             </div>
 
-            <form method="post" action="@Url.Action("EditStudent", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#StudentListPartial">
+            <form method="post" action="@Url.Action("EditStudentFullList", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#FullStudentList">
                 @Html.AntiForgeryToken()
 
                 <div class="modal-body">
@@ -70,3 +70,4 @@
         </div>
     </div>
 </div>
+
