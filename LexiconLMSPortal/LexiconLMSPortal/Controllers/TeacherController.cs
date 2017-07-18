@@ -465,39 +465,57 @@ namespace LexiconLMSPortal.Controllers
             // Checks the database for all users with the role of "Student"
             var students = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Student").Id)).ToList();
             //Finds the order the user wants in the list
-
             var sortres = sl.OrderBy(n => n.FirstName);
             foreach (var s in students)
             {
-                sl.Add(new _StudentListPartial
+                switch (search)
                 {
-                    FirstName = s.FirstName,
-                    LastName = s.LastName,
-                    EMail = s.Email,
-                    CourseId = s.CourseId,
-                    Id = s.Id
-                });
-                switch (sortOrder)
-                {
-                    case "name":
-                        sortres = sl.OrderByDescending(n => n.FirstName);
-                        break;
-                    case "email":
-                        sortres = sl.OrderBy(e => e.EMail);
-                        break;
-                    case "email_des":
-                        sortres = sl.OrderByDescending(e => e.EMail);
-                        break;
-                    case "Course":
-                        sortres = sl.OrderBy(c => c.CourseId.Name);
-                        break;
-                    case "Course_des":
-                        sortres = sl.OrderByDescending(c => c.CourseId.Name);
+                    case null:
+                        sl.Add(new _StudentListPartial
+                        {
+                            FirstName = s.FirstName,
+                            LastName = s.LastName,
+                            EMail = s.Email,
+                            CourseId = s.CourseId,
+                            Id = s.Id
+                        });
                         break;
                     default:
-                        sortres = sl.OrderBy(n => n.FirstName);
+                        if (s.Email.Contains(search) || s.CourseId.Name.Contains(search) || s.FirstName.Contains(search) || s.LastName.Contains(search))
+                        {
+                            sl.Add(new _StudentListPartial
+                            {
+                                FirstName = s.FirstName,
+                                LastName = s.LastName,
+                                EMail = s.Email,
+                                CourseId = s.CourseId,
+                                Id = s.Id
+                            });
+                        }
                         break;
                 }
+            }
+
+            switch (sortOrder)
+            {
+                case "name":
+                    sortres = sl.OrderByDescending(n => n.FirstName);
+                    break;
+                case "email":
+                    sortres = sl.OrderBy(e => e.EMail);
+                    break;
+                case "email_des":
+                    sortres = sl.OrderByDescending(e => e.EMail);
+                    break;
+                case "Course":
+                    sortres = sl.OrderBy(c => c.CourseId.Name);
+                    break;
+                case "Course_des":
+                    sortres = sl.OrderByDescending(c => c.CourseId.Name);
+                    break;
+                default:
+                    sortres = sl.OrderBy(n => n.FirstName);
+                    break;
             }
             
 
