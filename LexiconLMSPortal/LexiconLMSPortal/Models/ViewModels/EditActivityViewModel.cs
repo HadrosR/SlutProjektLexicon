@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LexiconLMSPortal.Models.ViewModels
 {
-    public class ActivityViewModel
+    public class EditActivityViewModel
     {
         public int ModuleId { get; set; }
 
@@ -20,14 +20,13 @@ namespace LexiconLMSPortal.Models.ViewModels
         public string Description { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "End Date")]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
-        
     }
 }

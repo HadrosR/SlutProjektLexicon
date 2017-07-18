@@ -668,35 +668,60 @@ namespace LexiconLMSPortal.Controllers
                     StartDate = m.StartDate,
                     EndDate = m.EndDate,
 
-                    /* Activities here */
-                    Activities = newActivityList
                 });
-
-                //Add viewmodels for every activity in a module
-                foreach (var t in m.Activities)
-                {
-                    newActivityList.Add(new ActivityViewModel
-                    {
-                        Name = t.Name,
-                        Description = t.Description,
-                        StartDate = t.StartDate,
-                        EndDate = t.EndDate,
-                    });
-                }
 
             }
             return PartialView("TeacherCourseModulesPartial", vm);
         }
 
+        public ActionResult TeacherCourseActivitiesPartial(int id)
+        {
+            // Get the specifik module
+            var module = context.Modules.FirstOrDefault(n => n.Id == id);
+
+            // List to store activities
+            List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
+
+            // Info about the module
+            ModulesViewModel vm = new ModulesViewModel()
+            {
+                Id = id,
+                Name = module.Name,
+                Description = module.Description,
+                StartDate = module.StartDate,
+                EndDate = module.EndDate,
+                Activities = newActivityList
+            };
+
+            //Add viewmodels for every activity in a module
+            foreach (var t in module.Activities)
+            {
+                newActivityList.Add(new ActivityViewModel
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                    Description = t.Description,
+                    StartDate = t.StartDate,
+                    EndDate = t.EndDate
+                });
+            }
+
+            return PartialView("TeacherCourseActivitiesPartial", vm);
+        }
+
         [HttpGet]
-        //this action result returns the partial containing the modal
         public ActionResult CreateModule(int id)
         {
+            // Find appropriate course to add module to 
             var course = context.Courses.FirstOrDefault(c => c.Id == id);
+
+            // Get module with the latest date
             var lastModule = course.Modules.OrderByDescending(m => m.EndDate).FirstOrDefault();
+
             CreateModuleViewModel cmvm = new CreateModuleViewModel()
             {
                 CourseId = id,
+                // Use the latest module to determine an example date
                 StartDate = lastModule == null ? course.StartDate : lastModule.EndDate,
                 EndDate = lastModule == null ? course.StartDate : lastModule.EndDate,
             };
@@ -708,9 +733,12 @@ namespace LexiconLMSPortal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateModule(CreateModuleViewModel createModuleViewModel)
         {
+            // Find the course to add the module to
             var course = context.Courses.FirstOrDefault(d => d.Id == createModuleViewModel.CourseId);
+
             if (ModelState.IsValid)
             {
+                // Add a module to the course using a new model 
                 course.Modules.Add(new ModuleModels
                 {
                     Name = createModuleViewModel.Name,
@@ -725,15 +753,18 @@ namespace LexiconLMSPortal.Controllers
             return RedirectToAction("TeacherCourseModulesPartial", new { id = course.Id });
         }
 
-        //GET: DeleteStudent
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteModule(int? id)
         {
             ModuleViewModel vm = new ModuleViewModel();
+
+            // Check if the id is correct
             if (id != null)
             {
+                // Find the module to be deleted
                 var module = context.Modules.FirstOrDefault(m => m.Id == id);
 
+                // Return a model of the corresponding module
                 vm = new ModuleViewModel()
                 {
                     Id = module.Id,
@@ -747,7 +778,6 @@ namespace LexiconLMSPortal.Controllers
             return PartialView("DeleteModulePartial", vm);
         }
 
-        //POST: DeleteTeacher
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteModule(ModuleViewModel module)
@@ -757,8 +787,10 @@ namespace LexiconLMSPortal.Controllers
                 return RedirectToAction("TeacherCourseModulesPartial"); // Will generate yellow screen of death
             }
 
+            // Find the module to be deleted
             var dbmodule = context.Modules.Find(module.Id);
 
+            // Store its id for later
             int cid = dbmodule.Courses.FirstOrDefault().Id;
 
             if (dbmodule == null)
@@ -766,7 +798,7 @@ namespace LexiconLMSPortal.Controllers
                 RedirectToAction("TeacherCourseModulesPartial", new { id = cid });
             }
 
-
+            // Remove the module
             context.Entry(dbmodule).State = EntityState.Deleted;
 
             context.SaveChanges();
@@ -775,7 +807,6 @@ namespace LexiconLMSPortal.Controllers
 
         }
 
-        //GET: Course Edit
         [Authorize(Roles = "Teacher")]
         public ActionResult EditModule(int? id)
         {
@@ -784,8 +815,10 @@ namespace LexiconLMSPortal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            // Find the module to be edited
             var module = context.Modules.Find(id);
 
+            // Create a view model to return to the partial view
             EditModuleViewModel vm = new EditModuleViewModel
             {
                 Id = module.Id,
@@ -798,17 +831,19 @@ namespace LexiconLMSPortal.Controllers
 
             return PartialView("EditModulePartial", vm);
         }
-        //Post: Course Edit
+
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
         public ActionResult EditModule(EditModuleViewModel modulevm)
         {
+            // Store module and course
             var module = context.Modules.FirstOrDefault(m => m.Id == modulevm.Id);
             var course = module.Courses.FirstOrDefault();
 
             if (ModelState.IsValid)
             {
+                // Change its attributes to the edited ones
                 module.Name = modulevm.Name;
                 module.Description = modulevm.Description;
                 module.StartDate = modulevm.StartDate;
@@ -819,6 +854,156 @@ namespace LexiconLMSPortal.Controllers
             }
 
             return RedirectToAction("TeacherCourseModulesPartial", new { id = course.Id });
+        }
+
+
+        [HttpGet]
+        public ActionResult CreateActivity(int id)
+        {
+            // Find the module to add an activity to
+            var module = context.Modules.FirstOrDefault(c => c.Id == id);
+
+            // Create a templated model for the user to edit
+            CreateActivityViewModel cmvm = new CreateActivityViewModel()
+            {
+                ModuleId = id,
+                StartDate = module.StartDate,
+                EndDate = module.StartDate
+            };
+
+            return PartialView("CreateActivityPartial", cmvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateActivity(CreateActivityViewModel createActivityViewModel)
+        {
+            // Find the module to add the activity to
+            var module = context.Modules.FirstOrDefault(d => d.Id == createActivityViewModel.ModuleId);
+
+            if (ModelState.IsValid)
+            {
+                // Add a new activity model to the module created from the user's input
+                module.Activities.Add(new ActivityModels
+                {
+                    Name = createActivityViewModel.Name,
+                    Description = createActivityViewModel.Description,
+                    StartDate = createActivityViewModel.StartDate,
+                    EndDate = createActivityViewModel.EndDate,
+                });
+
+                context.SaveChanges();
+            }
+            return RedirectToAction("TeacherCourseActivitiesPartial", new { id = module.Id });
+        }
+
+        [Authorize(Roles = "Teacher")]
+        public ActionResult DeleteActivity(int? id)
+        {
+            ActivityViewModel vm = new ActivityViewModel();
+
+            if (id != null)
+            {
+                // Find the activity to be deleted
+                var activity = context.Activities.FirstOrDefault(a => a.Id == id);
+
+                // Store information for confirmation
+                vm = new ActivityViewModel()
+                {
+                    // To be able to re-render partial view later
+                    ModuleId = activity.Modules.FirstOrDefault().Id,
+                    Id = activity.Id,
+                    Name = activity.Name,
+                    Description = activity.Description,
+                    StartDate = activity.StartDate,
+                    EndDate = activity.EndDate,
+                };
+            }
+
+            return PartialView("DeleteActivityPartial", vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteActivity(ActivityViewModel activity)
+        {
+            if (activity == null)
+            {
+                return RedirectToAction("TeacherCourseActivitiesPartial"); // Will generate yellow screen of death
+            }
+
+            // Find the activity to be deleted
+            var dbactivity = context.Activities.Find(activity.Id);
+
+            // Store its module's id for later
+            int mid = dbactivity.Modules.FirstOrDefault().Id;
+
+            if (dbactivity == null)
+            {
+                return RedirectToAction("TeacherCourseActivitiesPartial", new { id = mid });
+            }
+
+            // Delete it
+            context.Entry(dbactivity).State = EntityState.Deleted;
+
+            context.SaveChanges();
+
+            return RedirectToAction("TeacherCourseActivitiesPartial", new { id = mid });
+
+        }
+
+        //GET: Course Edit
+        [Authorize(Roles = "Teacher")]
+        public ActionResult EditActivity(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            // Find the activity to be edited
+            var activity = context.Activities.Find(id);
+
+            // Store current information to present it to the user for edit
+            EditActivityViewModel vm = new EditActivityViewModel
+            {
+                Id = activity.Id,
+                Description = activity.Description,
+                Name = activity.Name,
+                StartDate = activity.StartDate,
+                EndDate = activity.EndDate,
+                ModuleId = activity.Modules.FirstOrDefault().Id
+                
+            };
+
+            return PartialView("EditActivityPartial", vm);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Teacher")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditActivity(EditActivityViewModel activityvm)
+        {
+            // Find activity to be edited
+            var activity = context.Activities.FirstOrDefault(a => a.Id == activityvm.Id);
+
+            // Store its module for later
+            var module = activity.Modules.FirstOrDefault();
+
+            if (ModelState.IsValid)
+            {
+                // Edit the activity using user inputted values stored in the view model
+                activity.Name = activityvm.Name;
+                activity.Description = activityvm.Description;
+                activity.StartDate = activityvm.StartDate;
+                activity.EndDate = activityvm.EndDate;
+
+                context.Entry(activity).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("TeacherCourseActivitiesPartial", new { id = module.Id });
         }
 
     }
