@@ -354,6 +354,9 @@
     <Content Include="Views\Teacher\CreateModulePartial.cshtml" />
     <Content Include="Views\Teacher\DeleteModulePartial.cshtml" />
     <Content Include="Views\Teacher\EditModulePartial.cshtml" />
+    <Content Include="Views\Teacher\_EditStudentPartialFullList.cshtml" />
+    <Content Include="Views\Teacher\_DeleteStudentPartialFullList.cshtml" />
+    <Content Include="Views\Teacher\_FullStudentListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
