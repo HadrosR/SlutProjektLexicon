@@ -133,9 +133,14 @@ textarea {
     /*Student Activity list*/
 #StudentActivityList {
     margin:0px;
-
+    background: #b6ff00;
+    border-bottom-left-radius: 20em;
 
 }
+#StudentActivityListTable {
+    margin:0px;
+}
+
 
 .course-module {
     color: white;
