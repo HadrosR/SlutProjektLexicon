@@ -148,7 +148,7 @@ namespace LexiconLMSPortal.Migrations
                 {
                     Name = "MVC",
                     Description = "Brief introduction to MVC",
-                    StartDate = new DateTime(2017, 10, 11),
+                    StartDate = new DateTime(2017, 10, 09),
                     EndDate = new DateTime(2017, 10, 20),
                     Activities = new List<ActivityModels>
                     {
@@ -156,34 +156,34 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Controller excercise",
                             Description = "Practice creating MVC-controllers",
-                            StartDate = new DateTime(2017, 10, 11),
-                            EndDate = new DateTime(2017, 10, 11)
+                            StartDate = new DateTime(2017, 10, 09),
+                            EndDate = new DateTime(2017, 10, 09)
                         },
                         new ActivityModels
                         {
                             Name = "Models excercise",
                             Description = "Practice creating MVC-Models",
-                            StartDate = new DateTime(2017, 10, 12),
-                            EndDate = new DateTime(2017, 10, 12)
+                            StartDate = new DateTime(2017, 10, 10),
+                            EndDate = new DateTime(2017, 10, 10)
                         },
                         new ActivityModels
                         {
                             Name = "View excercise",
                             Description = "Practice creating MVC-View",
-                            StartDate = new DateTime(2017, 10, 13),
-                            EndDate = new DateTime(2017, 10, 13)
+                            StartDate = new DateTime(2017, 10, 11),
+                            EndDate = new DateTime(2017, 10, 11)
                         },new ActivityModels
                         {
                             Name = "MVC EntityFrameWork",
                             Description = "Framework that entity",
-                            StartDate = new DateTime(2017, 10, 14),
-                            EndDate = new DateTime(2017, 10, 14)
+                            StartDate = new DateTime(2017, 10, 12),
+                            EndDate = new DateTime(2017, 10, 12)
                         },
                         new ActivityModels
                         {
                             Name = "CRUD",
                             Description = "Basic CRUD Stuff",
-                            StartDate = new DateTime(2017, 10, 15),
+                            StartDate = new DateTime(2017, 10, 13),
                             EndDate = new DateTime(2017, 10, 15)
                         },
                         new ActivityModels

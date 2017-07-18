@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -182,8 +183,62 @@ namespace LexiconLMSPortal.Controllers
                 });
             }
 
-           
-            return PartialView("_Schedule", vm);
+            //Get what week it is
+            Calendar cal = new GregorianCalendar();
+
+            DateTime datevalue = new DateTime(2017, 10, 16); // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
+
+            DayOfWeek firstDay = DayOfWeek.Monday;
+            CalendarWeekRule rule;
+            rule = CalendarWeekRule.FirstFourDayWeek;
+
+            var activity = course.Modules.SelectMany(l => l.Activities).ToList();
+            DateTime[] afk = new DateTime[activity.Count];
+
+            int x = 0;
+            foreach (var s in activity)
+            {
+                afk[x] = s.StartDate;
+                x++;
+            }
+
+            ScheduleViewModel schedule = new ScheduleViewModel();
+
+            for (int i = 0; i < activity.Count; i++)
+            {
+                DateTime activityDate = afk[i];
+
+                int weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay);
+                int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);                
+
+                if (activityWeekNbr == weekNbr)
+                {
+                    if (afk[i].DayOfWeek == DayOfWeek.Monday)
+                    {
+                            schedule.Monday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
+                    {
+                            schedule.Tuesday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
+                    {
+                            schedule.Wednesday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
+                    {
+                            schedule.Thursday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Friday)
+                    {
+                            schedule.Friday.Add(activity.ElementAt(i));
+                    }
+                }
+            }
+
+
+
+            return PartialView("_Schedule", schedule);
         }
 
         protected override void Dispose(bool disposing)
