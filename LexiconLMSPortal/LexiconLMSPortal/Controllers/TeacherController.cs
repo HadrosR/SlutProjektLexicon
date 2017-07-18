@@ -459,27 +459,6 @@ namespace LexiconLMSPortal.Controllers
             // Checks the database for all users with the role of "Student"
             var students = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Student").Id)).ToList();
             //Finds the order the user wants in the list
-            //switch (sortOrder)
-            //{
-            //    case "name":
-            //        students = students.OrderByDescending(n => n.FirstName); 
-            //        break;
-            //    case "email":
-            //        students = students.OrderBy(e => e.Email);
-            //        break;
-            //    case "email_des":
-            //        students = students.OrderByDescending(e => e.Email);
-            //        break;
-            //    case "Course":
-            //        students = students.OrderBy(c => c.CourseId);
-            //        break;
-            //    case "Course_des":
-            //        students = students.OrderByDescending(c => c.CourseId);
-            //        break;
-            //    default:
-            //        students = students.OrderBy(n => n.FirstName);
-            //        break;
-            //}
 
             var sortres = sl.OrderBy(n => n.FirstName);
             foreach (var s in students)
