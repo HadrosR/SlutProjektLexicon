@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LexiconLMSPortal.Models.ViewModels._StudentListPartial>
+
+@{
+    Layout = "";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="FullListSearch">
+        <div>
+            Filter
+            @Html.TextBox("search")
+        </div>
+        <input type="submit" class="btn btn-default" />
+    </div>
+}
+<div id="FullStudentList">
+    <table class="table">
+        <tr>
+    <th>
+        @Html.ActionLink("Student", "FullStudentList", new { sortOrder = ViewBag.NameSort })
+    </th>
+    <th>
+        @Html.ActionLink("Email", "FullStudentList", new { sortOrder = ViewBag.EmailSort })
+    </th>
+    <th>
+        @Html.ActionLink("Course", "FullStudentList", new { sortOrder = ViewBag.CourseSort })
+    </th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId.Name)
+        </td>
+        <td>
+            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditStudentFullList", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModalFullList"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteStudentFullList", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModalFullList"><span class="glyphicon glyphicon-remove-circle"></span></a>
+        </td>
+    </tr>
+}
+
+    </table>
+</div>
+<div id="EditStudentModalFullList"></div>
+<div id="DeleteStudentModalFullList"></div>

@@ -106,4 +106,5 @@
             openModal.modal('show');
         });
     });
+
 });

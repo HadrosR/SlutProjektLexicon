@@ -4,40 +4,7 @@
     ViewBag.Title = "FullStudentList";
 }
 
-<h2>Student List</h2>
-
-<div id="StudentList">
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EMail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CourseId)
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EMail)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CourseId.Name)
-                </td>
-                <td>
-                    <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditStudent", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteStudent", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle"></span></a>
-                </td>
-            </tr>
-        }
-
-    </table>
+<div>
+    <h2>Student List</h2>
+    @Html.Action("_FullStudentListPartial", "Teacher")
 </div>

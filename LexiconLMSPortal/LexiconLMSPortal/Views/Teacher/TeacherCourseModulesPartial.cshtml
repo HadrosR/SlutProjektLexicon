@@ -19,23 +19,15 @@
                         </div>
                         <div class="col-xs-4">@Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
                         <div class="col-xs-4" style="text-align:right;">
+                            <a class="ajax-link" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus edit-cog" ></span></a>
                             <a class="ajax-link-edit" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-cog"></span></a>
                             <a class="ajax-link-remove" data-target="#DeleteModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteModule", id = item.Id })"><span class="glyphicon glyphicon-remove-circle edit-cog"></span></a>
                         </div>
                     </div>
-
                 </div>
+
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
-                    @foreach (var activity in item.Activities)
-                {
-                        <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
-                            <div class="row">
-                                <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.Name)</div>
-                                <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) to @Html.DisplayFor(modelItem => activity.EndDate)</div>
-                                <div class="col-xs-4" style="text-align:right;"><a href="#"><span class="glyphicon glyphicon-cog edit-cog" title="Options"></span></a></div>
-                            </div>
-                        </div>
-                    }
+                    @Html.Action("TeacherCourseActivitiesPartial", "Teacher", new { id = item.Id })
                 </div>
             </div>
             moduleid++;
