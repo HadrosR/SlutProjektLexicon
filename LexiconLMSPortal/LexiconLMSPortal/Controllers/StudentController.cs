@@ -150,51 +150,23 @@ namespace LexiconLMSPortal.Controllers
                 return HttpNotFound();
             }
 
-            ModulesViewViewModel vm = new ModulesViewViewModel
-            {
-                Id = course.Id,
-                Name = course.Name,
-                Description = course.Description,
-                Modules = new List<ModulesViewModel>()
-            };
-
+            //Shows the name of the coruse for the student
             ViewBag.Course = course.Name;
-            foreach (var m in course.Modules)
-            {
-                List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
-                foreach (var a in m.Activities)
-                {
-                    newActivityList.Add(new ActivityViewModel
-                    {
-                        Name = a.Name,
-                        StartDate = a.StartDate,
-                        Description = a.Description,
-                        EndDate = a.EndDate
-                    });
-                }
-                vm.Modules.Add(new ModulesViewModel
-                {
-                    Name = m.Name,
-                    Description = m.Description,
-                    StartDate = m.StartDate,
-                    EndDate = m.EndDate,
 
-                    Activities = newActivityList
-                });
-            }
-
-            //Get what week it is
             Calendar cal = new GregorianCalendar();
 
-            DateTime datevalue = new DateTime(2017, 10, 09); // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
+            // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
+            DateTime datevalue = new DateTime(2017, 10, 09);
 
             DayOfWeek firstDay = DayOfWeek.Monday;
             CalendarWeekRule rule;
             rule = CalendarWeekRule.FirstFourDayWeek;
 
+            //Selects all activities for the students cours
             var activity = course.Modules.SelectMany(l => l.Activities).ToList();
             DateTime[] afk = new DateTime[activity.Count];
 
+            //Adds them to an array
             int x = 0;
             foreach (var s in activity)
             {
@@ -204,11 +176,14 @@ namespace LexiconLMSPortal.Controllers
 
             ScheduleViewModel schedule = new ScheduleViewModel();
 
+            //Loops through the array of activities and puts them in seperate model list for there specific day
             for (int i = 0; i < activity.Count; i++)
             {
                 DateTime activityDate = afk[i];
 
+                //Gets what week it is "now"
                 int weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay);
+                //Gets the week of the activity
                 int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);                
 
                 if (activityWeekNbr == weekNbr)
@@ -235,9 +210,6 @@ namespace LexiconLMSPortal.Controllers
                     }
                 }
             }
-
-
-
             return PartialView("_Schedule", schedule);
         }
 
