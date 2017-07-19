@@ -19,7 +19,7 @@ namespace LexiconLMSPortal.Controllers
                 return RedirectToRoute(new { controller = "Teacher", action = "Index" });
             }
 
-           else if (User.IsInRole("Student"))
+            else if (User.IsInRole("Student"))
             {
                 return RedirectToRoute(new { controller = "Student", action = "Index" });
             }
