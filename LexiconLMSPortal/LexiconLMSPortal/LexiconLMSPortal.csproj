@@ -339,7 +339,7 @@
     <Content Include="Views\Teacher\AddTeacher.cshtml" />
     <Content Include="Views\Teacher\EditTeacher.cshtml" />
     <Content Include="Views\Teacher\DeleteTeacher.cshtml" />
-    <Content Include="Views\Teacher\DeleteCourse.cshtml" />
+    <Content Include="Views\Teacher\DeleteCoursePartial.cshtml" />
     <Content Include="Views\Teacher\TempEditCourse.cshtml" />
     <Content Include="Views\Teacher\_StudentListPartial.cshtml" />
     <Content Include="Views\Teacher\CreateStudent.cshtml" />
@@ -365,6 +365,7 @@
     <Content Include="Views\Teacher\_EditStudentPartialFullList.cshtml" />
     <Content Include="Views\Teacher\_DeleteStudentPartialFullList.cshtml" />
     <Content Include="Views\Teacher\_FullStudentListPartial.cshtml" />
+    <Content Include="Views\Teacher\EditCoursePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -319,7 +319,7 @@ namespace LexiconLMSPortal.Controllers
             {
                 return HttpNotFound();
             }
-            return View(coursetemp);
+            return PartialView("EditCoursePartial",coursetemp);
         }
         //Post: Course Edit
         [HttpPost]
@@ -340,35 +340,53 @@ namespace LexiconLMSPortal.Controllers
                 };
                 context.Entry(coursetemp).State = EntityState.Modified;
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CourseListView");
             }
-            return View(course);
+            return View("CourseListView");
         }
         //GET: Course delete
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteCourse(int? id)
         {
+            CreateCourseViewModel tempcourse = new CreateCourseViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CourseModels course = context.Courses.Find(id);
+            var course = context.Courses.Find(id);
             if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(course);
+
+            tempcourse = new CreateCourseViewModel
+            {
+                Name = course.Name,
+                Description = course.Description,
+                Id = course.Id,
+                StartDate = course.StartDate,
+                EndDate = course.EndDate
+            };
+            return PartialView("DeleteCoursePartial",tempcourse);
         }
         //Post: Course Delete
-        [HttpPost, ActionName("DeleteCourse")]
+        [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteCourse(CreateCourseViewModel course)
         {
-            CourseModels course = context.Courses.Find(id);
-            context.Courses.Remove(course);
+            if (course == null)
+            {
+                return RedirectToAction("DeleteCoursePartial");
+            }
+            var tempcourse = context.Courses.Find(course.Id);
+            if (tempcourse==null)
+            {
+                return RedirectToAction("DeleteCoursePartial");
+            }
+            context.Courses.Remove(tempcourse);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CourseListView");
         }
 
         protected override void Dispose(bool disposing)
