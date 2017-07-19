@@ -7,7 +7,7 @@
     <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
         <div class="row">
             <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.Name)</div>
-            <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) to @Html.DisplayFor(modelItem => activity.EndDate)</div>
+            <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) <br/> @Html.DisplayFor(modelItem => activity.EndDate)</div>
             <div class="col-xs-4" style="text-align:right;">
                 <a class="ajax-link" data-target="#EditActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditActivity", id = activity.Id })"><span class="glyphicon glyphicon-pencil edit-cog"></span></a>
                 <a class="ajax-link" data-target="#DeleteActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteActivity", id = activity.Id })"><span class="glyphicon glyphicon-remove-circle edit-cog"></span></a>
