@@ -132,13 +132,9 @@ textarea {
 }
     /*Student Activity list*/
 #StudentActivityList {
-    margin:0px;
     background: #b6ff00;
     border-bottom-left-radius: 20em;
 
-}
-#StudentActivityListTable {
-    margin:0px;
 }
 
 
@@ -161,4 +157,12 @@ textarea {
 
 .module-accordion-heading:hover{
     cursor: pointer;
+}
+
+.panel-body{
+    transition: all ease-in 0.2s;
+}
+
+.panel-body:hover {
+    background-color: #b6ff00 !important;
 }
