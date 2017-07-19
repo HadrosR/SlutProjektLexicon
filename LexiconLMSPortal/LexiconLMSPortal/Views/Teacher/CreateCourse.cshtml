@@ -1,4 +1,4 @@
-﻿@model LexiconLMSPortal.Models.ViewModels.CreateCourseViewModel
+﻿@model LexiconLMSPortal.Models.ViewModels.CourseViewModel
 
 @{
     Layout = "";
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -64,10 +64,24 @@
 <script type="text/javascript">
     $(function () {
         $(".date-picker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-10:+10",
             dateFormat: 'dd-mm-yy'
         });
 
     });
+    jQuery.validator.methods.date = function (value, element) {
+        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (isChrome) {
+            var d = new Date();
+            return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+        } else {
+            return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+        }
+    };
+
+        });
 
 </script>
 
