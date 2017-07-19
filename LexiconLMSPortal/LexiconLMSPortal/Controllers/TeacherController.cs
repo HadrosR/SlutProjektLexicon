@@ -290,9 +290,9 @@ namespace LexiconLMSPortal.Controllers
                     Students = new List<ApplicationUser>()
 
                 };
-                context.Courses.Add(coursetemp);
+                var newlyAdded = context.Courses.Add(coursetemp);
                 context.SaveChanges();
-                return RedirectToAction("CourseListView");
+                return RedirectToAction("Courses", new { id = newlyAdded.Id });
             }
 
             return View("CourseListView");
