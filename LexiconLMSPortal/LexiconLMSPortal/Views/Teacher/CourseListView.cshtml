@@ -26,10 +26,7 @@
                 <div class="text-right">
                     <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil"></span></a>
 
-
-                    <a href="@Url.Action("DeleteCourse","Teacher",new { @id=item.Id})" class="TeacherLinkIcon">
-                        <i class="glyphicon glyphicon-remove-circle"></i>
-                    </a>
+                    <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteCourse", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteCourseModal"><span class="glyphicon glyphicon-remove-circle"></span></a>
                 </div>
 
             </div>
