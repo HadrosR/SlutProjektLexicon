@@ -223,6 +223,7 @@
     <Compile Include="Models\ViewModels\ActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\ModulesViewViewModel.cs" />
     <Compile Include="Models\ViewModels\ModuleViewModel.cs" />
+    <Compile Include="Models\ViewModels\ScheduleViewModel.cs" />
     <Compile Include="Models\ViewModels\_StudentListPartial.cs" />
     <Compile Include="Models\ViewModels\_StudentModuleList.cs" />
     <Compile Include="Models\ViewModels\_TeacherListPartialModel.cs" />
@@ -356,6 +357,7 @@
     <Content Include="Views\Teacher\CreateModulePartial.cshtml" />
     <Content Include="Views\Teacher\DeleteModulePartial.cshtml" />
     <Content Include="Views\Teacher\EditModulePartial.cshtml" />
+    <Content Include="Views\Student\_Schedule.cshtml" />
     <Content Include="Views\Teacher\TeacherCourseActivitiesPartial.cshtml" />
     <Content Include="Views\Teacher\CreateActivityPartial.cshtml" />
     <Content Include="Views\Teacher\EditActivityPartial.cshtml" />
