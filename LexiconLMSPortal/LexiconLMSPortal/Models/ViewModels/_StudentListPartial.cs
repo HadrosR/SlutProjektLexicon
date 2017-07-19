@@ -8,6 +8,12 @@ using System.Web;
 
 namespace LexiconLMSPortal.Models.ViewModels
 {
+    public class _StudentListPartialContainer
+    {
+        public int CourseId { get; set; }
+        public List<_StudentListPartial> Students { get; set; }
+    }
+
     public class _StudentListPartial
     {
         public string Id { get; set; }

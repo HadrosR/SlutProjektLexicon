@@ -3,16 +3,25 @@
     ViewBag.Title = Model.Name;
 }
 
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+<p>@Html.DisplayFor(model => model.Description)</p>
+
+<hr />
+
 <div class="row">
     <div class="col-xs-8">
-        <h2>@Html.DisplayFor(model => model.Name)</h2>
-        <p>@Html.DisplayFor(model => model.Description)</p>
-        <h3>Modules</h3>
-        @Html.Action("TeacherCourseModulesPartial", "Teacher")
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div style="font-size:20px; padding-bottom:10px; ">
+                    <div style="float:left; padding-top:5px;">Modules</div>
+                    <div style="text-align:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus"></span> Create</a></div>
+                </div>
+                @Html.Action("TeacherCourseModulesPartial", "Teacher")
+            </div>
+        </div>
     </div>
-    <div id="SList" class="col-xs-3">
+    <div id="SList" class=" col-sm-push-1 col-xs-4 col-sm-3">
         @Html.Action("_StudentListPartial", "Teacher")
-        <a href="#TheModal" class=" btn btn-primary pull-right" role="button" id="modalbtn" data-toggle="modal" data-url="@Url.Action("CreateStudent",new { id = Model.Id})">Add Student</a>
     </div>
 </div>
 

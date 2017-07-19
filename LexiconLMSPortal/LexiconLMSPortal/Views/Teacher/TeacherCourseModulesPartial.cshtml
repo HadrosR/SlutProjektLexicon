@@ -1,8 +1,6 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewViewModel
 
 <div id="TeacherCourseModulesPartial">
-    <a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal">Add Module</a>
-
     <div class="panel-group" id="module-accordion" role="tablist" aria-multiselectable="true">
         @{int moduleid = 0; }
         @foreach (var item in Model.Modules)

@@ -133,8 +133,6 @@ textarea {
     border-bottom-left-radius: 20em;
 }
 
-}
-
 
 .course-module {
     color: white;
@@ -156,15 +154,6 @@ textarea {
 .module-accordion-heading:hover {
     cursor: pointer;
 }
-
-.panel-body{
-    transition: all ease-in 0.2s;
-}
-
-.panel-body:hover {
-    background-color: #b6ff00 !important;
-}
-
 
 /*Here Goes Some CSS For the Student Schedule*/
 .ScheduleCell {

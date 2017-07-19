@@ -450,9 +450,12 @@ namespace LexiconLMSPortal.Controllers
 
         public ActionResult _StudentListPartial(int id)
         {
+            _StudentListPartialContainer container = new _StudentListPartialContainer();
 
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
-            var students = context.Courses.FirstOrDefault(t => t.Id == id).Students;
+
+            var course = context.Courses.FirstOrDefault(t => t.Id == id);
+            var students = course.Students;
 
             foreach (var s in students)
             {
@@ -464,7 +467,10 @@ namespace LexiconLMSPortal.Controllers
 
                 });
             }
-            return View(sl);
+            container.Students = sl;
+            container.CourseId = course.Id;
+
+            return View(container);
         }
 
         public ActionResult FullStudentList(string sortOrder)
