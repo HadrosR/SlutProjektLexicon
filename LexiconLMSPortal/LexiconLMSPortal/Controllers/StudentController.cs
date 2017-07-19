@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,11 +15,11 @@ using LexiconLMSPortal.Models.ViewModels;
 
 namespace LexiconLMSPortal.Controllers
 {
-    [Authorize (Roles ="Student")]
+    [Authorize(Roles = "Student")]
     public class StudentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         public ActionResult _StudentListPartial()
         {
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
@@ -26,7 +27,7 @@ namespace LexiconLMSPortal.Controllers
             var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
             var students = db.Courses.FirstOrDefault(t => t.Id == courseID).Students;
-            
+
             foreach (var s in students)
             {
                 sl.Add(new _StudentListPartial
@@ -66,11 +67,12 @@ namespace LexiconLMSPortal.Controllers
             return PartialView(activityList);
         }
 
-        // GET: Student
+        // GET: Student Index
         public ActionResult Index()
         {
-            return View(db.Modules.ToList());
+            return View();
         }
+
         // GET: Student modul view 
         public ActionResult ModuleStudent()
         {
@@ -92,6 +94,7 @@ namespace LexiconLMSPortal.Controllers
             ViewBag.Course = course.Name;
             return View();
         }
+
         //GET ModulList for students
         public ActionResult _StudentModulsPartial()
         {
@@ -128,7 +131,86 @@ namespace LexiconLMSPortal.Controllers
                     EndDate = m.EndDate
                 });
             }
-            return PartialView("_StudentModulepartial",aktivmoduls);
+            return PartialView("_StudentModulepartial", aktivmoduls);
+        }
+
+        //Returns the Scedule in a partialview
+        public ActionResult Schedule()
+        {
+            string student = User.Identity.Name;
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+            ApplicationUser currentUser = userManager.FindByName(student);
+
+            int CourseID = currentUser.CourseId.Id;
+            var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
+
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+            //Shows the name of the coruse for the student
+            ViewBag.Course = course.Name;
+
+            Calendar cal = new GregorianCalendar();
+
+            // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
+            DateTime datevalue = new DateTime(2017, 10, 09);
+
+            DayOfWeek firstDay = DayOfWeek.Monday;
+            CalendarWeekRule rule;
+            rule = CalendarWeekRule.FirstFourDayWeek;
+
+            //Selects all activities for the students cours
+            var activity = course.Modules.SelectMany(l => l.Activities).ToList();
+            DateTime[] afk = new DateTime[activity.Count];
+
+            //Adds them to an array
+            int x = 0;
+            foreach (var s in activity)
+            {
+                afk[x] = s.StartDate;
+                x++;
+            }
+
+            ScheduleViewModel schedule = new ScheduleViewModel();
+
+            //Loops through the array of activities and puts them in seperate model list for there specific day
+            for (int i = 0; i < activity.Count; i++)
+            {
+                DateTime activityDate = afk[i];
+
+                //Gets what week it is "now"
+                int weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay);
+                //Gets the week of the activity
+                int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);                
+
+                if (activityWeekNbr == weekNbr)
+                {
+                    if (afk[i].DayOfWeek == DayOfWeek.Monday)
+                    {
+                            schedule.Monday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
+                    {
+                            schedule.Tuesday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
+                    {
+                            schedule.Wednesday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
+                    {
+                            schedule.Thursday.Add(activity.ElementAt(i));
+                    }
+                    else if (afk[i].DayOfWeek == DayOfWeek.Friday)
+                    {
+                            schedule.Friday.Add(activity.ElementAt(i));
+                    }
+                }
+            }
+            return PartialView("_Schedule", schedule);
         }
 
         protected override void Dispose(bool disposing)

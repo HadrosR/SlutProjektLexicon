@@ -1,14 +1,14 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewModel
 
 <div>
-    <table class="table table-hover" id="StudentActivityListTable">
-    @foreach (var item in Model.Activities) {
-        <tr tooltip="@Html.DisplayFor(modelItem => item.Description)"id="StudentActivityList">
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
-            <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
-        </tr>
+    @foreach (var item in Model.Activities)
+    {
+        <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => item.Description)">
+            <div class="row">
+                <div class="col-xs-4"><p>@Html.DisplayFor(modelItem => item.Name)</p></div>
+                <div class="col-xs-4">@Html.DisplayFor(modelItem => item.StartDate)</div>
+                <div class="col-xs-4">@Html.DisplayFor(modelItem => item.EndDate)</div>
+            </div>
+        </div>
     }
-
-    </table>
 </div>

@@ -34,7 +34,7 @@ textarea {
     color: white;
     border-radius: 5px;
     border: 1px solid #237ace;
-    z-index:1041;
+    z-index: 1041;
     left: 99%;
 }
 
@@ -55,9 +55,9 @@ textarea {
     font-size: 20px;
 }
 
-.edit-cog:hover{
-    color:#707070;
-}
+    .edit-cog:hover {
+        color: #707070;
+    }
 
 /*THIES STYLES ARE FOR THE LOG IN PAGE*/
 
@@ -69,76 +69,70 @@ textarea {
     margin-left: 9rem;
 }
 
-    /*teacher index page*/
+/*teacher index page*/
 
 #TeacherCourseList {
-    display:block;
-    color:black;
+    display: block;
+    color: black;
     max-width: 700px;
     background-color: lightgray;
-    border-radius:5px;
-    border-color:black;
-    margin-bottom:10px;
-    
-
-    
+    border-radius: 5px;
+    border-color: black;
+    margin-bottom: 10px;
 }
     /*Course List */
-#TeacherCourseList:hover {
-    background-color: dimgray;
-    color: black;
-    text-decoration: none;
-}
+    #TeacherCourseList:hover {
+        background-color: dimgray;
+        color: black;
+        text-decoration: none;
+    }
 /*Course List */
 .TeacherLink {
     color: black;
     text-decoration: none;
 }
     /*Course List */
-.TeacherLink:hover {
-    color: black;
-    text-decoration: none;
-}
-    /*Course List */
+    .TeacherLink:hover {
+        color: black;
+        text-decoration: none;
+    }
+/*Course List */
 .TeacherLinkIcon {
     color: black;
     text-decoration: none;
 }
     /*Course List */
-.TeacherLinkIcon:hover {
-    color: white;
-}
-    /*Course List */
-.TeacherListTable{
+    .TeacherLinkIcon:hover {
+        color: white;
+    }
+/*Course List */
+.TeacherListTable {
     background-color: lightgray;
-    margin-top:21px;
-    border-radius:5px;
+    margin-top: 21px;
+    border-radius: 5px;
 }
-    /*Course List */
-.CreateButton{
-    align-items:center;
-    justify-content:center;
-    height:110px;
-    text-align:center;
-    background-color:lightgray;
-    color:black;
-    width:inherit;
-}
-    /*Course List */
-.CreateButton:hover {
-    background-color: dimgray;
+/*Course List */
+.CreateButton {
+    align-items: center;
+    justify-content: center;
+    height: 110px;
+    text-align: center;
+    background-color: lightgray;
     color: black;
-    text-decoration: none;
+    width: inherit;
 }
-    /*Student Activity list*/
+    /*Course List */
+    .CreateButton:hover {
+        background-color: dimgray;
+        color: black;
+        text-decoration: none;
+    }
+/*Student Activity list*/
 #StudentActivityList {
-    margin:0px;
     background: #b6ff00;
     border-bottom-left-radius: 20em;
-
 }
-#StudentActivityListTable {
-    margin:0px;
+
 }
 
 
@@ -150,15 +144,37 @@ textarea {
     background-color: #358fdc;
 }
 
-    .course-module h3{
-        margin-top:20px;
-        padding:0px;
+    .course-module h3 {
+        margin-top: 20px;
+        padding: 0px;
     }
 
     .course-module p {
         margin-top: 15px;
     }
 
-.module-accordion-heading:hover{
+.module-accordion-heading:hover {
     cursor: pointer;
+}
+
+.panel-body{
+    transition: all ease-in 0.2s;
+}
+
+.panel-body:hover {
+    background-color: #b6ff00 !important;
+}
+
+
+/*Here Goes Some CSS For the Student Schedule*/
+.ScheduleCell {
+    background-color: #e3e3e4;
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #36454F;
+    margin-right: 8px;
+    margin-top: 2px;
 }
