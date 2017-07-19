@@ -13,7 +13,7 @@
                 <h4 class="modal-title" id="exampleModalLabel">Create Course</h4>
             </div>
             @*The form for the create action*@
-            <form method="post" action="@Url.Action("CreateCourse", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#CList">
+            <form method="post" action="@Url.Action("CreateCourse", "Teacher", Model)" class="form-group" data-lms-ajax="false" data-lms-target="#CList">
                 @Html.AntiForgeryToken()
                 <div class="modal-body">
 
