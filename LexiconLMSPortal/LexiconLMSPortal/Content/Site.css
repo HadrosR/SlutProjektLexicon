@@ -165,6 +165,9 @@ textarea {
     background-color: #b6ff00 !important;
 }
 
+#alertBox{
+    display:none;
+}
 
 /*Here Goes Some CSS For the Student Schedule*/
 .ScheduleCell {
@@ -177,4 +180,9 @@ textarea {
     border-color: #36454F;
     margin-right: 8px;
     margin-top: 2px;
+}
+/* "Fixed" the page from jumping when the modal opens*/
+.modal-open {
+    overflow-y: hidden !important;
+    margin-right: 0px !important;
 }

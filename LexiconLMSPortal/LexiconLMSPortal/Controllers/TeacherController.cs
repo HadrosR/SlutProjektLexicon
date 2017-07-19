@@ -572,9 +572,10 @@ namespace LexiconLMSPortal.Controllers
                 }
                 userManager.AddToRole(user.Id, "Student");
                 course.Students.Add(user);
-
+                TempData["Message"] = "Succsessfully added a student";
                 context.SaveChanges();
             }
+
             return RedirectToAction("_StudentListPartial", new { id = course.Id });
         }
 

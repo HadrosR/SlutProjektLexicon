@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+﻿$(document).ready(function () {
 
     var openModal;
 
@@ -39,6 +39,10 @@
 
     // Add Ajax functionality to form
     $("body").on("submit", "form[data-lms-ajax='true']", ajaxFormSubmit);
+
+    $(document).ajaxSuccess(function (evt, post, settings) {
+        $('#alertBox').slideDown().delay(2000).slideUp();
+    });
 
     // Ajax Links
     $("body").on("click", ".ajax-link", function (e) {
