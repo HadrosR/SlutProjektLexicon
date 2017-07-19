@@ -16,11 +16,11 @@ namespace LexiconLMSPortal.Models.ViewModels
         public string Description { get; set; }
         [Required]
         [Display(Name = "Start Date")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime StartDate { get; set; }
         [Required]
         [Display(Name = "End Date")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
     }
 }
