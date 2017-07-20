@@ -4,40 +4,40 @@
 <div id="CList">
     @foreach (var item in Model)
     {
-        //Make it so if you click it it will take you to that course view
-        <a href="@Url.Action("Courses","Teacher", new { @id = item.Id})" class="TeacherLink">
-            @*Makes it so that the Description is displayed as a tooltop on the side*@
-            <div class="panel panel-default">
+        @*Makes it so that the Description is displayed as a tooltop on the side*@
+        <div class="panel panel-default">
+            <div class="panel-heading" tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative;">
+                @*Make it so if you click it it will take you to that course view*@
+                <a href="@Url.Action("Course","Teacher", new { id = item.Id})" class="TeacherLink"></a>
+                <div class="row">
+                    <div class="col-xs-4">
 
-                <div class="panel-heading" tooltip="@Html.DisplayFor(modelItem => item.Description)">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <h2 style="margin:20px 0;">
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </h2>
+                        <h2 style="margin:20px 0;">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </h2>
+                    </div>
+                    @*Prints all the start and end date to the center of the "button"*@
+                    <div class="col-xs-4" style="padding-top:20px">
+                        <div class="text-center">
+                            Starts:
+                            @Html.DisplayFor(modelItem => item.StartDate)
                         </div>
-                        @*Prints all the start and end date to the center of the "button"*@
-                        <div class="col-xs-4" style="padding-top:20px">
-                            <div class="text-center">
-                                Starts:
-                                @Html.DisplayFor(modelItem => item.StartDate)
-                            </div>
-                            <div class="text-center">
-                                Ends:
-                                @Html.DisplayFor(modelItem => item.EndDate)
-                            </div>
+                        <div class="text-center">
+                            Ends:
+                            @Html.DisplayFor(modelItem => item.EndDate)
                         </div>
-                        @*2 icons for edit and delete*@
-                        <div class="text-right col-xs-4">
-                            <div class="col-xs-12" style="padding-top:27px;">
-                                <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil edit-cog"></span></a>
-                                <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteCourse", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteCourseModal"><span class="glyphicon glyphicon-remove-circle edit-cog"></span></a>
-                            </div>
+                    </div>
+                    @*2 icons for edit and delete*@
+                    <div class="text-right col-xs-4">
+                        <div class="col-xs-12" style="padding-top:27px;">
+                            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil edit-cog"></span></a>
+                            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteCourse", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteCourseModal"><span class="glyphicon glyphicon-remove-circle edit-cog"></span></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
+        
     }
 </div>
   

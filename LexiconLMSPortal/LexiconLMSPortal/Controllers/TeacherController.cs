@@ -292,7 +292,7 @@ namespace LexiconLMSPortal.Controllers
                 };
                 var newlyAdded = context.Courses.Add(coursetemp);
                 context.SaveChanges();
-                return RedirectToAction("Courses", new { id = newlyAdded.Id });
+                return RedirectToAction("Course", new { id = newlyAdded.Id });
             }
 
             return View("CourseListView");
@@ -398,9 +398,9 @@ namespace LexiconLMSPortal.Controllers
             base.Dispose(disposing);
         }
 
-        // GET: Teacher/Courses/id
+        // GET: Teacher/Course/id
         [Authorize(Roles = "Teacher")]
-        public ActionResult Courses(int? id)
+        public ActionResult Course(int? id)
         {
             // Get the specifik course
             var course = context.Courses.FirstOrDefault(n => n.Id == id);
