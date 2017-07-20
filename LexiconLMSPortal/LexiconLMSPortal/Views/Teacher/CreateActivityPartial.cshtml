@@ -32,7 +32,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control datetime-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control datetime-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -58,3 +58,16 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $(".datetime-picker").datetimepicker({
+            controlType: 'select',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-10:+10",
+            dateFormat: 'yy-mm-dd',
+            TimeFormat: 'HH:mm'
+        });
+
+    });
+</script>
