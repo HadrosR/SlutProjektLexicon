@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+﻿$(document).ready(function () {
 
     var openModal;
 
@@ -27,13 +27,17 @@
             url: $form.attr("action"),
             type: $form.attr("method"),
             data: $form.serialize(),
+
         };
+
+        $(document).ajaxSuccess(function () {
+            $('#alertBox').slideDown().delay(2000).slideUp();
+        });
 
         $.ajax(options).done(function (data) {
             openModal.modal('hide');
             var $target = $($form.attr("data-lms-target"));
-            $target.replaceWith(data);
-            
+            $target.replaceWith(data);            
         });
     };
 
@@ -48,7 +52,7 @@
 
         var options = {
             url: link.attr("href"),
-            type: "GET"
+            type: "GET",
         }
 
         $.ajax(options).done(function (data) {
@@ -106,5 +110,4 @@
             openModal.modal('show');
         });
     });
-
 });
