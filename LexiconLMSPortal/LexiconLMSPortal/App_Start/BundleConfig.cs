@@ -9,7 +9,7 @@ namespace LexiconLMSPortal
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/LexiconLMS").Include(
-                "~/Scripts/Scripts.js"));
+                        "~/Scripts/Scripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
@@ -30,6 +30,7 @@ namespace LexiconLMSPortal
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/themes/base/jquery-ui.css",
+                      "~/Content/jquery-ui-timepicker-addon",
                       "~/Content/site.css"));
         }
     }
