@@ -1,0 +1,10 @@
+﻿@model IEnumerable<LexiconLMSPortal.Models.ViewModels._StudentListPartial>
+
+@{
+    ViewBag.Title = "FullStudentList";
+}
+
+<div>
+    <h2>Student List</h2>
+    @Html.Action("_FullStudentListPartial", "Teacher")
+</div>

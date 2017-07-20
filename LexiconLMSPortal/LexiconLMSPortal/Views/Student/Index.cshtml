@@ -1,0 +1,13 @@
+﻿@model LexiconLMSPortal.Models.ViewModels.ActivityViewModel
+@{
+    ViewBag.Title = "Student Index";
+}
+
+<div class="row">
+    <div class="col-xs-9">
+        @Html.Action("Schedule", "Student")
+    </div>
+    <div id="SList" class="col-xs-3">
+        @Html.Action("_StudentListPartial", "Student")
+    </div>
+</div>

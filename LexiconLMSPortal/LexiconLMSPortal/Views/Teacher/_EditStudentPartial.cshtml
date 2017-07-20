@@ -3,10 +3,17 @@
 <div id="EditStudentModal" class="modal fade in" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
-                <div id="modal-content">
-                    <form method="post" action="@Url.Action("EditStudent", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#StudentListPartial">
-                        @Html.AntiForgeryToken()
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Edit student</h4>
+            </div>
+
+            <form method="post" action="@Url.Action("EditStudent", "Teacher", Model)" class="form-group" data-lms-ajax="true" data-lms-target="#StudentListPartial">
+                @Html.AntiForgeryToken()
+
+                <div class="modal-body">
+                    <div id="modal-content">
 
                         <div class="form-horizontal">
                             <hr />
@@ -46,16 +53,20 @@
                             @Html.HiddenFor(model => model.CourseModel_Id, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.HiddenFor(model => model.Id)
 
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Save" class="btn btn-default" />
-                                </div>
-                            </div>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
-            </div>
+
+                <div class="modal-footer">
+                    <div class="form-actions no-color">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </form>
+
         </div>
     </div>
 </div>
-

@@ -1,4 +1,5 @@
-﻿using LexiconLMSPortal.Models.Identity;
+﻿using LexiconLMSPortal.Models.Classes;
+using LexiconLMSPortal.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,12 +8,22 @@ using System.Web;
 
 namespace LexiconLMSPortal.Models.ViewModels
 {
+    public class _StudentListPartialContainer
+    {
+        public int CourseId { get; set; }
+        public List<_StudentListPartial> Students { get; set; }
+    }
+
     public class _StudentListPartial
     {
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Display(Name = "Students:")]
+        [Display(Name ="Email")]
+        public string EMail { get; set; }
+        [Display(Name ="Course")]
+        public CourseModels CourseId { get; set; }
+        [Display(Name = "Students")]
         public string FullName { get { return FirstName + " " + LastName; } }
 
         //public virtual ICollection<ApplicationUser> Course { get; set; }

@@ -1,0 +1,14 @@
+﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewModel
+
+<div>
+    @foreach (var item in Model.Activities)
+    {
+        <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => item.Description)">
+            <div class="row">
+                <div class="col-xs-4"><p>@Html.DisplayFor(modelItem => item.Name)</p></div>
+                <div class="col-xs-4">@Html.DisplayFor(modelItem => item.StartDate)</div>
+                <div class="col-xs-4">@Html.DisplayFor(modelItem => item.EndDate)</div>
+            </div>
+        </div>
+    }
+</div>
