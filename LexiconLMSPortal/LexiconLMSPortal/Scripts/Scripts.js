@@ -30,8 +30,10 @@
 
         };
 
-        $(document).ajaxSuccess(function () {
-            $('#alertBox').slideDown().delay(2000).slideUp();
+        $('body').on('click', '#sendButton', function () { 
+            $(document).ajaxSuccess(function () {
+                $('#alertBox').slideDown().delay(2000).slideUp();
+            })
         });
 
         $.ajax(options).done(function (data) {

@@ -182,8 +182,13 @@ textarea {
     margin-top: 2px;
 }
 
-/* "Fixed" the page from jumping when the modal opens*/
+/* Fixed* the page from jumping when the modal opens*/
 .modal-open {
     overflow-y: hidden !important;
     margin-right: 0px !important;
 }
+
+
+
+
+/* *The background does not move but the nav-bar still do  */
