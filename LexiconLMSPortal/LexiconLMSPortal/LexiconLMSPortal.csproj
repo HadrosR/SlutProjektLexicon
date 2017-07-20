@@ -234,6 +234,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\logo-lexicon%402x.gif" />
+    <Content Include="Content\images\logo-lexicon-small%402x.gif" />
+    <Content Include="Content\images\logo-lexicon-small.gif" />
     <Content Include="Content\jquery-ui-timepicker-addon.css" />
     <Content Include="Content\jquery-ui-timepicker-addon.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
