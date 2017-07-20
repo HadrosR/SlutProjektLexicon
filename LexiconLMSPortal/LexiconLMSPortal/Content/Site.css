@@ -155,6 +155,8 @@ textarea {
 }
 
 
+
+
 .course-module {
     color: white;
     border: 1px solid #2a6fa8;
@@ -174,6 +176,11 @@ textarea {
 
 .module-accordion-heading:hover {
     cursor: pointer;
+}
+
+
+#alertBox{
+    display:none;
 }
 
 /*Here Goes Some CSS For the Student Schedule*/
@@ -225,3 +232,15 @@ textarea {
     background-color: white;
     box-sizing: border-box;
 }
+
+
+/* Fixed* the page from jumping when the modal opens*/
+.modal-open {
+    overflow-y: hidden !important;
+    margin-right: 0px !important;
+}
+
+
+
+
+/* *The background does not move but the nav-bar still do  */
