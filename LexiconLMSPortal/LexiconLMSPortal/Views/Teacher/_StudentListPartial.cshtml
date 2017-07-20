@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div style="float:left; font-size: 20px;">Students</div>
-            <div style="text-align:right;"><a class="btn btn-default" href="#TheModal" role="button" id="modalbtn" data-toggle="modal" data-url="@Url.Action("CreateStudent",new { id = Model.CourseId})"><span class="glyphicon glyphicon-plus"></span> Add</a></div>
+            <div style="text-align:right;"><a class="btn btn-default" href="#TheModal" role="button" id="modalbtn" data-toggle="modal" data-url="@Url.Action("CreateStudent",new { id = Model.CourseId})"><span class="glyphicon glyphicon-plus-sign"></span> Student</a></div>
         </div>
         <ul class="list-group">
             @foreach (var item in Model.Students)
@@ -14,8 +14,8 @@
                 <li class="list-group-item">
                     <div style="float:left;">@Html.DisplayFor(modelItem => item.FullName)</div>
                     <div style="text-align:right">
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                     </div>
                 </li>
             }

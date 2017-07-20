@@ -2,16 +2,27 @@
 
     var openModal;
 
-    // Collapse Module Accordion
-    $("body").on("click", ".module-accordion-heading", function (e) {
-        var collapsed = $(this).nextUntil(".module-accordion-link");
-        collapsed.collapse({
-            'parent': "#module-accordion",
-            "toggle": false
-        });
-        collapsed.collapse('toggle');
+    $('body').on('show.bs.collapse', '.panel-collapse', function (e){
 
-    });
+        var a = $(e.currentTarget).parent().find(".glyphicon-menu-down").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+    })
+
+    $('body').on('hide.bs.collapse', '.panel-collapse', function (e) {
+
+        var a = $(e.currentTarget).parent().find(".glyphicon-menu-up").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+        console.log(a);
+    })
+
+    // Collapse Module Accordion ALTERNATIVE
+    //$("body").on("click", ".module-accordion-heading", function (e) {
+    //    var collapsed = $(this).nextUntil(".module-accordion-link");
+    //    collapsed.collapse({
+    //        'parent': "#module-accordion",
+    //        "toggle": false
+    //    }).height('auto');
+    //    collapsed.collapse('toggle');
+
+    //});
 
     // Ajax Request
     var ajaxFormSubmit = function (e) {

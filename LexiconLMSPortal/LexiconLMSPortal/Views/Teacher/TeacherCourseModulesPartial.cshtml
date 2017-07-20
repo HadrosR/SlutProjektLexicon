@@ -6,7 +6,8 @@
         @foreach (var item in Model.Modules)
         {
             <div class="panel panel-default">
-                <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading" + moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" style="height:100%">
+                <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading" + moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative">
+                    <a class="ModuleCollapse" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)"></a>
                     <div class="row">
                         <div class="col-xs-4">
                             <h4 class="panel-title">
@@ -16,9 +17,10 @@
                             </h4>
                         </div>
                         <div class="col-xs-4"><span class="glyphicon glyphicon-calendar"></span> @Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
-                        <div class="col-xs-4" style="text-align:right;">
-                            <a class="ajax-link-edit" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-cog"></span></a>
-                            <a class="ajax-link-remove" data-target="#DeleteModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteModule", id = item.Id })"><span class="glyphicon glyphicon-remove-circle edit-cog"></span></a>
+                        <div class="col-xs-4" style="text-align:right; margin-right:0; padding-right:2px;">
+                            <a class="ajax-link-edit" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+                            <a class="ajax-link-remove" data-target="#DeleteModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteModule", id = item.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                            <span style="border-left: solid 1px gray; padding:8px; margin-left:5px;" class="glyphicon glyphicon-menu-down"></span>
                         </div>
                     </div>
                 </div>
@@ -28,7 +30,7 @@
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
                     <div style="padding:15px;">
                         <div style="padding-bottom:10px;">
-                            <div style="float:right"><a class="ajax-link btn btn-default" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus"></span> Create</a></div>
+                            <div style="float:right"><a class="ajax-link btn btn-default" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus-sign"></span> Activity</a></div>
                             <div style="font-size:18px; padding-top:10px;">Activities</div>
                         </div>
                             @Html.Action("TeacherCourseActivitiesPartial", "Teacher", new { id = item.Id })
