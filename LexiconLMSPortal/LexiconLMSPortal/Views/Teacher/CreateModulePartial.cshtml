@@ -32,7 +32,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { value = Model.StartDate, @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { value = Model.EndDate, @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
