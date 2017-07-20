@@ -27,22 +27,22 @@
             url: $form.attr("action"),
             type: $form.attr("method"),
             data: $form.serialize(),
+
         };
+
+        $(document).ajaxSuccess(function () {
+            $('#alertBox').slideDown().delay(2000).slideUp();
+        });
 
         $.ajax(options).done(function (data) {
             openModal.modal('hide');
             var $target = $($form.attr("data-lms-target"));
-            $target.replaceWith(data);
-            
+            $target.replaceWith(data);            
         });
     };
 
     // Add Ajax functionality to form
     $("body").on("submit", "form[data-lms-ajax='true']", ajaxFormSubmit);
-
-    $(document).ajaxSuccess(function (evt, post, settings) {
-        $('#alertBox').slideDown().delay(2000).slideUp();
-    });
 
     // Ajax Links
     $("body").on("click", ".ajax-link", function (e) {
@@ -52,7 +52,7 @@
 
         var options = {
             url: link.attr("href"),
-            type: "GET"
+            type: "GET",
         }
 
         $.ajax(options).done(function (data) {
@@ -110,5 +110,4 @@
             openModal.modal('show');
         });
     });
-
 });

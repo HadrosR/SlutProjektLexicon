@@ -181,6 +181,7 @@ textarea {
     margin-right: 8px;
     margin-top: 2px;
 }
+
 /* "Fixed" the page from jumping when the modal opens*/
 .modal-open {
     overflow-y: hidden !important;
