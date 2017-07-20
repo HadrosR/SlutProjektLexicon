@@ -17,7 +17,7 @@
                                 </a>
                             </h4>
                         </div>
-                        <div class="col-xs-4">@Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
+                        <div class="col-xs-4"><span class="glyphicon glyphicon-calendar"></span> @Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
                         <div class="col-xs-4" style="text-align:right;">
                             <a class="ajax-link" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus edit-cog" ></span></a>
                             <a class="ajax-link-edit" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-cog"></span></a>

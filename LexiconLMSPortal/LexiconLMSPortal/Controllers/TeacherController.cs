@@ -276,7 +276,7 @@ namespace LexiconLMSPortal.Controllers
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CreateCourseViewModel course)
+        public ActionResult CreateCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseViewModel course)
         {
             if (ModelState.IsValid)
             {
@@ -290,9 +290,9 @@ namespace LexiconLMSPortal.Controllers
                     Students = new List<ApplicationUser>()
 
                 };
-                context.Courses.Add(coursetemp);
+                var newlyAdded = context.Courses.Add(coursetemp);
                 context.SaveChanges();
-                return RedirectToAction("CourseListView");
+                return RedirectToAction("Courses", new { id = newlyAdded.Id });
             }
 
             return View("CourseListView");
@@ -306,7 +306,7 @@ namespace LexiconLMSPortal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CourseModels course = context.Courses.Find(id);
-            CreateCourseViewModel coursetemp = new CreateCourseViewModel
+            CourseViewModel coursetemp = new CourseViewModel
             {
                 Id = course.Id,
                 Description = course.Description,
@@ -325,7 +325,7 @@ namespace LexiconLMSPortal.Controllers
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CreateCourseViewModel course)
+        public ActionResult EditCourse([Bind(Include = "Id,Name,Description,StartDate,EndDate")] CourseViewModel course)
         {
             if (ModelState.IsValid)
             {
@@ -348,7 +348,7 @@ namespace LexiconLMSPortal.Controllers
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteCourse(int? id)
         {
-            CreateCourseViewModel tempcourse = new CreateCourseViewModel();
+            CourseViewModel tempcourse = new CourseViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -359,7 +359,7 @@ namespace LexiconLMSPortal.Controllers
                 return HttpNotFound();
             }
 
-            tempcourse = new CreateCourseViewModel
+            tempcourse = new CourseViewModel
             {
                 Name = course.Name,
                 Description = course.Description,
@@ -373,7 +373,7 @@ namespace LexiconLMSPortal.Controllers
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteCourse(CreateCourseViewModel course)
+        public ActionResult DeleteCourse(CourseViewModel course)
         {
             if (course == null)
             {

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LexiconLMSPortal.Models.Identity;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,21 +14,18 @@ namespace LexiconLMSPortal.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if(User.IsInRole("Teacher"))
+            {
+                return RedirectToRoute(new { controller = "Teacher", action = "Index" });
+            }
+
+            else if (User.IsInRole("Student"))
+            {
+                return RedirectToRoute(new { controller = "Student", action = "Index" });
+            }
+
+            return RedirectToRoute(new { controller = "Account", action = "LogIn" });
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

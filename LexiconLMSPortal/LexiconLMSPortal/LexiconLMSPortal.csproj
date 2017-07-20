@@ -213,7 +213,6 @@
     <Compile Include="Models\Identity\IdentityModels.cs" />
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
-    <Compile Include="Models\ViewModels\CreateCourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\EditModuleViewModel.cs" />
