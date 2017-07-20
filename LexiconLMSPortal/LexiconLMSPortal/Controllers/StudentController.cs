@@ -164,12 +164,23 @@ namespace LexiconLMSPortal.Controllers
 
             //Selects all activities for the students cours
             var activity = course.Modules.SelectMany(l => l.Activities).ToList();
+
+            List<ScheduleActivityViewModel> savm = new List<ScheduleActivityViewModel>();
+
             DateTime[] afk = new DateTime[activity.Count];
 
             //Adds them to an array
             int x = 0;
             foreach (var s in activity)
             {
+                savm.Add(new ScheduleActivityViewModel()
+                {
+                    Name = s.Name,
+                    Description = s.Description,
+                    StartDate = s.StartDate,
+                    EndDate = s.EndDate
+                });
+
                 afk[x] = s.StartDate;
                 x++;
             }
@@ -177,7 +188,7 @@ namespace LexiconLMSPortal.Controllers
             ScheduleViewModel schedule = new ScheduleViewModel();
 
             //Loops through the array of activities and puts them in seperate model list for there specific day
-            for (int i = 0; i < activity.Count; i++)
+            for (int i = 0; i < savm.Count; i++)
             {
                 DateTime activityDate = afk[i];
 
@@ -190,23 +201,23 @@ namespace LexiconLMSPortal.Controllers
                 {
                     if (afk[i].DayOfWeek == DayOfWeek.Monday)
                     {
-                            schedule.Monday.Add(activity.ElementAt(i));
+                            schedule.Monday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
                     {
-                            schedule.Tuesday.Add(activity.ElementAt(i));
+                            schedule.Tuesday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
                     {
-                            schedule.Wednesday.Add(activity.ElementAt(i));
+                            schedule.Wednesday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
                     {
-                            schedule.Thursday.Add(activity.ElementAt(i));
+                            schedule.Thursday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Friday)
                     {
-                            schedule.Friday.Add(activity.ElementAt(i));
+                            schedule.Friday.Add(savm.ElementAt(i));
                     }
                 }
             }
