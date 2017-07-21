@@ -21,7 +21,6 @@ Som lärare skall jag kunna se information om alla existerande aktiviteter i en 
 
 Som lärare skall jag kunna se information om alla existerande moduler i en kurs.
 
-TO DO
 Som lärare skall jag kunna lägga till en modul till en existerande kurs.
 
 Som lärare skall jag kunna lägga till en aktivitet till en existerande modul.
@@ -40,7 +39,8 @@ Som elev skall jag kunna se information om alla moduler i den kurs jag är med i
 
 Som elev skall jag kunna se information om alla aktiviteter i en modul jag skall genomföra.
 
-DOKUMENT (I FRAMTIDEN ?):
+
+TO DO DOKUMENT:
 
 Som lärare skall jag kunna ladda upp en fil till en existerande kurs.
 
@@ -68,7 +68,7 @@ Som elev skall jag kunna ladda ned en fil från en existerande aktivitet.
 
 Som elev skall jag kunna se existerande filer kopplade till en existerande kurs/modul/aktivitet.
 
-INLÄMNINGSUPPGIFTSSYTEM (SENARE):
+INLÄMNINGSUPPGIFTSSYTEM:
 
 Som elev skall jag kunna se befintliga övningsuppgifter för en modul/aktivitet.
 
