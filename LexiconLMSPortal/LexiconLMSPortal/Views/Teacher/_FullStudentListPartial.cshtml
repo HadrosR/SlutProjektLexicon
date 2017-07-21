@@ -4,17 +4,18 @@
     Layout = "";
 }
 
-@using (Html.BeginForm())
-{
-    <div class="FullListSearch">
-        <div>
-            <button type="submit">Filter</button>
-            @Html.TextBox("search")     
-        </div>
-        
-    </div>
-}
+
 <div id="FullStudentList">
+    @using (Html.BeginForm())
+    {
+        <div class="FullListSearch">
+            <div>
+                <button type="submit">Filter</button>
+                @Html.TextBox("search")
+            </div>
+
+        </div>
+    }
     <table class="table">
         <tr>
     <th>
