@@ -82,12 +82,74 @@ textarea {
 }
 /*THIES STYLES ARE FOR THE LOG IN PAGE*/
 
+/*Stoppar rounded corners*/
+.StopRoundedBorders{
+    border-radius:0px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+}
+/*Bootstrap Menu*/
+.navbar-inverse .navbar-brand {
+    color: #8eff96;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #8eff96;
+}
+.navbar-user {
+    color: #8eff96 !important;
+}
+/*Bootstrap Menu*/
+
+
+/*TeacherList*/
+.TeacherList {
+    border-style: solid;
+    padding: 5px;
+    border-width: 1px;
+    border-radius: 0px;
+    border-color: #696969;
+}
+.TeacherListTopButton {
+    text-align:right;
+    border-radius:0px;
+    padding-bottom:5px;
+}
+.TeacherListText {
+    float: left;
+    font-size: 20px;
+    border-radius: 0px;
+}
+.TeacherListMainBody {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-color: #262626;
+}
+
+
+.TeacherListBottomLeft {
+    float: left;
+    
+}
+.TeacherListBottomRight {
+    text-align: right;
+}
+
+/*TeacherList*/
+
+
 /*teacher index page*/
 .TeacherIndexBlock {
     background-color: white;
     border: 0px;
     border-radius: 0px;
-    height:100%;
+    height: 100%;
 }
 .IndexCreateCourse {
     background-color: #6e3694;
@@ -121,11 +183,10 @@ textarea {
 .TeacherCourseListDateED{
     border-width:1px;
     border-style:solid;
-    border-color:#ddd8d8;
+    border-color:#262626;
     display:flex;
     align-items:center;
     vertical-align:central;
-    /*height:inherit;*/
 }
 
 .TeacherLink {
