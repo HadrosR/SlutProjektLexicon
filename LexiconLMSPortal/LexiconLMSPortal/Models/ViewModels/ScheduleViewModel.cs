@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LexiconLMSPortal.Models.Classes;
+using System.ComponentModel.DataAnnotations;
 
 namespace LexiconLMSPortal.Models.ViewModels
 {

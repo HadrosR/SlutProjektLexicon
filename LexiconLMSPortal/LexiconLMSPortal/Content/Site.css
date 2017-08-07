@@ -206,7 +206,7 @@ textarea {
     .TeacherLink:hover {
         opacity: 0.2;
         background-color: #888888;
-        border-color:black;
+        border-color: black;
     }
 
 .TeacherLinkIcon {
@@ -270,33 +270,49 @@ textarea {
 }
 
 
-#alertBox{
-    display:none;
+#alertBox {
+    display: none;
 }
 
 /*Here Goes Some CSS For the Student Schedule*/
-.ScheduleCell {
-    background-color: #e3e3e4;
-    height: 130px;
+
+.schedulecol {
+    padding: 0px;
     text-align: center;
+    font-weight: bold;
+}
+
+.schedulecol:not(:last-child) {
+        border-right: 1px solid #858484;
+}
+
+.ScheduleCell {
+    background-color: white;
+    min-height: 90px;
+    text-align: center;
+    font-weight: normal;
+    font-size: small;
     border-style: solid;
     border-width: 1px;
     border-color: #36454F;
-    margin-right: 8px;
+    margin-right: 4px;
+    margin-left: 4px;
     margin-top: 2px;
+    padding-top: 15%;
+    padding-right: 4px;
 }
 
 .teacher-activity:hover {
     border-color: #bababa;
 }
 
-.teacher-activity>div {
+.teacher-activity > div {
     background-color: #f5f5f5;
 }
 
-.teacher-activity>div:hover {
-    background-color: #dddddd;
-}
+    .teacher-activity > div:hover {
+        background-color: #dddddd;
+    }
 
 /*Collapse height fix*/
 .collapse.in {
@@ -329,8 +345,4 @@ textarea {
     overflow-y: hidden !important;
     margin-right: 0px !important;
 }
-
-
-
-
 /* *The background does not move but the nav-bar still do  */
