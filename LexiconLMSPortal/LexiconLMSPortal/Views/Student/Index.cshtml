@@ -3,11 +3,11 @@
     ViewBag.Title = "Student Index";
 }
 
-<div class="row">
+<div class="row" style="margin-top:20px;">
     <div class="col-xs-9">
         @Html.Action("Schedule", "Student")
     </div>
-    <div id="SList" class="col-xs-3">
+    <div id="SList" class="col-sm-pull-1 col-xs-4 col-sm-3">
         @Html.Action("_StudentListPartial", "Student")
     </div>
 </div>
