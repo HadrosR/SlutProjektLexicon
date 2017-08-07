@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LexiconLMSPortal.Models.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -38,6 +39,8 @@ namespace LexiconLMSPortal.Models.ViewModels
 
         /* Insert activity list here */
         public List<ActivityViewModel> Activities { get; set; }
+
+        public List<DocumentModels> Documents { get; set; }
 
     }
 }
