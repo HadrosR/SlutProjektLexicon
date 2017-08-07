@@ -157,7 +157,6 @@ namespace LexiconLMSPortal.Controllers
 
             // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
             DateTime datevalue = new DateTime(2017, 10, 09);
-
             DayOfWeek firstDay = DayOfWeek.Monday;
             CalendarWeekRule rule;
             rule = CalendarWeekRule.FirstFourDayWeek;
@@ -179,6 +178,7 @@ namespace LexiconLMSPortal.Controllers
                     Description = s.Description,
                     StartDate = s.StartDate,
                     EndDate = s.EndDate
+                    
                 });
 
                 afk[x] = s.StartDate;
@@ -191,33 +191,37 @@ namespace LexiconLMSPortal.Controllers
             for (int i = 0; i < savm.Count; i++)
             {
                 DateTime activityDate = afk[i];
-
                 //Gets what week it is "now"
                 int weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay);
                 //Gets the week of the activity
-                int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);                
-
+                int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);
+                ViewBag.Week = activityWeekNbr;
                 if (activityWeekNbr == weekNbr)
                 {
                     if (afk[i].DayOfWeek == DayOfWeek.Monday)
                     {
-                            schedule.Monday.Add(savm.ElementAt(i));
+                        ViewBag.MondayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Monday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
                     {
-                            schedule.Tuesday.Add(savm.ElementAt(i));
+                        ViewBag.TuedayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Tuesday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
                     {
-                            schedule.Wednesday.Add(savm.ElementAt(i));
+                        ViewBag.WednesdayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Wednesday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
                     {
-                            schedule.Thursday.Add(savm.ElementAt(i));
+                        ViewBag.ThursDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Thursday.Add(savm.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Friday)
                     {
-                            schedule.Friday.Add(savm.ElementAt(i));
+                        ViewBag.FridayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Friday.Add(savm.ElementAt(i));
                     }
                 }
             }
