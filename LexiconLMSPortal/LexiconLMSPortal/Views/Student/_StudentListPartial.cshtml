@@ -2,25 +2,19 @@
 @{
     Layout = "";
 }
+
 <div id="StudentListPartial">
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EMail)
-            </td>
-        </tr>
-    }
-
-    </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div style="font-size: 20px; display:block;">Students</div>
+        </div>
+        <ul class="list-group">
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item">
+                    <div style="">@Html.DisplayFor(modelItem => item.FullName)</div>
+                </li>
+            }
+        </ul>
+    </div>
 </div>
