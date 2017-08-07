@@ -1,0 +1,41 @@
+﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewViewModel
+
+<div id="StudentCourseModulesPartial">
+    <div class="panel-group" id="module-accordion" role="tablist" aria-multiselectable="true">
+        @{int moduleid = 0; }
+        @foreach (var item in Model.Modules)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading module-accordion-heading" role="tab" id="@Html.Raw("heading" + moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative">
+                    <a class="ModuleCollapse" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)"></a>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <h4 class="panel-title">
+                                <a class="module-accordion-link" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)">
+                                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="col-xs-4"><span class="glyphicon glyphicon-calendar"></span> @Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
+                        <div class="col-xs-4" style="text-align:right; margin-right:0; padding-right:2px;">
+                            <span style="border-left: solid 1px gray; padding:8px; margin-left:5px;" class="glyphicon glyphicon-menu-down"></span>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
+                    <div style="padding:15px;">
+                        <div style="padding-bottom:10px;">
+                            <div style="font-size:18px; padding-top:10px;">Activities</div>
+                        </div>
+                            @Html.Action("_StudentCourseActivitiesPartial", "Student", new { id = item.Id })
+                    </div>
+                </div>
+            </div>
+            moduleid++;
+
+        }
+    </div>
+</div>
