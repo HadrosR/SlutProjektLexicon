@@ -5,10 +5,10 @@
 @*Creates the course list with a partialview*@
 <div class="row" style="margin-top:20px;">
     <div  class="col-xs-7">
-        <div class="panel panel-default">
+        <div class="panel-default TeacherIndexBlock">
             <div class="panel-body">
                 <div style="margin-bottom:5px;">
-                    <div style="float:right; margin-top:5px;"><a class="ajax-link btn btn-default" href="@Url.Action("CreateCourse","Teacher")" data-target="#CreateCourse"><span class="glyphicon glyphicon-plus-sign"></span> Course</a></div>
+                    <div style="float:right; margin-top:5px;"><a class="ajax-link btn btn-default IndexCreateCourse" href="@Url.Action("CreateCourse","Teacher")" data-target="#CreateCourse"><span class="glyphicon glyphicon-plus-sign"></span> Course</a></div>
                     <div><h1 style="margin-top:10px;">Courses</h1></div>
                 </div>
                 @Html.Action("CourseListView", "Teacher")
