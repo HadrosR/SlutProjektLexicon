@@ -75,21 +75,42 @@ textarea {
 /*THIES STYLES ARE FOR THE LOG IN PAGE*/
 
 #EmailForm {
-    margin-top: 25%;
+    margin-top: 22.5%;
+}
+.pwd-input{
+    margin-bottom: 5px !important;
+}
+
+.checkbox {
+    padding-top: 0px !important;
+    margin-left: 60.5%;
+}
+
+.bigbox{
+    margin-top: 80px;
+    margin-bottom: 350px;
 }
 
 #loginbtn {
-    margin-left: 9rem;
+    margin-left: 70px;
+    border-radius: 0px !important;
+    background-color: #6e3694;
+    color: white;
 }
-/*THIES STYLES ARE FOR THE LOG IN PAGE*/
 
+#loginbtn:hover {
+    background-color: white;
+    color: forestgreen;
+}
+
+/*THIES STYLES ARE FOR THE LOG IN PAGE*/
 /*Stoppar rounded corners*/
-.StopRoundedBorders{
-    border-radius:0px;
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;
-    border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;
+.StopRoundedBorders {
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 /*Bootstrap Menu*/
 .navbar-inverse .navbar-brand {
@@ -173,8 +194,58 @@ textarea {
     }
 /*teacher index page*/
 
-/*Course List */
 
+/*FullList*/
+
+.FullListSearchBody{
+    /*border-width:1px;
+    border-style:solid;
+    padding:5px;*/
+    float:left;
+    margin-bottom:15px;
+}
+
+.FullListTextField {
+    border-radius:0px;
+    border-color:black;
+    
+}
+
+.ListButtonFullList {
+    border-color: black;
+}
+
+/*FullList*/
+/*Documents*/
+.ListRowDoc {
+    margin-bottom: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    display: flex;
+    background-color: white;
+}
+
+.ListDateEDDoc {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    padding:5px;
+    display: flex;
+    align-items: center;
+    vertical-align: central;
+}
+.ListNameDoc {
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    text-align: justify;
+    padding: 5px;
+    overflow-wrap: break-word;
+    color: white;
+}
+/*Documents*/
+/*Course List */
 
 .ListRow {
     margin-bottom: 20px;
@@ -409,11 +480,12 @@ textarea {
 }
 /* *The background does not move but the nav-bar still do  */
 
+/* Styles for Modal and its buttons*/
 .modal-content {
     border-radius: 0px !important;
 }
 .modal-close-btn {
-    border-color: #262626;
+    border-color: #ccc;
     border-radius: 0px !important;
     background-color: #EA3D03;
     color: white;
@@ -425,7 +497,7 @@ textarea {
 }
 
 .modal-accept-btn {
-    border-color: #262626;
+    border-color: #ccc;
     border-radius: 0px !important;
     background-color: forestgreen;
     color: white;
@@ -437,7 +509,7 @@ textarea {
 }
 
 .modal-delete-btn {
-    border-color: #262626;
+    border-color: #ccc;
     border-radius: 0px !important;
     background-color: #BA141A;
     color: white;
@@ -447,6 +519,7 @@ textarea {
         color: #BA141A;
     }
 
+    /* Document CSS*/
 .document-dropdown {
     background-color: #41ad49;
     color: white;

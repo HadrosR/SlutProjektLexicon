@@ -32,7 +32,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { value = Model.StartDate,@class = "form-control datetime-picker", onkeydown = "return false", onpaste = "return false" } })
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { value=Model.StartDate,@class = "form-control datetime-picker", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
