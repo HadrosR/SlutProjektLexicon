@@ -17,8 +17,9 @@
                             </h4>
                         </div>
                         <div class="col-md-8 ListDateED">
-                            <div class="col-md-6"><span class="glyphicon glyphicon-calendar"></span> @Html.DisplayFor(modelItem => item.StartDate) to @Html.DisplayFor(modelItem => item.EndDate)</div>
-                            <div class="col-md-6" style="text-align:right; margin-right:0; padding-right:2px;">
+                            <div class="col-md-5">@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div>
+                            <div class="col-md-4">@Html.Action("DocumentModuleList", "Document", new { id = item.Id })</div>
+                            <div class="col-md-3" style="text-align:right; margin-right:0; padding-right:2px;">
                                 <a class="ajax-link-edit" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
                                 <a class="ajax-link-remove" data-target="#DeleteModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteModule", id = item.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                                 <span style="border-left: solid 1px gray; padding:8px; margin-left:5px;" class="glyphicon glyphicon-menu-down"></span>
@@ -28,11 +29,6 @@
                 </div>
 
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
-
-                    @Html.Action("DocumentModuleList", "Document", new { id = item.Id})
-
-                    <hr style="margin:15px 0px;" />
-
                     <div style="padding:0px 15px; padding-bottom:15px;">
                         <div style="padding-bottom:12px;">
                             <div style="float:right"><a class="ajax-link btn btn-default ListCreateButton" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus-sign"></span> Activity</a></div>

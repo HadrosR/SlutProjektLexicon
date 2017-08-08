@@ -363,3 +363,39 @@ textarea {
     margin-right: 0px !important;
 }
 /* *The background does not move but the nav-bar still do  */
+
+.document-dropdown {
+    background-color: #41ad49;
+    color: white;
+    border-color: #23902b;
+    border-radius: 0px;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+}
+
+    .document-dropdown:active, .document-dropdown:focus, .document-dropdown:hover {
+        background-color: white;
+        color: #41ad49;
+        border-color: #23902b;
+    }
+
+    .document-dropdown > .badge {
+        color: #41ad49 !important;
+        background-color: white !important;
+    }
+
+    .document-dropdown:hover > .badge {
+        background-color: #41ad49;
+        color: white;
+    }
+
+    .document-dropdown:focus > .badge {
+        background-color: #41ad49;
+        color: white;
+    }
+
+    .document-dropdown:active > .badge {
+        background-color: #41ad49;
+        color: white;
+    }

@@ -10,16 +10,15 @@
                     <div class="row ListRow ">
                         <div class="col-xs-4 ListActivityName">@Html.DisplayFor(modelItem => activity.Name)</div>
                         <div class="col-md-8 ListDateED">
-                            <div class="col-xs-6">@Html.DisplayFor(modelItem => activity.StartDate) <br /> @Html.DisplayFor(modelItem => activity.EndDate)</div>
-                            <div class="col-xs-6" style="text-align:right;">
+                            <div class="col-xs-5">@Html.DisplayFor(modelItem => activity.StartDate) <br /> @Html.DisplayFor(modelItem => activity.EndDate)</div>
+                            <div class="col-xs-4">@Html.Action("DocumentActivityList", "Document", new { id = activity.Id })</div>
+                            <div class="col-xs-3" style="text-align:right;">
                                 <a class="ajax-link" data-target="#EditActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditActivity", id = activity.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
                                 <a class="ajax-link" data-target="#DeleteActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteActivity", id = activity.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                             </div>
                         </div>
+                        
                     </div>
-
-                    @Html.Action("DocumentActivityList", "Document", new { id = activity.Id})
-
                 </div>
             </div>
         }     

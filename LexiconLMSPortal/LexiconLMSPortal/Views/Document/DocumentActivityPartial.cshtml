@@ -2,33 +2,35 @@
 
 <!-- Documents -->
 <div id="@Html.Raw("DocumentActivityPartial" + Model.ActivityId)">
-    <div>
-        <div style="padding-bottom:12px;">
-
+    <div class="dropdown">
+        <button id="dLabel" class="btn btn-default document-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Documents
+            <span class="badge">@Model.Documents.Count</span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="min-width:240px">
+            @foreach (var doc in Model.Documents)
+            {
+                <li>
+                    <div style="margin:5px;">
+                        @if (User.IsInRole("Teacher"))
+                        {
+                            <a style="display:inline; float:right;" href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                        }
+                        <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
+                    </div>
+                </li>
+                <li role="separator" class="divider"></li>
+            }
             @if (User.IsInRole("Teacher"))
             {
-                <div style="float:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentActivity", id = Model.ActivityId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
-            }
-
-            <div style="font-size:16px; padding-top:6px;">Documents</div>
-        </div>
-
-        @foreach (var doc in Model.Documents)
-        {
-
-                <div>
-                    <div style="display:inline-block">
-                        <a target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
+                <li>
+                    <div style="margin:5px;">
+                        <a class="ajax-link" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentActivity", id = Model.ActivityId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Add Document</a>
                     </div>
-                    @if (User.IsInRole("Teacher"))
-                    {
-                        <div style="float:right">
-                            <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = 0 })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                            <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
-                        </div>
-                    }
-                </div>
-
-        }
+                </li>
+            }
+            <li>
+        </ul>
     </div>
 </div>
