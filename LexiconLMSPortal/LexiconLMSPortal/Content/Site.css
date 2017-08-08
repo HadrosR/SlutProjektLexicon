@@ -307,7 +307,8 @@ textarea {
 }
 
 .teacher-activity > div {
-    background-color: #f5f5f5;
+    background-color: white;
+    border-radius:0px;
 }
 
     .teacher-activity > div:hover {
