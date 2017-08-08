@@ -10,11 +10,11 @@
 
 <div class="row">
     <div class="col-xs-8">
-        <div class="panel panel-default">
+        <div class="ListBlock panel-default">
             <div class="panel-body">
                 <div style="font-size:20px; padding-bottom:10px; ">
                     <div style="float:left; padding-top:5px;">Modules</div>
-                    <div style="text-align:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus-sign"></span> Module</a></div>
+                    <div style="text-align:right;"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus-sign"></span> Module</a></div>
                 </div>
                 @Html.Action("TeacherCourseModulesPartial", "Teacher")
             </div>
