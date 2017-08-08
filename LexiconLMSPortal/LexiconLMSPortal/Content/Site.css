@@ -75,21 +75,42 @@ textarea {
 /*THIES STYLES ARE FOR THE LOG IN PAGE*/
 
 #EmailForm {
-    margin-top: 25%;
+    margin-top: 22.5%;
+}
+.pwd-input{
+    margin-bottom: 5px !important;
+}
+
+.checkbox {
+    padding-top: 0px !important;
+    margin-left: 60.5%;
+}
+
+.bigbox{
+    margin-top: 80px;
+    margin-bottom: 350px;
 }
 
 #loginbtn {
-    margin-left: 9rem;
+    margin-left: 64px;
+    border-radius: 0px !important;
+    background-color: #6e3694;
+    color: white;
 }
-/*THIES STYLES ARE FOR THE LOG IN PAGE*/
 
+#loginbtn:hover {
+    background-color: white;
+    color: forestgreen;
+}
+
+/*THIES STYLES ARE FOR THE LOG IN PAGE*/
 /*Stoppar rounded corners*/
-.StopRoundedBorders{
-    border-radius:0px;
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;
-    border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;
+.StopRoundedBorders {
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 /*Bootstrap Menu*/
 .navbar-inverse .navbar-brand {
