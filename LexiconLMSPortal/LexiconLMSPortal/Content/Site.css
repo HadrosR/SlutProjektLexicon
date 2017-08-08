@@ -104,24 +104,24 @@ textarea {
 
 
 /*TeacherList*/
-.TeacherList {
+.UserList {
     border-style: solid;
     padding: 5px;
     border-width: 1px;
     border-radius: 0px;
     border-color: #696969;
 }
-.TeacherListTopButton {
+.UserListTopButton {
     text-align:right;
     border-radius:0px;
     padding-bottom:5px;
 }
-.TeacherListText {
+.UserListText {
     float: left;
     font-size: 20px;
     border-radius: 0px;
 }
-.TeacherListMainBody {
+.UserListMainBody {
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
@@ -133,11 +133,11 @@ textarea {
 }
 
 
-.TeacherListBottomLeft {
+.UserListBottomLeft {
     float: left;
     
 }
-.TeacherListBottomRight {
+.UserListBottomRight {
     text-align: right;
 }
 
