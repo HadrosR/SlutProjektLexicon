@@ -1,19 +1,20 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewModel
 
 <div id="@Html.Raw("StudentCourseActivitiesPartial" + Model.Id)">
-    
-        @foreach (var activity in Model.Activities)
-        {
-            <div class="panel panel-default student-activity">
-                <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
 
-                    <div class="row">
-                        <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.Name)</div>
-                        <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) <br /> @Html.DisplayFor(modelItem => activity.EndDate)</div>
-                        <div class="col-xs-4" style="text-align:right;">
-                        </div>
-                    </div>
+    @foreach (var activity in Model.Activities)
+    {
+    <div class="panel-default student-activity">
+        <div tooltip="@Html.DisplayFor(modelItem => activity.Description)">
+
+            <div class="row ListRow">
+                <div class="col-xs-4 ListActivityName">@Html.DisplayFor(modelItem => activity.Name)</div>
+                <div class="col-xs-8 ListDateED">
+                    <div class="col-xs-6">@Html.DisplayFor(modelItem => activity.StartDate) <br /> @Html.DisplayFor(modelItem => activity.EndDate)</div>
+                    <div class="col-xs-4" style="text-align:right;"></div>
                 </div>
             </div>
-        }     
+        </div>
+    </div>
+    }
 </div>
