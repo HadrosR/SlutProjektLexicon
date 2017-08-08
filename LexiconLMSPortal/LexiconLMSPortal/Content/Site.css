@@ -163,8 +163,59 @@ textarea {
     }
 /*teacher index page*/
 
-/*Course List */
 
+/*FullList*/
+
+.FullListSearchBody{
+    /*border-width:1px;
+    border-style:solid;
+    padding:5px;*/
+    float:left;
+    margin-bottom:15px;
+}
+
+.FullListTextField {
+    border-radius:0px;
+    border-color:black;
+    
+}
+
+.ListButtonFullList {
+    border-color: black;
+}
+
+/*FullList*/
+/*Documents*/
+.ListRowDoc {
+    margin-bottom: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    display: flex;
+    background-color: white;
+}
+
+.ListDateEDDoc {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    padding:5px;
+    display: flex;
+    align-items: center;
+    vertical-align: central;
+}
+
+.ListNameDoc {
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    text-align: justify;
+    padding: 5px;
+    overflow-wrap: break-word;
+    color: white;
+}
+/*Documents*/
+/*Course List */
 
 .ListRow {
     margin-bottom: 20px;

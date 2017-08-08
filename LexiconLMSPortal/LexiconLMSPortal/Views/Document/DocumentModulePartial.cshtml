@@ -15,14 +15,14 @@
 
         @foreach (var doc in Model.Documents)
         {
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div style="display:inline-block">
+            <div class="panel-default">
+                <div class="row ListRowDoc">
+                    <div class="ListNameDoc">
                         <a target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>
                     @if (User.IsInRole("Teacher"))
                     { 
-                        <div style="float:right">
+                        <div class="ListDateEDDoc">
                             <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = 0 })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
                             <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         </div>
