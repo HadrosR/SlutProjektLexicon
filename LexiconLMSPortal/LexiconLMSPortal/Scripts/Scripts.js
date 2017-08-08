@@ -36,7 +36,7 @@
 
         var options;
 
-        if ($form.attr("enctype") == "multipart/form-data")
+        if ($form.attr("enctype") === "multipart/form-data")
         {
             options = {
                 url: this.action,
@@ -49,7 +49,7 @@
         }
         else
         {
-            var options = {
+            options = {
                 url: $form.attr("action"),
                 type: $form.attr("method"),
                 data: $form.serialize(),

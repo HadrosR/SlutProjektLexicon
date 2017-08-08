@@ -217,11 +217,9 @@
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateModuleViewModel.cs" />
-    <Compile Include="Models\ViewModels\DeleteDocumentViewModel.cs" />
     <Compile Include="Models\ViewModels\DocumentCourseViewModel.cs" />
     <Compile Include="Models\ViewModels\DocumentModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditActivityViewModel.cs" />
-    <Compile Include="Models\ViewModels\EditDocumentViewModel.cs" />
     <Compile Include="Models\ViewModels\EditModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditStudentViewModel.cs" />
     <Compile Include="Models\ViewModels\EditTeacherViewModel.cs" />

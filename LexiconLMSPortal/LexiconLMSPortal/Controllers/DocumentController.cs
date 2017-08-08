@@ -27,6 +27,7 @@ namespace LexiconLMSPortal.Controllers
             return File(fileToRetrieve.Contents, "txt");
         }
 
+        [OverrideAuthorization]
         public ActionResult DocumentCourseList(int id)
         {
             var course = db.Courses.FirstOrDefault(c => c.Id == id);
@@ -40,6 +41,7 @@ namespace LexiconLMSPortal.Controllers
             return PartialView("DocumentCoursePartial", dcvm);
         }
 
+        [OverrideAuthorization]
         public ActionResult DocumentModuleList(int id)
         {
             var module = db.Modules.FirstOrDefault(c => c.Id == id);
