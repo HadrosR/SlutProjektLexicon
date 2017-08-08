@@ -15,5 +15,6 @@ namespace LexiconLMSPortal.Models.Classes
 
         public virtual ICollection<Identity.ApplicationUser> Students { get; set; }
         public virtual ICollection<ModuleModels> Modules { get; set; }
+        public virtual ICollection<DocumentModels> Documents { get; set; }
     }
 }

@@ -189,13 +189,29 @@ textarea {
     overflow-wrap:break-word;
     color:white;
 }
-.ListDateED{
-    border-width:1px;
-    border-style:solid;
-    border-color:#262626;
-    display:flex;
-    align-items:center;
-    vertical-align:central;
+.ListModulName {
+    background-color: #EA3D01;
+    padding-top:8px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.ListActivityName {
+    background-color: #0072C5;
+    padding-top: 8px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.ListDateED {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    display: flex;
+    align-items: center;
+    vertical-align: central;
 }
 
 .TeacherLink {

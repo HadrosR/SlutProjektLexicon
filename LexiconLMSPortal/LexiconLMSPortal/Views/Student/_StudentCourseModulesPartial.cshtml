@@ -12,7 +12,7 @@
                         <div class="col-xs-4">
                             <h4 class="panel-title">
                                 <a class="module-accordion-link" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)">
-                                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                    <span style="font-size:18px;">@Html.DisplayFor(modelItem => item.Name)</span>
                                 </a>
                             </h4>
                         </div>
@@ -26,11 +26,16 @@
                 
 
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
-                    <div style="padding:15px;">
-                        <div style="padding-bottom:10px;">
-                            <div style="font-size:18px; padding-top:10px;">Activities</div>
+
+                    @Html.Action("DocumentModuleList", "Document", new { id = Model.Id })
+
+                    <hr style="margin:15px 0px;" />
+
+                    <div style="padding:0px 15px; padding-bottom:15px;">
+                        <div style="padding-bottom:12px;">
+                            <div style="font-size:16px; padding-top:6px;">Activities</div>
                         </div>
-                            @Html.Action("_StudentCourseActivitiesPartial", "Student", new { id = item.Id })
+                        @Html.Action("_StudentCourseActivitiesPartial", "Student", new { id = item.Id })
                     </div>
                 </div>
             </div>
