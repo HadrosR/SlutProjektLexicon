@@ -4,14 +4,14 @@
 }
 
 <div id="StudentListPartial">
-    <div class="panel panel-default">
+    <div class="UserList">
         <div class="panel-heading">
-            <div style="font-size: 20px; display:block;">Students</div>
+            <div class="UserListText" style="font-size: 20px; display:block;">Students</div>
         </div>
-        <ul class="list-group">
+        <ul class="list-group StopRoundedBorders">
             @foreach (var item in Model)
             {
-                <li class="list-group-item">
+                <li class="list-group-item UserListMainBody">
                     <div style="">@Html.DisplayFor(modelItem => item.FullName)</div>
                 </li>
             }
