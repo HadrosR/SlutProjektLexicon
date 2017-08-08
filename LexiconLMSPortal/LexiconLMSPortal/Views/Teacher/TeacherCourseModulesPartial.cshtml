@@ -27,28 +27,7 @@
 
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
 
-                    <!-- Documents -->
-                    <div style="padding:0px 15px; padding-top:15px;">
-                        <div style="padding-bottom:12px;">
-                            <div style="float:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
-                            <div style="font-size:16px; padding-top:6px;">Documents</div>
-                        </div>
-
-                            @foreach (var doc in item.Documents)
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <div style="float:left;">
-                                            <a href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
-                                        </div>
-                                        <div style="text-align:right">
-                                            <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = 0 })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                                            <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                    </div>
+                    @Html.Action("DocumentModuleList", "Document", new { id = Model.Id})
 
                     <hr style="margin:15px 0px;" />
 

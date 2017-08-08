@@ -11,27 +11,8 @@
 <div class="row">
     <div class="col-xs-8">
         <!-- Documents -->
-        <div class="panel panel-default">
-            <div class="panel-heading" style="font-size:20px;">
-                <div style="float:left;">Documents</div>
-                <div style="text-align:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
-            </div>
+        @Html.Action("DocumentCourseList", "Document", new { id = Model.Id})
 
-            <ul class="list-group">
-                @foreach (var doc in Model.Documents)
-                {
-                    <li class="list-group-item">
-                        <div style="float:left;">
-                            <a href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
-                        </div>
-                        <div style="text-align:right">
-                            <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = 0 })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                            <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
         <!-- Modules -->
         <div class="panel panel-default">
             <div class="panel-body">
@@ -71,3 +52,5 @@
 <div id="CreateActivityModal"></div>
 <div id="EditActivityModal"></div>
 <div id="DeleteActivityModal"></div>
+
+<div id="CreateDocumentModal"></div>
