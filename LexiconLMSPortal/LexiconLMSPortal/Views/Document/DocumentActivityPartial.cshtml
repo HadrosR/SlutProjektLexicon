@@ -1,7 +1,7 @@
-﻿@model LexiconLMSPortal.Models.ViewModels.DocumentModuleViewModel
+﻿@model LexiconLMSPortal.Models.ViewModels.DocumentActivityViewModel
 
 <!-- Documents -->
-<div id="@Html.Raw("DocumentModulePartial" + Model.ModuleId)">
+<div id="@Html.Raw("DocumentActivityPartial" + Model.ActivityId)">
     <div class="dropdown">
         <button id="dLabel" class="btn btn-default document-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Documents
@@ -17,7 +17,7 @@
                         {
                             <a style="display:inline; float:right;" href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         }
-                        <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file" style="display:inline-block;"></span> @Html.DisplayFor(model => doc.Name)</a>
+                        <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>
                 </li>
                 <li role="separator" class="divider"></li>
@@ -26,7 +26,7 @@
             {
                 <li>
                     <div style="margin:5px;">
-                        <a class="ajax-link" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentModule", id = Model.ModuleId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Add Document</a>
+                        <a class="ajax-link" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentActivity", id = Model.ActivityId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Add Document</a>
                     </div>
                 </li>
             }

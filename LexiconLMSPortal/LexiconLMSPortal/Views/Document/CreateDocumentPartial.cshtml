@@ -9,7 +9,7 @@
                 <h4 class="modal-title" id="exampleModalLabel">Add Document</h4>
             </div>
             @*The form for the create action*@
-            <form method="post" action="@Url.Action("AddDocument", "Document", Model)" enctype="multipart/form-data" class="form-group" data-lms-ajax="true" data-lms-target="@ViewBag.Target">
+            <form method="post" action="@Url.Action("AddDocument", "Document", Model)" enctype="multipart/form-data" class="form-group" data-lms-ajax="true" data-lms-target="@Html.Raw("#Document"+ViewBag.Target+"Partial"+Model.Id)">
                 @Html.AntiForgeryToken()
                 <div class="modal-body">
 

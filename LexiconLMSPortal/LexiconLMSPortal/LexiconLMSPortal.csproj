@@ -217,6 +217,7 @@
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateModuleViewModel.cs" />
+    <Compile Include="Models\ViewModels\DocumentActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\DocumentCourseViewModel.cs" />
     <Compile Include="Models\ViewModels\DocumentModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditActivityViewModel.cs" />
@@ -440,6 +441,7 @@
     <Content Include="Views\Document\CreateDocumentPartial.cshtml" />
     <Content Include="Views\Document\DocumentCoursePartial.cshtml" />
     <Content Include="Views\Document\DocumentModulePartial.cshtml" />
+    <Content Include="Views\Document\DocumentActivityPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
