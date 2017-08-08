@@ -32,7 +32,7 @@ textarea {
     transition: all 0.15s ease;
     padding: 10px;
     color: white;
-    border-radius: 5px;
+    border-radius: 0px;
     border: 1px solid #237ace;
     z-index: 1041;
     left: 99%;
@@ -42,7 +42,8 @@ textarea {
     /* needed - do not touch */
     opacity: 1;
     /* customizable */
-    background: #2b97ff;
+    background: #6e3694;
+    border-color: #6e3694;
     left: 101%;
 }
 
@@ -104,24 +105,26 @@ textarea {
 
 
 /*TeacherList*/
-.TeacherList {
+.UserList {
     border-style: solid;
     padding: 5px;
     border-width: 1px;
     border-radius: 0px;
     border-color: #696969;
 }
-.TeacherListTopButton {
+.UserListTopButton {
     text-align:right;
     border-radius:0px;
     padding-bottom:5px;
 }
-.TeacherListText {
+.UserListText {
+    margin-top: 4px;
+    margin-left: 13px;
     float: left;
     font-size: 20px;
     border-radius: 0px;
 }
-.TeacherListMainBody {
+.UserListMainBody {
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
@@ -133,40 +136,47 @@ textarea {
 }
 
 
-.TeacherListBottomLeft {
+.UserListBottomLeft {
     float: left;
     
 }
-.TeacherListBottomRight {
+.UserListBottomRight {
     text-align: right;
 }
-
+.StudentListText {
+    text-align: left;
+    margin-left: 13px;
+    font-size: 20px;
+    border-radius: 0px;
+}
 /*TeacherList*/
-
-
 /*teacher index page*/
-.TeacherIndexBlock {
+.ListBlock {
     background-color: white;
     border: 0px;
     border-radius: 0px;
     height: 100%;
 }
-.IndexCreateCourse {
+.ListCreateButton {
     background-color: #6e3694;
     color:white;
     border-radius: 0px;
     height:100%;
 }
-.IndexCreateCourse:hover{
-    background-color:lightgray;
-    color:forestgreen;
-}
+    .ListCreateButton:hover {
+        background-color: white;
+        color: forestgreen;
+    }
+    .ListCreateButton:focus {
+        background-color: #6e3694;
+        color: white;
+    }
 /*teacher index page*/
 
 /*Course List */
 
 
-.TeacherCourseListRow {
+.ListRow {
     margin-bottom: 20px;
     margin-right:0px;
     margin-left: 0px;
@@ -174,19 +184,35 @@ textarea {
     background-color: white;
 }
 
-.TeacherCourseListName {
+.ListName {
     background-color: #007234;
     text-align:justify;
     overflow-wrap:break-word;
     color:white;
 }
-.TeacherCourseListDateED{
-    border-width:1px;
-    border-style:solid;
-    border-color:#262626;
-    display:flex;
-    align-items:center;
-    vertical-align:central;
+.ListModulName {
+    background-color: #EA3D01;
+    padding-top:8px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.ListActivityName {
+    background-color: #0072C5;
+    padding-top: 8px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.ListDateED {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    display: flex;
+    align-items: center;
+    vertical-align: central;
 }
 
 .TeacherLink {
@@ -282,12 +308,9 @@ textarea {
     font-weight: bold;
 }
 
-.schedulecol:not(:last-child) {
-        border-right: 1px solid #858484;
-}
-
 .ScheduleCell {
     background-color: white;
+    color: black;
     min-height: 90px;
     text-align: center;
     font-weight: normal;
@@ -301,13 +324,52 @@ textarea {
     padding-top: 15%;
     padding-right: 4px;
 }
+.ScheduleCell:last-child{
+    margin-bottom: 4px;
+}
+.mondayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #EA3D03;
+    color: white;
+}
 
+.tuesdayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #0072C6;
+    color: white;
+}
+
+.wednesdayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #009E49;
+    color: white;
+}
+
+.thurdayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #6e3694;
+    color: white;
+}
+
+.fridayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #DD5900;
+    color: white;
+}
+
+/*Teacher activity*/
 .teacher-activity:hover {
     border-color: #bababa;
 }
 
 .teacher-activity > div {
-    background-color: #f5f5f5;
+    background-color: white;
+    border-radius:0px;
 }
 
     .teacher-activity > div:hover {
@@ -346,3 +408,41 @@ textarea {
     margin-right: 0px !important;
 }
 /* *The background does not move but the nav-bar still do  */
+
+.modal-content {
+    border-radius: 0px !important;
+}
+.modal-close-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: #EA3D03;
+    color: white;
+}
+
+.modal-close-btn:hover {
+    background-color: white;
+    color: #EA3D03;
+}
+
+.modal-accept-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: forestgreen;
+    color: white;
+}
+
+.modal-accept-btn:hover {
+    background-color: white;
+    color: forestgreen;
+}
+
+.modal-delete-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: #BA141A;
+    color: white;
+}
+    .modal-delete-btn:hover {
+        background-color: white;
+        color: #BA141A;
+    }

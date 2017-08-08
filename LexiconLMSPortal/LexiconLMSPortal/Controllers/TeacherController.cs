@@ -418,7 +418,8 @@ namespace LexiconLMSPortal.Controllers
                 Name = course.Name,
                 Description = course.Description,
                 StartDate = course.StartDate,
-                EndDate = course.EndDate
+                EndDate = course.EndDate,
+                Documents = course.Documents
             };
 
             return View("Course", vm);
@@ -875,7 +876,7 @@ namespace LexiconLMSPortal.Controllers
                     Description = m.Description,
                     StartDate = m.StartDate,
                     EndDate = m.EndDate,
-
+                    Documents = m.Documents.ToList(),
                 });
 
             }

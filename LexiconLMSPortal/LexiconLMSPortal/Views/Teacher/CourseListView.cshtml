@@ -9,15 +9,15 @@
             <div tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative;">
                 @*Make it so if you click it it will take you to that course view*@
                 <a href="@Url.Action("Course","Teacher", new { id = item.Id})" class="TeacherLink"></a>
-                <div class="row TeacherCourseListRow">
-                    <div class="col-md-4 TeacherCourseListName">
+                <div class="row ListRow">
+                    <div class="col-md-4 ListName">
 
                         <h2>
                             @Html.DisplayFor(modelItem => item.Name)
                         </h2>
                     </div>
                     @*Prints all the start and end date to the center of the "button"*@
-                    <div class="col-md-8 TeacherCourseListDateED">
+                    <div class="col-md-8 ListDateED">
                         <div class="col-md-6">
                             <div class="text-center">
                                 Starts:

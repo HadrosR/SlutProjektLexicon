@@ -34,12 +34,28 @@
             return;
         }
 
-        var options = {
-            url: $form.attr("action"),
-            type: $form.attr("method"),
-            data: $form.serialize(),
+        var options;
 
-        };
+        if ($form.attr("enctype") === "multipart/form-data")
+        {
+            options = {
+                url: this.action,
+                type: this.method,
+                data: new FormData(this),
+                cache: false,
+                contentType: false,
+                processData: false,
+            }
+        }
+        else
+        {
+            options = {
+                url: $form.attr("action"),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+
+            };
+        }
 
         $('body').on('click', '#sendButton', function () { 
             $(document).ajaxSuccess(function () {

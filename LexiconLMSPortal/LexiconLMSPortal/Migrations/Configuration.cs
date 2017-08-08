@@ -8,6 +8,7 @@ namespace LexiconLMSPortal.Migrations
     using System.Linq;
     using Models.Classes;
     using System.Collections.Generic;
+    using System.Text;
 
     internal sealed class Configuration : DbMigrationsConfiguration<LexiconLMSPortal.Models.Identity.ApplicationDbContext>
     {
@@ -78,7 +79,26 @@ namespace LexiconLMSPortal.Migrations
                     StartDate = new DateTime(2017, 09, 11),
                     EndDate = new DateTime(2017, 09, 25),
                     Modules = new List<ModuleModels>(),
-                    Students = new List<Models.Identity.ApplicationUser>()
+                    Students = new List<Models.Identity.ApplicationUser>(),
+                    Documents = new List<Models.Classes.DocumentModels>()
+                    {
+                        new DocumentModels
+                        {
+                            Name = "C# Syntax Document",
+                            Owner = adminUser,
+                            Description = "An introduction to the C# syntax",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("An introduction to the C# syntax"),
+                        },
+                        new DocumentModels
+                        {
+                            Name = "Visual Studio 2017 instructions",
+                            Owner = adminUser,
+                            Description = "A guide on how to install Visual Studio 2017",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017"),
+                        }
+                    }
 
                 },
                 new CourseModels
@@ -88,7 +108,26 @@ namespace LexiconLMSPortal.Migrations
                     StartDate = new DateTime(2017, 10, 11),
                     EndDate = new DateTime(2017, 10, 25),
                     Modules = new List<ModuleModels>(),
-                    Students = new List<Models.Identity.ApplicationUser>()
+                    Students = new List<Models.Identity.ApplicationUser>(),
+                    Documents = new List<Models.Classes.DocumentModels>()
+                    {
+                        new DocumentModels
+                        {
+                            Name = "ASP.NET Introduction Document",
+                            Owner = adminUser,
+                            Description = "An introduction to ASP.NET",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("An introduction to ASP.NET"),
+                        },
+                        new DocumentModels
+                        {
+                            Name = "Another Visual Studio 2017 instructions",
+                            Owner = adminUser,
+                            Description = "A guide on how to install Visual Studio 2017 again",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017 again"),
+                        }
+                    }
                 }
             };
 
@@ -124,6 +163,25 @@ namespace LexiconLMSPortal.Migrations
                             StartDate = new DateTime(2017, 09, 12),
                             EndDate = new DateTime(2017, 09, 13)
                         }
+                    },
+                    Documents = new List<DocumentModels>
+                    {
+                        new DocumentModels
+                        {
+                            Name = "A little loop example",
+                            Owner = adminUser,
+                            Description = "Code snippets of C# loops",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("Code snippets of C# loops"),
+                        },
+                        new DocumentModels
+                        {
+                            Name = "Advanced loop example",
+                            Owner = adminUser,
+                            Description = "Code snippet of advanced usage of loops",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("Code snippet of advanced usage of loops"),
+                        }
                     }
 
                 },
@@ -141,6 +199,25 @@ namespace LexiconLMSPortal.Migrations
                             Description = "Learn how to implement exception handling",
                             StartDate = new DateTime(2017, 09, 14),
                             EndDate = new DateTime(2017, 09, 15)
+                        }
+                    },
+                    Documents = new List<DocumentModels>
+                    {
+                        new DocumentModels
+                        {
+                            Name = "Try Catch excercise",
+                            Owner = adminUser,
+                            Description = "Learn how to use try catch",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("How to use try catch"),
+                        },
+                        new DocumentModels
+                        {
+                            Name = "Example exceptions",
+                            Owner = adminUser,
+                            Description = "A list of example exceptions",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("A list of example exceptions"),
                         }
                     }
                 },
@@ -198,6 +275,26 @@ namespace LexiconLMSPortal.Migrations
                             Description = "Don't forget to return the model",
                             StartDate = new DateTime(2017, 10, 17),
                             EndDate = new DateTime(2017, 10, 20)
+                        }
+                    },
+
+                    Documents = new List<DocumentModels>
+                    {
+                        new DocumentModels
+                        {
+                            Name = "MVC Presentation",
+                            Owner = adminUser,
+                            Description = "A presentation of the ASP.MVC system",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
+                        },
+                        new DocumentModels
+                        {
+                            Name = "MVC code example",
+                            Owner = adminUser,
+                            Description = "An example usage of Models, Views and Controllers",
+                            TimeStamp = DateTime.Now,
+                            Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                         }
                     }
                 }

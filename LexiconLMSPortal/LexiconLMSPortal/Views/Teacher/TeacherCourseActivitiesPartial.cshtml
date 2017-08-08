@@ -4,15 +4,17 @@
     
         @foreach (var activity in Model.Activities)
         {
-            <div class="panel panel-default teacher-activity">
-                <div class="panel-body" tooltip="@Html.DisplayFor(modelItem => activity.Description)">
+            <div class="panel-default teacher-activity">
+                <div tooltip="@Html.DisplayFor(modelItem => activity.Description)">
 
-                    <div class="row">
-                        <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.Name)</div>
-                        <div class="col-xs-4">@Html.DisplayFor(modelItem => activity.StartDate) <br /> @Html.DisplayFor(modelItem => activity.EndDate)</div>
-                        <div class="col-xs-4" style="text-align:right;">
-                            <a class="ajax-link" data-target="#EditActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditActivity", id = activity.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                            <a class="ajax-link" data-target="#DeleteActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteActivity", id = activity.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                    <div class="row ListRow">
+                        <div class="col-xs-4 ListActivityName">@Html.DisplayFor(modelItem => activity.Name)</div>
+                        <div class="col-md-8 ListDateED">
+                            <div class="col-xs-6">@Html.DisplayFor(modelItem => activity.StartDate) <br /> @Html.DisplayFor(modelItem => activity.EndDate)</div>
+                            <div class="col-xs-6" style="text-align:right;">
+                                <a class="ajax-link" data-target="#EditActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditActivity", id = activity.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+                                <a class="ajax-link" data-target="#DeleteActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteActivity", id = activity.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
