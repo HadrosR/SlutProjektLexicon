@@ -408,3 +408,41 @@ textarea {
     margin-right: 0px !important;
 }
 /* *The background does not move but the nav-bar still do  */
+
+.modal-content {
+    border-radius: 0px !important;
+}
+.modal-close-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: #EA3D03;
+    color: white;
+}
+
+.modal-close-btn:hover {
+    background-color: white;
+    color: #EA3D03;
+}
+
+.modal-accept-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: forestgreen;
+    color: white;
+}
+
+.modal-accept-btn:hover {
+    background-color: white;
+    color: forestgreen;
+}
+
+.modal-delete-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: #BA141A;
+    color: white;
+}
+    .modal-delete-btn:hover {
+        background-color: white;
+        color: #BA141A;
+    }
