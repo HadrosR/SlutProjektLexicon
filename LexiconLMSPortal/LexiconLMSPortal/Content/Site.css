@@ -409,6 +409,7 @@ textarea {
 }
 /* *The background does not move but the nav-bar still do  */
 
+/* Styles for Modal and its buttons*/
 .modal-content {
     border-radius: 0px !important;
 }
