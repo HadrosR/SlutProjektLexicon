@@ -17,7 +17,7 @@
                         {
                             <a style="display:inline; float:right;" href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         }
-                        <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file" style="display:inline-block;"></span> @Html.DisplayFor(model => doc.Name)</a>
+                        <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })"><span class="glyphicon glyphicon-file" style="display:inline-block;"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>
                 </li>
                 <li role="separator" class="divider"></li>

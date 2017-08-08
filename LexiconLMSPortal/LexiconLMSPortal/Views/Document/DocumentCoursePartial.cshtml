@@ -15,7 +15,7 @@
             {
                 <li class="list-group-item">
                     <div style="display:inline-block;">
-                        <a target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })" tooltip="@Html.DisplayFor(model => doc.Description)"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
+                        <a target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>
                     @if(User.IsInRole("Teacher"))
                     { 

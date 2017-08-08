@@ -153,15 +153,37 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Loops excercise",
                             Description = "Learn how to implement for, while, and do-while loops",
-                            StartDate = new DateTime(2017, 09, 11),
-                            EndDate = new DateTime(2017, 09, 12)
+                            StartDate = new DateTime(2017, 09, 11,9,30,0),
+                            EndDate = new DateTime(2017, 09, 11,17,0,0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, loops",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, loops",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, loops"),
+                                }
+                            }
                         },
                         new ActivityModels
                         {
                             Name = "Garage 2.0",
                             Description = "Garage excercise",
-                            StartDate = new DateTime(2017, 09, 12),
-                            EndDate = new DateTime(2017, 09, 13)
+                            StartDate = new DateTime(2017, 09, 12, 9,30,0),
+                            EndDate = new DateTime(2017, 09, 12,17,0,0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Garage excercise instructions",
+                                    Owner = adminUser,
+                                    Description = "Garage excercise instructions",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Garage excercise instructions"),
+                                }
+                            }
                         }
                     },
                     Documents = new List<DocumentModels>
@@ -197,8 +219,19 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Exception excercise",
                             Description = "Learn how to implement exception handling",
-                            StartDate = new DateTime(2017, 09, 14),
-                            EndDate = new DateTime(2017, 09, 15)
+                            StartDate = new DateTime(2017, 09, 14, 9, 30, 0),
+                            EndDate = new DateTime(2017, 09, 14, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, exceptions",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, exceptions",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, exceptions"),
+                                }
+                            }
                         }
                     },
                     Documents = new List<DocumentModels>
@@ -233,48 +266,125 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Controller excercise",
                             Description = "Practice creating MVC-controllers",
-                            StartDate = new DateTime(2017, 10, 09),
-                            EndDate = new DateTime(2017, 10, 09)
+                            StartDate = new DateTime(2017, 10, 09, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 09, 17, 0,0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, controller",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, controller",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
+                                }
+                            }
                         },
                         new ActivityModels
                         {
                             Name = "Models excercise",
                             Description = "Practice creating MVC-Models",
-                            StartDate = new DateTime(2017, 10, 10),
-                            EndDate = new DateTime(2017, 10, 10)
+                            StartDate = new DateTime(2017, 10, 10, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 10, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, models",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, models",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
+                                }
+                            }
                         },
                         new ActivityModels
                         {
                             Name = "View excercise",
                             Description = "Practice creating MVC-View",
-                            StartDate = new DateTime(2017, 10, 11),
-                            EndDate = new DateTime(2017, 10, 11)
+                            StartDate = new DateTime(2017, 10, 11, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 11, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, views",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, views",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
+                                }
+                            }
                         },new ActivityModels
                         {
                             Name = "MVC EntityFrameWork",
                             Description = "Framework that entity",
-                            StartDate = new DateTime(2017, 10, 12),
-                            EndDate = new DateTime(2017, 10, 12)
+                            StartDate = new DateTime(2017, 10, 12, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 12, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, entity framework",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, entity framework",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
+                                }
+                            }
                         },
                         new ActivityModels
                         {
                             Name = "CRUD",
                             Description = "Basic CRUD Stuff",
-                            StartDate = new DateTime(2017, 10, 13),
-                            EndDate = new DateTime(2017, 10, 15)
+                            StartDate = new DateTime(2017, 10, 13, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 13, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Excercise instructions, CRUD",
+                                    Owner = adminUser,
+                                    Description = "Excercise instructions, CRUD",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
+                                }
+                            }
                         },
                         new ActivityModels
                         {
                             Name = "Code Along",
                             Description = "TYPE FASTER FOOL",
-                            StartDate = new DateTime(2017, 10, 16),
-                            EndDate = new DateTime(2017, 10, 17)
+                            StartDate = new DateTime(2017, 10, 16, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 16, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Code along instructions",
+                                    Owner = adminUser,
+                                    Description = "Code along instructions",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Code along instructions"),
+                                }
+                            }
                         },new ActivityModels
                         {
                             Name = "Project",
                             Description = "Don't forget to return the model",
-                            StartDate = new DateTime(2017, 10, 17),
-                            EndDate = new DateTime(2017, 10, 20)
+                            StartDate = new DateTime(2017, 10, 17, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 17, 17, 0, 0),
+                            Documents = new List<DocumentModels>
+                            {
+                                new DocumentModels
+                                {
+                                    Name = "Project instructions",
+                                    Owner = adminUser,
+                                    Description = "Project instructions",
+                                    TimeStamp = DateTime.Now,
+                                    Contents = Encoding.UTF8.GetBytes("Project instructions"),
+                                }
+                            }
                         }
                     },
 
