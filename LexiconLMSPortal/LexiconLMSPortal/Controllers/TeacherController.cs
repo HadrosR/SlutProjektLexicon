@@ -482,7 +482,6 @@ namespace LexiconLMSPortal.Controllers
         public ActionResult _FullStudentListPartial(string sortOrder,string search)
         {
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
-
             //Creates variables that saves the users input of a sortorder
             ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name" : "";
             ViewBag.EmailSort = sortOrder == "email" ? "email_des" : "email";
@@ -506,7 +505,7 @@ namespace LexiconLMSPortal.Controllers
                         });
                         break;
                     default:
-                        if (s.Email.Contains(search) || s.CourseId.Name.Contains(search) || s.FirstName.Contains(search) || s.LastName.Contains(search))
+                        if (/*s.Email.Contains(search) || s.CourseId.Name.Contains(search) || */s.FirstName.ToUpper().Contains(search.ToUpper()) || s.LastName.ToUpper().Contains(search.ToUpper()))
                         {
                             sl.Add(new _StudentListPartial
                             {

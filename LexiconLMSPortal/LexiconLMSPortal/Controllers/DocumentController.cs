@@ -55,19 +55,41 @@ namespace LexiconLMSPortal.Controllers
             return PartialView("DocumentModulePartial", dcvm);
         }
 
+        [OverrideAuthorization]
+        public ActionResult DocumentActivityList(int id)
+        {
+            var activity = db.Activities.FirstOrDefault(c => c.Id == id);
+
+            DocumentActivityViewModel dcvm = new DocumentActivityViewModel
+            {
+                ActivityId = id,
+                Documents = activity.Documents
+            };
+
+            return PartialView("DocumentActivityPartial", dcvm);
+        }
+
         [HttpGet]
         public ActionResult AddDocumentCourse(int id)
         {
-            CreateDocumentViewModel cdvm = new CreateDocumentViewModel { CourseId = id, DocumentType = CreateDocumentType.Course};
-            ViewBag.Target = "#DocumentCoursePartial";
+            CreateDocumentViewModel cdvm = new CreateDocumentViewModel { Id = id, DocumentType = CreateDocumentType.Course};
+            ViewBag.Target = "Course";
             return PartialView("CreateDocumentPartial", cdvm);
         }
 
         [HttpGet]
         public ActionResult AddDocumentModule(int id)
         {
-            CreateDocumentViewModel cdvm = new CreateDocumentViewModel { ModuleId = id, DocumentType = CreateDocumentType.Module };
-            ViewBag.Target = "#DocumentModulePartial";
+            CreateDocumentViewModel cdvm = new CreateDocumentViewModel { Id = id, DocumentType = CreateDocumentType.Module };
+            ViewBag.Target = "Module";
+            return PartialView("CreateDocumentPartial", cdvm);
+        }
+
+        [HttpGet]
+        public ActionResult AddDocumentActivity(int id)
+        {
+            CreateDocumentViewModel cdvm = new CreateDocumentViewModel { Id = id, DocumentType = CreateDocumentType.Activity };
+            ViewBag.Target = "Activity";
             return PartialView("CreateDocumentPartial", cdvm);
         }
 
@@ -98,16 +120,19 @@ namespace LexiconLMSPortal.Controllers
                     switch(cdvm.DocumentType)
                     {
                         case CreateDocumentType.Course:
-                            db.Courses.FirstOrDefault(c => c.Id == cdvm.CourseId).Documents.Add(document);
-                            id = cdvm.CourseId;
+                            db.Courses.FirstOrDefault(c => c.Id == cdvm.Id).Documents.Add(document);
                             db.SaveChanges();
-                            return RedirectToAction("DocumentCourseList", new { id = id });
+                            return RedirectToAction("DocumentCourseList", new { id = cdvm.Id });
 
                         case CreateDocumentType.Module:
-                            db.Modules.FirstOrDefault(c => c.Id == cdvm.ModuleId).Documents.Add(document);
-                            id = db.Modules.FirstOrDefault(m => m.Id == cdvm.ModuleId).Courses.FirstOrDefault().Id;
+                            db.Modules.FirstOrDefault(c => c.Id == cdvm.Id).Documents.Add(document);
                             db.SaveChanges();
-                            return RedirectToAction("DocumentModuleList", new { id = id });
+                            return RedirectToAction("DocumentModuleList", new { id = cdvm.Id });
+
+                        case CreateDocumentType.Activity:
+                            db.Activities.FirstOrDefault(c => c.Id == cdvm.Id).Documents.Add(document);
+                            db.SaveChanges();
+                            return RedirectToAction("DocumentActivityList", new { id = cdvm.Id });
                     }
                 }
             }

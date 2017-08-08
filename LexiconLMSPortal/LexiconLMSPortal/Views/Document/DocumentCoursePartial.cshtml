@@ -1,12 +1,12 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.DocumentCourseViewModel
 
-<div id="DocumentCoursePartial">
+<div id="@Html.Raw("DocumentCoursePartial"+Model.CourseId)">
     <div class="panel panel-default">
         <div class="panel-heading" style="font-size:20px;">
             <div style="display:inline-block; padding-bottom:6px;">Documents</div>
             @if(User.IsInRole("Teacher"))
             { 
-                <div style="float:right; display:inline-block;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentCourse", id = Model.CourseId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
+                <div style="float:right; display:inline-block;"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentCourse", id = Model.CourseId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
             }
         </div>
 
@@ -20,7 +20,6 @@
                     @if(User.IsInRole("Teacher"))
                     { 
                     <div style="display:inline-block; float:right;">
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditStudent", id = 0 })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
                         <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                     </div>
                     }
