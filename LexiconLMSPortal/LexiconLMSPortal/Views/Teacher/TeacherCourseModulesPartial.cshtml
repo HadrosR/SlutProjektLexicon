@@ -27,7 +27,7 @@
 
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
 
-                    @Html.Action("DocumentModuleList", "Document", new { id = Model.Id})
+                    @Html.Action("DocumentModuleList", "Document", new { id = item.Id})
 
                     <hr style="margin:15px 0px;" />
 

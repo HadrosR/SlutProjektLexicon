@@ -1,6 +1,6 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.DocumentCourseViewModel
 
-<div id="DocumentCoursePartial">
+<div id="@Html.Raw("DocumentCoursePartial"+Model.CourseId)">
     <div class="panel panel-default">
         <div class="panel-heading" style="font-size:20px;">
             <div style="display:inline-block; padding-bottom:6px;">Documents</div>

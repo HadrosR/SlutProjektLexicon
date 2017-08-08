@@ -15,6 +15,9 @@
                             <a class="ajax-link" data-target="#DeleteActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteActivity", id = activity.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         </div>
                     </div>
+
+                    @Html.Action("DocumentActivityList", "Document", new { id = activity.Id})
+
                 </div>
             </div>
         }     

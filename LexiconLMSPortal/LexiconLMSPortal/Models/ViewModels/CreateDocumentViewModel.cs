@@ -17,8 +17,7 @@ namespace LexiconLMSPortal.Models.ViewModels
     {
         // Course, Module or Activity Id
         [Key]
-        public int CourseId { get; set; }
-        public int? ModuleId { get; set; }
+        public int Id { get; set; }
         
         public CreateDocumentType DocumentType { get; set; }
         public string Name { get; set; }
