@@ -32,7 +32,7 @@ textarea {
     transition: all 0.15s ease;
     padding: 10px;
     color: white;
-    border-radius: 5px;
+    border-radius: 0px;
     border: 1px solid #237ace;
     z-index: 1041;
     left: 99%;
@@ -42,7 +42,8 @@ textarea {
     /* needed - do not touch */
     opacity: 1;
     /* customizable */
-    background: #2b97ff;
+    background: #6e3694;
+    border-color: #6e3694;
     left: 101%;
 }
 
@@ -117,6 +118,8 @@ textarea {
     padding-bottom:5px;
 }
 .UserListText {
+    margin-top: 4px;
+    margin-left: 13px;
     float: left;
     font-size: 20px;
     border-radius: 0px;
@@ -140,10 +143,13 @@ textarea {
 .UserListBottomRight {
     text-align: right;
 }
-
+.StudentListText {
+    text-align: left;
+    margin-left: 13px;
+    font-size: 20px;
+    border-radius: 0px;
+}
 /*TeacherList*/
-
-
 /*teacher index page*/
 .ListBlock {
     background-color: white;
@@ -160,6 +166,10 @@ textarea {
     .ListCreateButton:hover {
         background-color: white;
         color: forestgreen;
+    }
+    .ListCreateButton:focus {
+        background-color: #6e3694;
+        color: white;
     }
 /*teacher index page*/
 
@@ -298,12 +308,9 @@ textarea {
     font-weight: bold;
 }
 
-.schedulecol:not(:last-child) {
-        border-right: 1px solid #858484;
-}
-
 .ScheduleCell {
     background-color: white;
+    color: black;
     min-height: 90px;
     text-align: center;
     font-weight: normal;
@@ -317,7 +324,45 @@ textarea {
     padding-top: 15%;
     padding-right: 4px;
 }
+.ScheduleCell:last-child{
+    margin-bottom: 4px;
+}
+.mondayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #EA3D03;
+    color: white;
+}
 
+.tuesdayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #0072C6;
+    color: white;
+}
+
+.wednesdayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #009E49;
+    color: white;
+}
+
+.thurdayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #6e3694;
+    color: white;
+}
+
+.fridayCol {
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #DD5900;
+    color: white;
+}
+
+/*Teacher activity*/
 .teacher-activity:hover {
     border-color: #bababa;
 }
@@ -363,6 +408,44 @@ textarea {
     margin-right: 0px !important;
 }
 /* *The background does not move but the nav-bar still do  */
+
+.modal-content {
+    border-radius: 0px !important;
+}
+.modal-close-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: #EA3D03;
+    color: white;
+}
+
+.modal-close-btn:hover {
+    background-color: white;
+    color: #EA3D03;
+}
+
+.modal-accept-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: forestgreen;
+    color: white;
+}
+
+.modal-accept-btn:hover {
+    background-color: white;
+    color: forestgreen;
+}
+
+.modal-delete-btn {
+    border-color: #262626;
+    border-radius: 0px !important;
+    background-color: #BA141A;
+    color: white;
+}
+    .modal-delete-btn:hover {
+        background-color: white;
+        color: #BA141A;
+    }
 
 .document-dropdown {
     background-color: #41ad49;
