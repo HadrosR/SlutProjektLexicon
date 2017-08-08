@@ -9,6 +9,7 @@ namespace LexiconLMSPortal
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/LexiconLMS").Include(
+                        "~/Scripts/AutomaticSelectFirstInput.js",
                         "~/Scripts/Scripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

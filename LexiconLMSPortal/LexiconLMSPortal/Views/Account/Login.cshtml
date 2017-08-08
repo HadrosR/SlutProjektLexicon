@@ -4,12 +4,12 @@
     ViewBag.Title = "Log in";
 }
 
-<link href="@Url.Content("~/Content/LoginStyle")" rel="stylesheet" type="text/css" />
-<div class="row" style="border: 1px solid lightgrey; border-radius: 5px;">
-    <div class="col-md-3">
-        <img src="~/Content/images/logo-lexicon@2x.gif" alt="LEXICON" style="margin-top:224px; margin-left:220px;">
+@*<link href="@Url.Content("~/Content/LoginStyle")" rel="stylesheet" type="text/css" />*@
+<div class="row bigbox">
+    <div class="col-md-1">
+        <img src="~/Content/images/logo-lexicon@2x.gif" alt="LEXICON" style="margin-top:224px; margin-left:160px;">
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
                 <section id="loginForm">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 
@@ -23,7 +23,7 @@
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group pwd-input">
                             <div class="col-md-offset-7">
                                 @Html.LabelFor(m => m.Password)
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
@@ -51,4 +51,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/AutomaticSelectFirstInput.js")
 }
