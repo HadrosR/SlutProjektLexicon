@@ -486,7 +486,7 @@ textarea {
     border-radius: 0px !important;
 }
 .modal-close-btn {
-    border-color: #262626;
+    border-color: #ccc;
     border-radius: 0px !important;
     background-color: #EA3D03;
     color: white;
@@ -498,7 +498,7 @@ textarea {
 }
 
 .modal-accept-btn {
-    border-color: #262626;
+    border-color: #ccc;
     border-radius: 0px !important;
     background-color: forestgreen;
     color: white;
@@ -510,7 +510,7 @@ textarea {
 }
 
 .modal-delete-btn {
-    border-color: #262626;
+    border-color: #ccc;
     border-radius: 0px !important;
     background-color: #BA141A;
     color: white;
@@ -520,6 +520,7 @@ textarea {
         color: #BA141A;
     }
 
+    /* Document CSS*/
 .document-dropdown {
     background-color: #41ad49;
     color: white;
