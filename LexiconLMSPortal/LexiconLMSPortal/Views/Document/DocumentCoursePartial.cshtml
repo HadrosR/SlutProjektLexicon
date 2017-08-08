@@ -1,12 +1,12 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.DocumentCourseViewModel
 
 <div id="DocumentCoursePartial">
-    <div class="panel panel-default">
+    <div class="panel-default">
         <div class="panel-heading" style="font-size:20px;">
             <div style="display:inline-block; padding-bottom:6px;">Documents</div>
             @if(User.IsInRole("Teacher"))
             { 
-                <div style="float:right; display:inline-block;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentCourse", id = Model.CourseId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
+                <div style="float:right; display:inline-block;"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentCourse", id = Model.CourseId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
             }
         </div>
 

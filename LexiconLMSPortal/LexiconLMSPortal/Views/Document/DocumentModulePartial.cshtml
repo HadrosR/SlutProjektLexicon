@@ -7,7 +7,7 @@
 
             @if(User.IsInRole("Teacher"))
             {
-                <div style="float:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentModule", id = Model.ModuleId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
+                <div style="float:right;"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentModule", id = Model.ModuleId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Document</a></div>
             }
 
             <div style="font-size:16px; padding-top:6px;">Documents</div>
