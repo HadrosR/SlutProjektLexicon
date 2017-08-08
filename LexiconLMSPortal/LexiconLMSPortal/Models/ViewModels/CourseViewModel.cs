@@ -16,12 +16,14 @@ namespace LexiconLMSPortal.Models.ViewModels
         [Required]
         public string Description { get; set; }
         [Required]
-        [Display(Name ="Start Date")]
+        [Display(Name = "Start Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
         [Required]
-        [Display(Name ="End Date")]
+        [Display(Name = "End Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        public DateTime EndDate { get; set; }     
+        public DateTime EndDate { get; set; }
+
+        public ICollection<DocumentModels> Documents {get; set;}
     }
 }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using LexiconLMSPortal.Models.Classes;
+using System.Collections.Generic;
 
 namespace LexiconLMSPortal.Models.Identity
 {
@@ -14,6 +15,7 @@ namespace LexiconLMSPortal.Models.Identity
         public string LastName { get; set; }
 
         public virtual CourseModels CourseId {get; set;}
+        public virtual ICollection<DocumentModels> Documents { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -29,6 +31,7 @@ namespace LexiconLMSPortal.Models.Identity
         public DbSet<CourseModels> Courses { get; set; }
         public DbSet<ModuleModels> Modules { get; set; }
         public DbSet<ActivityModels> Activities { get; set; }
+        public DbSet<DocumentModels> Documents { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

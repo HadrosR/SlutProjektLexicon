@@ -12,7 +12,7 @@
                         <div class="col-md-4 ListModulName">
                             <h4 class="panel-title">
                                 <a class="module-accordion-link" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)">
-                                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                    <span style="font-size:18px;">@Html.DisplayFor(modelItem => item.Name)</span>
                                 </a>
                             </h4>
                         </div>
@@ -27,13 +27,16 @@
                     </div>
                 </div>
 
-                
-
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
-                    <div style="padding:15px;">
-                        <div style="padding-bottom:10px;">
+
+                    @Html.Action("DocumentModuleList", "Document", new { id = Model.Id})
+
+                    <hr style="margin:15px 0px;" />
+
+                    <div style="padding:0px 15px; padding-bottom:15px;">
+                        <div style="padding-bottom:12px;">
                             <div style="float:right"><a class="ajax-link btn btn-default ListCreateButton" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus-sign"></span> Activity</a></div>
-                            <div style="font-size:18px; padding-top:10px;">Activities</div>
+                            <div style="font-size:16px; padding-top:6px;">Activities</div>
                         </div>
                             @Html.Action("TeacherCourseActivitiesPartial", "Teacher", new { id = item.Id })
                     </div>

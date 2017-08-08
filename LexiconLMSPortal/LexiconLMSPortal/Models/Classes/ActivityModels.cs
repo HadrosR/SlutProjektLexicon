@@ -14,5 +14,6 @@ namespace LexiconLMSPortal.Models.Classes
         public DateTime EndDate { get; set; }
 
         public virtual ICollection<ModuleModels> Modules { get; set; }
+        public virtual ICollection<DocumentModels> Documents { get; set; }
     }
 }

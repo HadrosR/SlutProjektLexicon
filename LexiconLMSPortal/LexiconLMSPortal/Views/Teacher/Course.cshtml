@@ -10,6 +10,11 @@
 
 <div class="row">
     <div class="col-xs-8">
+        <!-- Documents -->
+        @Html.Action("DocumentCourseList", "Document", new { id = Model.Id})
+
+        <!-- Modules -->
+
         <div class="ListBlock panel-default">
             <div class="panel-body">
                 <div style="font-size:20px; padding-bottom:10px; ">
@@ -48,3 +53,5 @@
 <div id="CreateActivityModal"></div>
 <div id="EditActivityModal"></div>
 <div id="DeleteActivityModal"></div>
+
+<div id="CreateDocumentModal"></div>
