@@ -212,6 +212,7 @@ namespace LexiconLMSPortal.Controllers
                 //Gets the week of the activity
                 int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);
                 ViewBag.Week = activityWeekNbr;
+
                 if (activityWeekNbr == weekNbr)
                 {
                     if (afk[i].DayOfWeek == DayOfWeek.Monday)
