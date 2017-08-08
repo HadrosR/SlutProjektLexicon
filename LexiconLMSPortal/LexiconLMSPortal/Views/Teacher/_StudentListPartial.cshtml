@@ -7,7 +7,7 @@
     <div class="UserList">
         <div>
             <div class="UserListText">Students</div>
-            <div class="UserListTopButton"><a class="btn btn-default IndexCreateCourse" href="#TheModal" role="button" id="modalbtn" data-toggle="modal" data-url="@Url.Action("CreateStudent",new { id = Model.CourseId})"><span class="glyphicon glyphicon-plus-sign"></span> Student</a></div>
+            <div class="UserListTopButton"><a class="btn btn-default ListCreateButton" href="#TheModal" role="button" id="modalbtn" data-toggle="modal" data-url="@Url.Action("CreateStudent",new { id = Model.CourseId})"><span class="glyphicon glyphicon-plus-sign"></span> Student</a></div>
         </div>
         <ul class="list-group StopRoundedBorders">
             @foreach (var item in Model.Students)

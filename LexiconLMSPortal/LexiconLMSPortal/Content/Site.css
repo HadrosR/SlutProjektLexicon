@@ -145,28 +145,28 @@ textarea {
 
 
 /*teacher index page*/
-.TeacherIndexBlock {
+.ListBlock {
     background-color: white;
     border: 0px;
     border-radius: 0px;
     height: 100%;
 }
-.IndexCreateCourse {
+.ListCreateButton {
     background-color: #6e3694;
     color:white;
     border-radius: 0px;
     height:100%;
 }
-.IndexCreateCourse:hover{
-    background-color:lightgray;
-    color:forestgreen;
-}
+    .ListCreateButton:hover {
+        background-color: white;
+        color: forestgreen;
+    }
 /*teacher index page*/
 
 /*Course List */
 
 
-.TeacherCourseListRow {
+.ListRow {
     margin-bottom: 20px;
     margin-right:0px;
     margin-left: 0px;
@@ -174,13 +174,13 @@ textarea {
     background-color: white;
 }
 
-.TeacherCourseListName {
+.ListName {
     background-color: #007234;
     text-align:justify;
     overflow-wrap:break-word;
     color:white;
 }
-.TeacherCourseListDateED{
+.ListDateED{
     border-width:1px;
     border-style:solid;
     border-color:#262626;
