@@ -77,7 +77,12 @@ textarea {
 #EmailForm {
     margin-top: 22.5%;
 }
-.pwd-input{
+
+.iptField{
+    border-radius: 0px;
+}
+
+.pwd-input {
     margin-bottom: 5px !important;
 }
 
@@ -92,7 +97,7 @@ textarea {
 }
 
 #loginbtn {
-    margin-left: 70px;
+    margin-left: 90px;
     border-radius: 0px !important;
     background-color: #6e3694;
     color: white;
@@ -103,6 +108,14 @@ textarea {
     color: forestgreen;
 }
 
+#RememberMe{
+    border-radius: 0px !important;
+    margin-top: 9px;
+}
+
+.TicBoxLabel{
+    padding-left: 0px !important;
+}
 /*THIES STYLES ARE FOR THE LOG IN PAGE*/
 /*Stoppar rounded corners*/
 .StopRoundedBorders {

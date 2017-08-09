@@ -19,21 +19,21 @@
                         <div class="form-group">
                             <div id="EmailForm" class="col-md-offset-7">
                                 @Html.LabelFor(m => m.Email)
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control iptField" })
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group pwd-input">
                             <div class="col-md-offset-7">
                                 @Html.LabelFor(m => m.Password)
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control iptField" })
                                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="checkbox col-md-offset-7">
                                 @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "TicBoxLabel"})
                                 <input id="loginbtn" type="submit" value="Log in" class="btn btn-default" />
                             </div>
                         </div>
