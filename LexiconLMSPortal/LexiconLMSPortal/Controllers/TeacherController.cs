@@ -242,8 +242,9 @@ namespace LexiconLMSPortal.Controllers
 
                 });
             }
+            var sortres = aktivCourses.OrderBy(n => n.StartDate);
 
-            return PartialView("CourseListView", aktivCourses);
+            return PartialView("CourseListView", sortres);
         }
 
         // GET: Teacher
@@ -913,7 +914,6 @@ namespace LexiconLMSPortal.Controllers
                     EndDate = t.EndDate
                 });
             }
-
             return PartialView("TeacherCourseActivitiesPartial", vm);
         }
 
