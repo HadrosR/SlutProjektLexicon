@@ -20,7 +20,7 @@
                     @if(User.IsInRole("Teacher"))
                     { 
                     <div style="display:inline-block; float:right;">
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteStudent", id = 0 })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                        <a class="ajax-link-remove" data-target="#DeleteDocumentModal" href="@Url.RouteUrl("Default", new {controller = "Document", action = "RemoveDocumentCourse", id = doc.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                     </div>
                     }
                 </li>

@@ -140,6 +140,86 @@ namespace LexiconLMSPortal.Controllers
             return RedirectToAction("Course", "Teacher", new { id=id});
         }
 
+        [NonAction]
+        public DeleteDocumentViewModel FindDocumentDelete(int id, CreateDocumentType dt)
+        {
+            var document = db.Documents.Find(id);
+
+            int parentId = -1;
+            switch (dt)
+            {
+                case CreateDocumentType.Course:
+                    parentId = document.Course.Id;
+                    break;
+                case CreateDocumentType.Module:
+                    parentId = document.Module.Id;
+                    break;
+
+                case CreateDocumentType.Activity:
+                    parentId = document.Activity.Id;
+                    break;
+            }
+
+            DeleteDocumentViewModel ddvm = new DeleteDocumentViewModel
+            {
+                Id = id,
+                Description = document.Description,
+                Name = document.Name,
+                DocumentType = dt,
+                ParentId = parentId
+            };
+
+            return ddvm;
+        }
+
+        public ActionResult RemoveDocumentCourse(int id)
+        {
+            DeleteDocumentViewModel ddvm = FindDocumentDelete(id, CreateDocumentType.Course);
+            ViewBag.Target = "Course";
+            return PartialView("DeleteDocumentPartial", ddvm);
+        }
+
+        public ActionResult RemoveDocumentModule(int id)
+        {
+            DeleteDocumentViewModel ddvm = FindDocumentDelete(id, CreateDocumentType.Module);
+            ViewBag.Target = "Module";
+            return PartialView("DeleteDocumentPartial", ddvm);
+        }
+
+        public ActionResult RemoveDocumentActivity(int id)
+        {
+            DeleteDocumentViewModel ddvm = FindDocumentDelete(id, CreateDocumentType.Activity);
+            ViewBag.Target = "Activity";
+            return PartialView("DeleteDocumentPartial", ddvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveDocument(DeleteDocumentViewModel ddvm)
+        {
+            var doc = db.Documents.Find(ddvm.Id);
+
+            string actionName = "";
+
+            switch (ddvm.DocumentType)
+            {
+                case CreateDocumentType.Course:
+                    actionName = "DocumentCourseList";
+                    break;
+                case CreateDocumentType.Module:
+                    actionName = "DocumentModuleList";
+                    break;
+
+                case CreateDocumentType.Activity:
+                    actionName = "DocumentActivityList";
+                    break;
+            }
+            
+            db.Entry(doc).State = EntityState.Deleted;
+            db.SaveChanges();
+            return RedirectToAction(actionName, new { id = ddvm.ParentId });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
