@@ -20,12 +20,12 @@ namespace LexiconLMSPortal.Models.ViewModels
         public string Description { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:yy/MM/dd H:mm}")]
+        [DisplayFormat(DataFormatString = "{0:yy/MM/dd HH:mm}")]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:yy/MM/dd H:mm}")]
+        [DisplayFormat(DataFormatString = "{0:yy/MM/dd HH:mm}")]
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
         

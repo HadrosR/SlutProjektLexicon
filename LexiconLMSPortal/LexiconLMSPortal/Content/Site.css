@@ -77,7 +77,12 @@ textarea {
 #EmailForm {
     margin-top: 22.5%;
 }
-.pwd-input{
+
+.iptField{
+    border-radius: 0px;
+}
+
+.pwd-input {
     margin-bottom: 5px !important;
 }
 
@@ -92,7 +97,7 @@ textarea {
 }
 
 #loginbtn {
-    margin-left: 70px;
+    margin-left: 90px;
     border-radius: 0px !important;
     background-color: #6e3694;
     color: white;
@@ -103,7 +108,15 @@ textarea {
     color: forestgreen;
 }
 
-/*THIES STYLES ARE FOR THE LOG IN PAGE*/
+#RememberMe{
+    border-radius: 0px !important;
+    margin-top: 9px;
+}
+
+.TicBoxLabel{
+    padding-left: 0px !important;
+}
+
 /*Stoppar rounded corners*/
 .StopRoundedBorders {
     border-radius: 0px;
@@ -192,17 +205,30 @@ textarea {
         background-color: #6e3694;
         color: white;
     }
+.ListCreateButtonFullList {
+    background-color: #6e3694;
+    color: white;
+    border-radius: 0px;
+    border-color:black;
+    height: 100%;
+}
+    .ListCreateButtonFullList:hover {
+        background-color: white;
+        color: forestgreen;
+    }
+
+    .ListCreateButtonFullList:focus {
+        background-color: #6e3694;
+        color: white;
+    }
 /*teacher index page*/
-
-
 /*FullList*/
-
-.FullListSearchBody{
+.FullListSearchBody {
     /*border-width:1px;
     border-style:solid;
     padding:5px;*/
-    float:left;
-    margin-bottom:15px;
+    float: left;
+    margin-bottom: 15px;
 }
 
 .FullListTextField {
@@ -504,6 +530,7 @@ textarea {
 }
 
 .modal-accept-btn:hover {
+    border-color: #ccc;
     background-color: white;
     color: forestgreen;
 }
@@ -514,10 +541,11 @@ textarea {
     background-color: #BA141A;
     color: white;
 }
-    .modal-delete-btn:hover {
-        background-color: white;
-        color: #BA141A;
-    }
+
+.modal-delete-btn:hover {
+    background-color: white;
+    color: #BA141A;
+}
 
     /* Document CSS*/
 .document-dropdown {
