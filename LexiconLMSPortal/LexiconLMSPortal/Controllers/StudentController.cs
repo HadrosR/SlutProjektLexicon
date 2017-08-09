@@ -272,6 +272,7 @@ namespace LexiconLMSPortal.Controllers
 
             //Finds the right course with ID
             var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
+            course.Modules = course.Modules.OrderBy(n => n.StartDate).ToList();
 
             // Get the specifik course
             //var course = db.Courses.FirstOrDefault(n => n.Id == id);
@@ -313,7 +314,7 @@ namespace LexiconLMSPortal.Controllers
         {
             // Get the specifik module
             var module = db.Modules.FirstOrDefault(n => n.Id == id);
-
+            module.Activities = module.Activities.OrderBy(n => n.StartDate).ToList();
             // List to store activities
             List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
 
