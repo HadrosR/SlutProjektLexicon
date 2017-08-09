@@ -3,6 +3,12 @@
 <h2>@ViewBag.Course</h2>
 <br />
 <h4 style="margin-bottom: 8px">Week: @ViewBag.Week</h4>
+@*<form action="@Url.Action("Schedule", "Student", new { weekModifier = 1})" method="post">
+    <button type="submit" name="forward">Next Week</button>
+</form>
+<form action="@Url.Action("Schedule", "Student", new { weekModifier = -1})" method="post">
+    <button type="submit" name="backward">Previous Week</button>
+</form>*@
 <div class="row">
     <div class="col-md-2 schedulecol mondayCol">
         <h3>Monday</h3>@ViewBag.MondayDate

@@ -151,7 +151,7 @@ namespace LexiconLMSPortal.Controllers
         }
 
         //Returns the Scedule in a partialview
-        public ActionResult Schedule()
+        public ActionResult Schedule(int? weekModifier = 0)
         {
             string student = User.Identity.Name;
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
@@ -196,11 +196,13 @@ namespace LexiconLMSPortal.Controllers
                     EndDate = s.EndDate
                     
                 });
-
-                afk[x] = s.StartDate;
+            }
+            var list = savm.OrderBy(m => m.StartDate);
+            foreach (var item in list)
+            {
+                afk[x] = item.StartDate;
                 x++;
             }
-
             ScheduleViewModel schedule = new ScheduleViewModel();
 
             //Loops through the array of activities and puts them in seperate model list for there specific day
@@ -208,41 +210,41 @@ namespace LexiconLMSPortal.Controllers
             {
                 DateTime activityDate = afk[i];
                 //Gets what week it is "now"
-                int weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay);
+                int? weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay) + weekModifier;
                 //Gets the week of the activity
                 int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);
-                ViewBag.Week = activityWeekNbr;
+                ViewBag.Week = weekNbr;
 
                 if (activityWeekNbr == weekNbr)
                 {
                     if (afk[i].DayOfWeek == DayOfWeek.Monday)
                     {
                         ViewBag.MondayDate = afk[i].Date.ToString("dd/MM");
-                        schedule.Monday.Add(savm.ElementAt(i));
+                        schedule.Monday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
                     {
                         ViewBag.TuedayDate = afk[i].Date.ToString("dd/MM");
-                        schedule.Tuesday.Add(savm.ElementAt(i));
+                        schedule.Tuesday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
                     {
                         ViewBag.WednesdayDate = afk[i].Date.ToString("dd/MM");
-                        schedule.Wednesday.Add(savm.ElementAt(i));
+                        schedule.Wednesday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
                     {
                         ViewBag.ThursDate = afk[i].Date.ToString("dd/MM");
-                        schedule.Thursday.Add(savm.ElementAt(i));
+                        schedule.Thursday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Friday)
                     {
                         ViewBag.FridayDate = afk[i].Date.ToString("dd/MM");
-                        schedule.Friday.Add(savm.ElementAt(i));
+                        schedule.Friday.Add(list.ElementAt(i));
                     }
                 }
-            }
-            return PartialView("_Schedule", schedule);
+            }            
+            return PartialView("_Schedule",schedule);
         }
 
         protected override void Dispose(bool disposing)
@@ -270,6 +272,7 @@ namespace LexiconLMSPortal.Controllers
 
             //Finds the right course with ID
             var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
+            course.Modules = course.Modules.OrderBy(n => n.StartDate).ToList();
 
             // Get the specifik course
             //var course = db.Courses.FirstOrDefault(n => n.Id == id);
@@ -311,7 +314,7 @@ namespace LexiconLMSPortal.Controllers
         {
             // Get the specifik module
             var module = db.Modules.FirstOrDefault(n => n.Id == id);
-
+            module.Activities = module.Activities.OrderBy(n => n.StartDate).ToList();
             // List to store activities
             List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
 
