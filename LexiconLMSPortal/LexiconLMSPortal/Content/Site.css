@@ -205,17 +205,30 @@ textarea {
         background-color: #6e3694;
         color: white;
     }
+.ListCreateButtonFullList {
+    background-color: #6e3694;
+    color: white;
+    border-radius: 0px;
+    border-color:black;
+    height: 100%;
+}
+    .ListCreateButtonFullList:hover {
+        background-color: white;
+        color: forestgreen;
+    }
+
+    .ListCreateButtonFullList:focus {
+        background-color: #6e3694;
+        color: white;
+    }
 /*teacher index page*/
-
-
 /*FullList*/
-
-.FullListSearchBody{
+.FullListSearchBody {
     /*border-width:1px;
     border-style:solid;
     padding:5px;*/
-    float:left;
-    margin-bottom:15px;
+    float: left;
+    margin-bottom: 15px;
 }
 
 .FullListTextField {
