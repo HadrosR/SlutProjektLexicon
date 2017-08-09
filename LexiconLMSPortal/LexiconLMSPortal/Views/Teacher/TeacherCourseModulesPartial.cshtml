@@ -5,7 +5,7 @@
         @{int moduleid = 0; }
         @foreach (var item in Model.Modules)    
         {
-            <div class="panel panel-default module-accordion-div">
+            <div class="panel-default">
                 <div class="module-accordion-heading" role="tab" id="@Html.Raw("heading" + moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative">
                     <a class="ModuleCollapse" role="button" data-toggle="collapse" data-parent="#module-accordion" href="@Html.Raw("#collapse" + moduleid)" aria-expanded="true" aria-controls="@Html.Raw("#collapse" + moduleid)"></a>
                     <div class="row ListRow">
