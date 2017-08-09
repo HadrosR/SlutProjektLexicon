@@ -24,7 +24,14 @@
 
                 count++;
 
-                if (User.IsInRole("Student") && count != Model.Documents.Count)
+                if (User.IsInRole("Student"))
+                {
+                    if(count != Model.Documents.Count)
+                    {
+                        <li role="separator" class="divider"></li>
+                    }
+                }
+                else
                 {
                     <li role="separator" class="divider"></li>
                 }
