@@ -116,7 +116,7 @@ textarea {
 .TicBoxLabel{
     padding-left: 0px !important;
 }
-/*THIES STYLES ARE FOR THE LOG IN PAGE*/
+
 /*Stoppar rounded corners*/
 .StopRoundedBorders {
     border-radius: 0px;
@@ -517,6 +517,7 @@ textarea {
 }
 
 .modal-accept-btn:hover {
+    border-color: #ccc;
     background-color: white;
     color: forestgreen;
 }
@@ -527,10 +528,11 @@ textarea {
     background-color: #BA141A;
     color: white;
 }
-    .modal-delete-btn:hover {
-        background-color: white;
-        color: #BA141A;
-    }
+
+.modal-delete-btn:hover {
+    background-color: white;
+    color: #BA141A;
+}
 
     /* Document CSS*/
 .document-dropdown {
