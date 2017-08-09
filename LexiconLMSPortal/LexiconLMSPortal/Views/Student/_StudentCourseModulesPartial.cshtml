@@ -17,7 +17,7 @@
                             </h4>
                         </div>
                         <div class="col-xs-8 ListDateED">
-                            <div class="col-xs-5">@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div>
+                            <div class="col-xs-5"><div class="vertical-align"><span class="glyphicon glyphicon-calendar calendar-icon"></span>@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div></div>
                             <div class="col-xs-4">@Html.Action("DocumentModuleList", "Document", new { id = item.Id })</div>
                             <div class="col-xs-3" style="text-align:right; margin-right:0; padding-right:2px;">
                                 <span style="border-left: solid 1px gray; padding:8px; margin-left:5px;" class="glyphicon glyphicon-menu-down"></span>
