@@ -555,16 +555,16 @@ textarea {
     }
 
     .document-dropdown:hover > .badge {
-        background-color: #41ad49;
-        color: white;
+        background-color: #41ad49 !important;
+        color: white !important;
     }
 
     .document-dropdown:focus > .badge {
-        background-color: #41ad49;
-        color: white;
+        background-color: #41ad49 !important;
+        color: white !important;
     }
 
     .document-dropdown:active > .badge {
-        background-color: #41ad49;
-        color: white;
+        background-color: #41ad49 !important;
+        color: white !important;
     }
