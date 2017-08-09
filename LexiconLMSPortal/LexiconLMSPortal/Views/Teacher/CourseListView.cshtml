@@ -5,7 +5,7 @@
     @foreach (var item in Model)
     {
         @*Makes it so that the Description is displayed as a tooltop on the side*@
-        <div class="panel-default">
+        <div class="">
             <div tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative;">
                 @*Make it so if you click it it will take you to that course view*@
                 <a href="@Url.Action("Course","Teacher", new { id = item.Id})" class="TeacherLink"></a>

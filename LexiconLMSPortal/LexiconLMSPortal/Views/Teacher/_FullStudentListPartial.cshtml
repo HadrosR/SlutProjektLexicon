@@ -19,32 +19,33 @@
 
         </div>
     }
-    <table class="table table-hover">
+    <table class="table">
         <tr>
-    <th>
+    <th class="FullStudentListToRow">
         @Html.ActionLink("Student", "FullStudentList", new { sortOrder = ViewBag.NameSort })
     </th>
-    <th>
+    <th class="FullStudentListToRow">
         @Html.ActionLink("Email", "FullStudentList", new { sortOrder = ViewBag.EmailSort })
     </th>
-    <th>
+    <th class="FullStudentListToRow">
         @Html.ActionLink("Course", "FullStudentList", new { sortOrder = ViewBag.CourseSort })
     </th>
+    <th class="FullStudentListToRow"></th>
 </tr>
 
 @foreach (var item in Model)
 {
-    <tr>
-        <td>
+    <tr class="FullListTable">
+        <td class="FullStudentListToRowIn">
             @Html.DisplayFor(modelItem => item.FullName)
         </td>
-        <td>
+        <td class="FullStudentListToRowIn">
             @Html.DisplayFor(modelItem => item.EMail)
         </td>
-        <td>
+        <td class="FullStudentListToRowIn">
             @Html.DisplayFor(modelItem => item.CourseId.Name)
         </td>
-        <td>
+        <td class="FullStudentListToRowIn">
             <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditStudentFullList", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModalFullList"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
             <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteStudentFullList", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModalFullList"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
         </td>
