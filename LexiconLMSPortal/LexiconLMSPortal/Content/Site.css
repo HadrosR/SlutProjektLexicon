@@ -53,7 +53,7 @@ textarea {
 
 .edit-button {
     color: #6e3694;
-    font-size: 17px;
+    font-size: 19px;
     z-index: 3;
 }
 
@@ -64,7 +64,7 @@ textarea {
 
 .delete-button {
     color: black;
-    font-size: 17px;
+    font-size: 19px;
     z-index: 3;
 }
 
@@ -283,33 +283,42 @@ textarea {
 
 .ListName {
     background-color: #007234;
-    text-align:justify;
-    overflow-wrap:break-word;
-    color:white;
-}
-.ListModulName {
-    background-color: #EA3D01;
-    padding-top:8px;
-    text-align: justify;
+    text-align: left;
     overflow-wrap: break-word;
     color: white;
+    border: 1px solid #00441f;
+}
+    .ListName > h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+.ListModulName {
+    background-color: #EA3D01;
+    padding-top: 8px;
+    text-align: left;
+    overflow-wrap: break-word;
+    color: white;
+    border: 1px solid #822100;
 }
 
 .ListActivityName {
     background-color: #0072C5;
     padding-top: 8px;
-    text-align: justify;
+    text-align: left;
     overflow-wrap: break-word;
     color: white;
+    border: 1px solid #004a80;
 }
 
 .ListDateED {
     border-width: 1px;
     border-style: solid;
-    border-color: #262626;
+    border-color: #424242;
+    border-left: none;
     display: flex;
     align-items: center;
     vertical-align: central;
+    padding-right: 0px;
 }
 
 .TeacherLink {
