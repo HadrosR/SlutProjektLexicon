@@ -24,7 +24,7 @@ namespace LexiconLMSPortal.Controllers
         public ActionResult GetFile(int id)
         {
             var fileToRetrieve = db.Documents.Find(id);
-            return File(fileToRetrieve.Contents, "txt");
+            return File(fileToRetrieve.Contents, fileToRetrieve.ContentType, fileToRetrieve.Name);
         }
 
         [OverrideAuthorization]
@@ -108,10 +108,10 @@ namespace LexiconLMSPortal.Controllers
 
                     var document = new DocumentModels
                     {
-                        Name = cdvm.Name,
-                        Description = cdvm.Description,
+                        Name = upload.FileName,
                         Owner = um.FindByName(User.Identity.Name),
-                        TimeStamp = DateTime.Now
+                        TimeStamp = DateTime.Now,
+                        ContentType = upload.ContentType,
                     };
                     using (var reader = new System.IO.BinaryReader(upload.InputStream))
                     {
@@ -163,7 +163,6 @@ namespace LexiconLMSPortal.Controllers
             DeleteDocumentViewModel ddvm = new DeleteDocumentViewModel
             {
                 Id = id,
-                Description = document.Description,
                 Name = document.Name,
                 DocumentType = dt,
                 ParentId = parentId

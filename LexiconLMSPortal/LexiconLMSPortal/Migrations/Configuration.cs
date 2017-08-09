@@ -84,19 +84,19 @@ namespace LexiconLMSPortal.Migrations
                     {
                         new DocumentModels
                         {
-                            Name = "C# Syntax Document",
+                            Name = "C# Syntax Document.txt",
                             Owner = adminUser,
-                            Description = "An introduction to the C# syntax",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An introduction to the C# syntax"),
+                            ContentType = "txt",
                         },
                         new DocumentModels
                         {
-                            Name = "Visual Studio 2017 instructions",
+                            Name = "Visual Studio 2017 instructions.txt",
                             Owner = adminUser,
-                            Description = "A guide on how to install Visual Studio 2017",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017"),
+                            ContentType = "txt",
                         }
                     }
 
@@ -113,19 +113,19 @@ namespace LexiconLMSPortal.Migrations
                     {
                         new DocumentModels
                         {
-                            Name = "ASP.NET Introduction Document",
+                            Name = "ASP.NET Introduction Document.txt",
                             Owner = adminUser,
-                            Description = "An introduction to ASP.NET",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An introduction to ASP.NET"),
+                            ContentType = "txt",
                         },
                         new DocumentModels
                         {
-                            Name = "Another Visual Studio 2017 instructions",
+                            Name = "Another Visual Studio 2017 instructions.txt",
                             Owner = adminUser,
-                            Description = "A guide on how to install Visual Studio 2017 again",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017 again"),
+                            ContentType = "txt",
                         }
                     }
                 }
@@ -159,11 +159,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, loops",
+                                    Name = "Excercise instructions, loops.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, loops",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, loops"),
+                                    ContentType = "txt",
                                 }
                             }
                         },
@@ -177,11 +177,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Garage excercise instructions",
+                                    Name = "Garage excercise instructions.txt",
                                     Owner = adminUser,
-                                    Description = "Garage excercise instructions",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Garage excercise instructions"),
+                                    ContentType = "txt",
                                 }
                             }
                         }
@@ -190,19 +190,19 @@ namespace LexiconLMSPortal.Migrations
                     {
                         new DocumentModels
                         {
-                            Name = "A little loop example",
+                            Name = "A little loop example.txt",
                             Owner = adminUser,
-                            Description = "Code snippets of C# loops",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("Code snippets of C# loops"),
+                            ContentType = "txt",
                         },
                         new DocumentModels
                         {
-                            Name = "Advanced loop example",
+                            Name = "Advanced loop example.txt",
                             Owner = adminUser,
-                            Description = "Code snippet of advanced usage of loops",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("Code snippet of advanced usage of loops"),
+                            ContentType = "txt",
                         }
                     }
 
@@ -225,11 +225,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, exceptions",
+                                    Name = "Excercise instructions, exceptions.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, exceptions",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, exceptions"),
+                                    ContentType = "txt",
                                 }
                             }
                         }
@@ -238,19 +238,19 @@ namespace LexiconLMSPortal.Migrations
                     {
                         new DocumentModels
                         {
-                            Name = "Try Catch excercise",
+                            Name = "Try Catch excercise.txt",
                             Owner = adminUser,
-                            Description = "Learn how to use try catch",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("How to use try catch"),
+                            ContentType = "txt",
                         },
                         new DocumentModels
                         {
-                            Name = "Example exceptions",
+                            Name = "Example exceptions.txt",
                             Owner = adminUser,
-                            Description = "A list of example exceptions",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A list of example exceptions"),
+                            ContentType = "txt",
                         }
                     }
                 },
@@ -272,11 +272,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, controller",
+                                    Name = "Excercise instructions, controller.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, controller",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
+                                    ContentType = "txt",
                                 }
                             }
                         },
@@ -290,11 +290,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, models",
+                                    Name = "Excercise instructions, models.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, models",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
+                                    ContentType = "txt",
                                 }
                             }
                         },
@@ -308,11 +308,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, views",
+                                    Name = "Excercise instructions, views.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, views",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
+                                    ContentType = "txt",
                                 }
                             }
                         },new ActivityModels
@@ -325,11 +325,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, entity framework",
+                                    Name = "Excercise instructions, entity framework.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, entity framework",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
+                                    ContentType = "txt",
                                 }
                             }
                         },
@@ -343,11 +343,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Excercise instructions, CRUD",
+                                    Name = "Excercise instructions, CRUD.txt",
                                     Owner = adminUser,
-                                    Description = "Excercise instructions, CRUD",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
+                                    ContentType = "txt",
                                 }
                             }
                         },
@@ -361,11 +361,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Code along instructions",
+                                    Name = "Code along instructions.txt",
                                     Owner = adminUser,
-                                    Description = "Code along instructions",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
+                                    ContentType = "txt",
                                 }
                             }
                         },new ActivityModels
@@ -378,11 +378,11 @@ namespace LexiconLMSPortal.Migrations
                             {
                                 new DocumentModels
                                 {
-                                    Name = "Project instructions",
+                                    Name = "Project instructions.txt",
                                     Owner = adminUser,
-                                    Description = "Project instructions",
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
+                                    ContentType = "txt",
                                 }
                             }
                         }
@@ -392,19 +392,19 @@ namespace LexiconLMSPortal.Migrations
                     {
                         new DocumentModels
                         {
-                            Name = "MVC Presentation",
+                            Name = "MVC Presentation.txt",
                             Owner = adminUser,
-                            Description = "A presentation of the ASP.MVC system",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
+                            ContentType = "txt",
                         },
                         new DocumentModels
                         {
-                            Name = "MVC code example",
+                            Name = "MVC code example.txt",
                             Owner = adminUser,
-                            Description = "An example usage of Models, Views and Controllers",
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
+                            ContentType = "txt",
                         }
                     }
                 }
