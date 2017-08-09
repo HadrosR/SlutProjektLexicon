@@ -53,7 +53,7 @@ textarea {
 
 .edit-button {
     color: #6e3694;
-    font-size: 17px;
+    font-size: 19px;
     z-index: 3;
 }
 
@@ -64,7 +64,7 @@ textarea {
 
 .delete-button {
     color: black;
-    font-size: 17px;
+    font-size: 19px;
     z-index: 3;
 }
 
@@ -205,17 +205,39 @@ textarea {
         background-color: #6e3694;
         color: white;
     }
+.ListCreateButtonFullList {
+    background-color: #6e3694;
+    color: white;
+    border-radius: 0px;
+    border-color:black;
+    height: 100%;
+}
+    .ListCreateButtonFullList:hover {
+        background-color: white;
+        color: forestgreen;
+    }
+
+    .ListCreateButtonFullList:focus {
+        background-color: #6e3694;
+        color: white;
+    }
 /*teacher index page*/
-
-
 /*FullList*/
 
-.FullListSearchBody{
+.FullListTable {
+    
+}
+    .FullListTable:hover {
+        background-color: #ffcdab;
+    }
+
+
+.FullListSearchBody {
     /*border-width:1px;
     border-style:solid;
     padding:5px;*/
-    float:left;
-    margin-bottom:15px;
+    float: left;
+    margin-bottom: 15px;
 }
 
 .FullListTextField {
@@ -226,6 +248,19 @@ textarea {
 
 .ListButtonFullList {
     border-color: black;
+}
+
+.FullStudentListToRow {
+    border-top:0px!important;
+    border-bottom:2px solid black;
+}
+
+.FullStudentListToRow a {
+    color: black;
+    text-decoration: none;
+}
+.FullStudentListToRowIn{
+    border: 1px solid lightgrey;
 }
 
 /*FullList*/
@@ -270,33 +305,42 @@ textarea {
 
 .ListName {
     background-color: #007234;
-    text-align:justify;
-    overflow-wrap:break-word;
-    color:white;
-}
-.ListModulName {
-    background-color: #EA3D01;
-    padding-top:8px;
-    text-align: justify;
+    text-align: left;
     overflow-wrap: break-word;
     color: white;
+    border: 1px solid #00441f;
+}
+    .ListName > h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+.ListModulName {
+    background-color: #EA3D01;
+    padding-top: 8px;
+    text-align: left;
+    overflow-wrap: break-word;
+    color: white;
+    border: 1px solid #822100;
 }
 
 .ListActivityName {
     background-color: #0072C5;
     padding-top: 8px;
-    text-align: justify;
+    text-align: left;
     overflow-wrap: break-word;
     color: white;
+    border: 1px solid #004a80;
 }
 
 .ListDateED {
     border-width: 1px;
     border-style: solid;
-    border-color: #262626;
+    border-color: #424242;
+    border-left: none;
     display: flex;
     align-items: center;
     vertical-align: central;
+    padding-right: 0px;
 }
 
 .TeacherLink {
@@ -570,3 +614,8 @@ textarea {
         background-color: #41ad49 !important;
         color: white !important;
     }
+
+.module-accordion-div{
+    border:none;
+    box-shadow:none;
+}

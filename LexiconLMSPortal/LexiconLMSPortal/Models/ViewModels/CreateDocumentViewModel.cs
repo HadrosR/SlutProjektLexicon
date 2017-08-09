@@ -21,7 +21,6 @@ namespace LexiconLMSPortal.Models.ViewModels
         
         public CreateDocumentType DocumentType { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
 
     }
 

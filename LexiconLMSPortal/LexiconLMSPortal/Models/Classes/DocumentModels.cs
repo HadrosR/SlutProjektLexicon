@@ -11,9 +11,9 @@ namespace LexiconLMSPortal.Models.Classes
     {
         public int Id { get; set; }      
         public string Name { get; set; }
-        public string Description { get; set; }
         public DateTime TimeStamp { get; set; }
         public byte[] Contents { get; set; }
+        public string ContentType { get; set; }
 
         public virtual ApplicationUser Owner { get; set; }
         public virtual CourseModels Course { get; set; }

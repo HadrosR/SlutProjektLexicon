@@ -11,42 +11,41 @@
         <div class="FullListSearchBody">
             <div class="input-group">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-menu-right"></span></button>
-                    @Html.TextBox("search",null, new { @class= "form-control FullListTextField", placeholder="Search Name..."})
+                    <button class="btn btn-default ListCreateButtonFullList" type="submit" ><span class="glyphicon glyphicon-menu-right"></span></button>
+                    @Html.TextBox("search",null, new { @class= "form-control FullListTextField", placeholder="Search Student..."})
                     
-                </span>
-                @*@Html.TextBox("search") <input type="text" name="search" class="form-control" placeholder="Search Name">
-    <button class="ListCreateButtonFullList" type="submit">Search Name</button>*@            
+                </span>          
             </div>
 
         </div>
     }
     <table class="table">
         <tr>
-    <th>
+    <th class="FullStudentListToRow">
         @Html.ActionLink("Student", "FullStudentList", new { sortOrder = ViewBag.NameSort })
     </th>
-    <th>
+    <th class="FullStudentListToRow">
         @Html.ActionLink("Email", "FullStudentList", new { sortOrder = ViewBag.EmailSort })
     </th>
-    <th>
+    <th class="FullStudentListToRow">
         @Html.ActionLink("Course", "FullStudentList", new { sortOrder = ViewBag.CourseSort })
     </th>
+    <th class="FullStudentListToRow"></th>
 </tr>
 
 @foreach (var item in Model)
 {
-    <tr>
-        <td>
+    <tr class="FullListTable">
+        <td class="FullStudentListToRowIn">
             @Html.DisplayFor(modelItem => item.FullName)
         </td>
-        <td>
+        <td class="FullStudentListToRowIn">
             @Html.DisplayFor(modelItem => item.EMail)
         </td>
-        <td>
+        <td class="FullStudentListToRowIn">
             @Html.DisplayFor(modelItem => item.CourseId.Name)
         </td>
-        <td>
+        <td class="FullStudentListToRowIn">
             <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditStudentFullList", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModalFullList"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
             <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteStudentFullList", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModalFullList"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
         </td>

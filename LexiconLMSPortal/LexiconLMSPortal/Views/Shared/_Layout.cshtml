@@ -35,6 +35,7 @@
                             }
                             if (User.IsInRole("Student"))
                             {
+                                <li>@Html.ActionLink("Schedule","Index","Student")</li>
                                 <li>@Html.ActionLink("Course", "ModuleStudent", "Student")</li>
                             }
                         }
