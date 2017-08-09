@@ -583,3 +583,8 @@ textarea {
         background-color: #41ad49 !important;
         color: white !important;
     }
+
+.module-accordion-div{
+    border:none;
+    box-shadow:none;
+}
