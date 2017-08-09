@@ -1,7 +1,7 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.DocumentCourseViewModel
 
 <!-- Documents -->
-<div id="@Html.Raw("DocumentActivityPartial" + Model.CourseId)">
+<div id="@Html.Raw("DocumentCoursePartial" + Model.CourseId)">
     <div class="dropdown">
         <button id="dLabel" class="btn btn-default document-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Documents
@@ -15,7 +15,7 @@
                     <div style="margin:5px;">
                         @if (User.IsInRole("Teacher"))
                         {
-                            <a class="ajax-link-remove" data-target="#DeleteDocumentModal" href="@Url.RouteUrl(" Default", new {controller="Document" , action="RemoveDocumentCourse" , id=doc.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                            <a style="display:inline; float:right;" class="ajax-link-remove" data-target="#DeleteDocumentModal" href="@Url.RouteUrl("Default", new {controller="Document" , action="RemoveDocumentCourse" , id=doc.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         }
                         <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>
