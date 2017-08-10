@@ -27,7 +27,7 @@ namespace LexiconLMSPortal.Controllers
             var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
             var students = db.Courses.FirstOrDefault(t => t.Id == courseID).Students;
-
+            students = students.OrderBy(n => n.FirstName).ToList();
             foreach (var s in students)
             {
                 sl.Add(new _StudentListPartial

@@ -433,7 +433,7 @@ namespace LexiconLMSPortal.Controllers
 
             // Checks the database for all users with the role of "Teacher"
             var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
-
+            teachers = teachers.OrderBy(n => n.FirstName).ToList();
             //All the users that was found above are put in to a list
             foreach (var t in teachers)
             {
@@ -458,6 +458,7 @@ namespace LexiconLMSPortal.Controllers
 
             var course = context.Courses.FirstOrDefault(t => t.Id == id);
             var students = course.Students;
+            students = students.OrderBy(n => n.FirstName).ToList();
 
             foreach (var s in students)
             {
