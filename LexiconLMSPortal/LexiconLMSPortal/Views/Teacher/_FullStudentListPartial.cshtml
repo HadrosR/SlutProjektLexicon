@@ -46,8 +46,8 @@
             @Html.DisplayFor(modelItem => item.CourseId.Name)
         </td>
         <td class="FullStudentListToRowIn">
-            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditStudentFullList", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditStudentModalFullList"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteStudentFullList", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteStudentModalFullList"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditStudentFullList", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#EditStudentModalFullList"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteStudentFullList", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#DeleteStudentModalFullList"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
         </td>
     </tr>
 }

@@ -556,7 +556,7 @@ namespace LexiconLMSPortal.Controllers
                 CourseModel_Id = id
             };
 
-            return View("CreateStudent", csvm);
+            return PartialView("CreateStudent", csvm);
         }
 
         //POST: CreateStudent
@@ -564,7 +564,7 @@ namespace LexiconLMSPortal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateStudent([Bind(Include = "Id,FirstName,LastName,Email,Password,CourseModel_Id")] CreateSudentViewModel createSudentViewModel)
         {
-            var course = context.Courses.FirstOrDefault(d => d.Id == createSudentViewModel.Id);
+            var course = context.Courses.FirstOrDefault(d => d.Id == createSudentViewModel.CourseModel_Id);
 
             if (ModelState.IsValid)
             {
@@ -648,6 +648,25 @@ namespace LexiconLMSPortal.Controllers
 
             var result = userManager.Update(student);
 
+            // Want to change password?
+            if (editStudentViewModel.Password != null || editStudentViewModel.Password != "")
+            {
+
+                //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+
+                PasswordHasher ph = new PasswordHasher();
+
+                string hashed = ph.HashPassword(editStudentViewModel.Password);
+
+                var updatedUserPw = context.Users.Find(student.Id);
+
+                updatedUserPw.PasswordHash = hashed;
+
+                context.Entry(updatedUserPw).State = EntityState.Modified;
+
+                context.SaveChanges();
+            }
+
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
@@ -720,6 +739,25 @@ namespace LexiconLMSPortal.Controllers
             student.UserName = editStudentViewModel.Email;
 
             var result = userManager.Update(student);
+
+            // Want to change password?
+            if (editStudentViewModel.Password != null || editStudentViewModel.Password != "")
+            {
+                
+                //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+
+                PasswordHasher ph = new PasswordHasher();
+
+                string hashed = ph.HashPassword(editStudentViewModel.Password);
+
+                var updatedUserPw = context.Users.Find(student.Id);
+
+                updatedUserPw.PasswordHash = hashed;
+
+                context.Entry(updatedUserPw).State = EntityState.Modified;
+
+                context.SaveChanges();
+            }
 
             if (!result.Succeeded)
             {
