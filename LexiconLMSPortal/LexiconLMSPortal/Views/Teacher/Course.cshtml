@@ -3,8 +3,14 @@
     ViewBag.Title = Model.Name;
 }
 
-<h1>@Html.DisplayFor(model => model.Name)</h1>
-<p>@Html.DisplayFor(model => model.Description)</p>
+<div class="row ListRow"  style="margin-top: 2%">
+    <div class="col-md-5 ListModulName">
+        <h1>@Html.DisplayFor(model => model.Name)</h1>
+    </div>
+    <div class="col-md-7 ListDateED" style="padding-left:1%">
+        <p>@Html.DisplayFor(model => model.Description)</p>
+    </div>
+</div>
 
 <hr />
 
