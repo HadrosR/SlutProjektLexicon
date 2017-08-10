@@ -279,16 +279,16 @@ namespace LexiconLMSPortal.Migrations
                 {
                     Name = "Try, Catch and Exceptions",
                     Description = "Errors and exception handling",
-                    StartDate = new DateTime(2017, 09, 14),
-                    EndDate = new DateTime(2017, 09, 16),
+                    StartDate = new DateTime(2017, 08, 02),
+                    EndDate = new DateTime(2017, 08, 25),
                     Activities = new List<ActivityModels>
                     {
                         new ActivityModels
                         {
                             Name = "Exception excercise",
                             Description = "Learn how to implement exception handling",
-                            StartDate = new DateTime(2017, 09, 14, 9, 30, 0),
-                            EndDate = new DateTime(2017, 09, 14, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 07, 9, 30, 0),
+                            EndDate = new DateTime(2017, 08, 07, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -328,16 +328,16 @@ namespace LexiconLMSPortal.Migrations
                 {
                     Name = "MVC 2",
                     Description = "Brief introduction to MVC",
-                    StartDate = new DateTime(2017, 10, 09),
-                    EndDate = new DateTime(2017, 10, 20),
+                    StartDate = new DateTime(2017, 08, 01),
+                    EndDate = new DateTime(2017, 08, 30),
                     Activities = new List<ActivityModels>
                     {
                         new ActivityModels
                         {
                             Name = "Lecture",
                             Description = "MVC-controllers and its relations to the view and model",
-                            StartDate = new DateTime(2017, 10, 09, 9, 30, 0),
-                            EndDate = new DateTime(2017, 10, 09, 12, 0,0),
+                            StartDate = new DateTime(2017, 08, 07, 9, 30, 0),
+                            EndDate = new DateTime(2017, 08, 07, 12, 0,0),
 
                         },
 
@@ -345,8 +345,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Controller excercise",
                             Description = "Practice creating MVC-controllers",
-                            StartDate = new DateTime(2017, 10, 09, 14, 0, 0),
-                            EndDate = new DateTime(2017, 10, 09, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 07, 14, 0, 0),
+                            EndDate = new DateTime(2017, 08, 07, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -364,8 +364,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Lecture",
                             Description = "MVC-Models and its relations",
-                            StartDate = new DateTime(2017, 10, 10, 9, 0, 0),
-                            EndDate = new DateTime(2017, 10, 10, 12, 0,0),
+                            StartDate = new DateTime(2017, 08, 08, 9, 0, 0),
+                            EndDate = new DateTime(2017, 08, 08, 12, 0,0),
 
                         },
 
@@ -373,8 +373,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Models excercise",
                             Description = "Practice creating MVC-Models",
-                            StartDate = new DateTime(2017, 10, 10, 13, 0, 0),
-                            EndDate = new DateTime(2017, 10, 10, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 08, 13, 0, 0),
+                            EndDate = new DateTime(2017, 08, 08, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -392,8 +392,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Lecture",
                             Description = "MVC-View and its relations",
-                            StartDate = new DateTime(2017, 10, 11, 9, 0, 0),
-                            EndDate = new DateTime(2017, 10, 11, 12, 0,0),
+                            StartDate = new DateTime(2017, 08, 09, 9, 0, 0),
+                            EndDate = new DateTime(2017, 08, 09, 12, 0,0),
 
                         },
 
@@ -401,8 +401,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "View excercise",
                             Description = "Practice creating MVC-View",
-                            StartDate = new DateTime(2017, 10, 11, 13, 0, 0),
-                            EndDate = new DateTime(2017, 10, 11, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 09, 13, 0, 0),
+                            EndDate = new DateTime(2017, 08, 09, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -420,8 +420,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Lecture",
                             Description = "EntityFrameWork",
-                            StartDate = new DateTime(2017, 10, 12, 9, 0, 0),
-                            EndDate = new DateTime(2017, 10, 12, 12, 0,0),
+                            StartDate = new DateTime(2017, 08, 10, 9, 0, 0),
+                            EndDate = new DateTime(2017, 08, 10, 12, 0,0),
 
                         },
 
@@ -429,8 +429,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "MVC EntityFrameWork",
                             Description = "Framework that entity",
-                            StartDate = new DateTime(2017, 10, 12, 13, 0, 0),
-                            EndDate = new DateTime(2017, 10, 12, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 10, 13, 0, 0),
+                            EndDate = new DateTime(2017, 08, 10, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -448,8 +448,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Lecture",
                             Description = "How does CRUD work",
-                            StartDate = new DateTime(2017, 10, 13, 9, 0, 0),
-                            EndDate = new DateTime(2017, 10, 12, 12, 0,0),
+                            StartDate = new DateTime(2017, 08, 11, 9, 0, 0),
+                            EndDate = new DateTime(2017, 08, 11, 12, 0,0),
 
                         },
 
@@ -457,8 +457,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "CRUD",
                             Description = "Basic CRUD Stuff",
-                            StartDate = new DateTime(2017, 10, 13, 13, 0, 0),
-                            EndDate = new DateTime(2017, 10, 13, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 11, 13, 0, 0),
+                            EndDate = new DateTime(2017, 08, 11, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -476,8 +476,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Code Along",
                             Description = "TYPE FASTER FOOL",
-                            StartDate = new DateTime(2017, 10, 16, 9, 30, 0),
-                            EndDate = new DateTime(2017, 10, 16, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 21, 9, 30, 0),
+                            EndDate = new DateTime(2017, 08, 21, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -495,8 +495,8 @@ namespace LexiconLMSPortal.Migrations
                         {
                             Name = "Project",
                             Description = "Don't forget to return the model",
-                            StartDate = new DateTime(2017, 10, 17, 9, 30, 0),
-                            EndDate = new DateTime(2017, 10, 17, 17, 0, 0),
+                            StartDate = new DateTime(2017, 08, 21, 9, 30, 0),
+                            EndDate = new DateTime(2017, 08, 21, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
