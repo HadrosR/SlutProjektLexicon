@@ -9,6 +9,7 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" style="min-width:240px">
+            @{ int count = 0;}
             @foreach (var doc in Model.Documents)
             {
                 <li>
@@ -20,7 +21,20 @@
                         <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>
                 </li>
-                <li role="separator" class="divider"></li>
+
+                count++;
+
+                if (User.IsInRole("Student"))
+                {
+                    if (count != Model.Documents.Count)
+                    {
+                        <li role="separator" class="divider"></li>
+                    }
+                }
+                else
+                {
+                    <li role="separator" class="divider"></li>
+                }
             }
             @if (User.IsInRole("Teacher"))
             {
