@@ -16,7 +16,7 @@
                     <div id="modal-content">
 
                         <div class="form-horizontal">
-                            <hr />
+
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
                                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -61,7 +61,7 @@
                 <div class="modal-footer">
                     <div class="form-actions no-color">
                         <button type="button" class="btn btn-default modal-close-btn" data-dismiss="modal">Cancel</button>
-                        <input type="submit" value="Edit modal-accept-btn" class="btn btn-primary" />
+                        <input type="submit" value="Edit" class="btn btn-primary modal-accept-btn" />
                     </div>
                 </div>
 
