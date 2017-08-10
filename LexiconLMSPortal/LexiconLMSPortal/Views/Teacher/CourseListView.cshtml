@@ -10,15 +10,15 @@
                 @*Make it so if you click it it will take you to that course view*@
                 <a href="@Url.Action("Course","Teacher", new { id = item.Id})" class="TeacherLink"></a>
                 <div class="row ListRow">
-                    <div class="col-md-4 ListName">
+                    <div class="col-md-6 ListName">
 
                         <h2>
                             @Html.DisplayFor(modelItem => item.Name)
                         </h2>
                     </div>
                     @*Prints all the start and end date to the center of the "button"*@
-                    <div class="col-md-8 ListDateED">
-                        <div class="col-md-6">
+                    <div class="col-md-6 ListDateED">
+                        <div class="col-md-9">
                             <div class="text-center">
                                 Starts:
                                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -28,7 +28,7 @@
                                 @Html.DisplayFor(modelItem => item.EndDate)
                             </div>
                         </div>
-                        <div class="text-right col-md-6">
+                        <div class="text-right col-md-3">
                             @*2 icons for edit and delete*@
                             <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
                             <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteCourse", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteCourseModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
