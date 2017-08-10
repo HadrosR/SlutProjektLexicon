@@ -62,7 +62,7 @@
         $(".date-picker").datepicker({
             changeMonth: true,
             changeYear: true,
-            minDate:0,
+            minDate: '-10y',
             yearRange: "-10:+10",
             dateFormat: 'yy-mm-dd',
             onSelect: function (selected) {
@@ -72,11 +72,11 @@
         $(".date-picker2").datepicker({
             changeMonth: true,
             changeYear: true,
-            minDate: 0,
+            minDate: '-10y',
             yearRange: "-10:+10",
             dateFormat: 'yy-mm-dd',
             onSelect: function (selected) {
-                $(".date-picker1").datepicker("option", "maxDate", selected)
+                $(".date-picker").datepicker("option", "maxDate", selected)
             }
         });
 
