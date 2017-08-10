@@ -342,6 +342,10 @@ textarea {
     border: 1px solid #822100;
 }
 
+.ListModulNameHead h1{
+    margin-top:10px;
+}
+
 
 .ListActivityName {
     background-color: #0072C5;
