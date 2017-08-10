@@ -295,11 +295,19 @@ textarea {
 /*Documents*/
 /*Course List */
 
+.RemovepaddigBottom {
+    padding-bottom:0px;
+}
+
+#StudentListTeacher {
+    margin-bottom: 0px;
+}
+
 .ListRow {
     margin-bottom: 20px;
-    margin-right:0px;
+    margin-right: 0px;
     margin-left: 0px;
-    display:flex;
+    display: flex;
     background-color: white;
 }
 
