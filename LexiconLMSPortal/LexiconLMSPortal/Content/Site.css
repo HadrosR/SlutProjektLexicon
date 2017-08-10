@@ -332,6 +332,17 @@ textarea {
     border: 1px solid #822100;
 }
 
+.ListModulNameHead {
+    background-color: #BA141A;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+    overflow-wrap: break-word;
+    color: white;
+    border: 1px solid #822100;
+}
+
+
 .ListActivityName {
     background-color: #0072C5;
     padding-top: 8px;
