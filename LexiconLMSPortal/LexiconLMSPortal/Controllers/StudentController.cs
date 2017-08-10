@@ -70,7 +70,28 @@ namespace LexiconLMSPortal.Controllers
         // GET: Student Index
         public ActionResult Index()
         {
-            return View();
+            string student = User.Identity.Name;
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+            ApplicationUser currentUser = userManager.FindByName(student);
+
+            int CourseID = currentUser.CourseId.Id;
+            var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
+
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+            //Shows the name of the coruse for the student
+            ViewBag.Course = course.Name;
+
+            CourseViewModel cvm = new CourseViewModel {
+                Description = course.Description
+            };
+
+
+            return View(cvm);
         }
 
         // GET: Student modul view 
@@ -165,9 +186,6 @@ namespace LexiconLMSPortal.Controllers
             {
                 return HttpNotFound();
             }
-
-            //Shows the name of the coruse for the student
-            ViewBag.Course = course.Name;
 
             Calendar cal = new GregorianCalendar();
 

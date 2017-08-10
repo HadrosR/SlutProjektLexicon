@@ -40,9 +40,21 @@ namespace LexiconLMSPortal.Migrations
 
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
-            string[] emails = new[] { "larare1@lexicon.se", "larare2@lexicon.se", "elev1@hotmail.com", "elev2@gmail.com" };
-            string[] firstName = new[] { "Dimitris", "Mats", "Sebastian", "Henrik" };
-            string[] lastName = new[] { "Björlingh", "Johannesson", "Basse", "Forslin" };
+            string[] emails = new[] {
+                "larare1@lexicon.se", "larare2@lexicon.se", "elev1@hotmail.com", "elev2@gmail.com","elev3@gmail.com",
+                "elev4@gmail.com","elev5@gmail.com","elev6@gmail.com","elev7@gmail.com","elev8@gmail.com",
+                "elev9@gmail.com","elev10@gmail.com","elev11@gmail.com","elev12@gmail.com","elev13@gmail.com","elev14@gmail.com"
+            };
+            string[] firstName = new[] {
+                "Dimitris", "Mats", "Sebastian", "Henrik","Victor",
+                "Erik", "Alex", "Adam", "Benjamin", "Jonas",
+                "Peter", "Anton", "Mattias", "Joakim", "Obi-Wan","Ben"
+            };
+            string[] lastName = new[] {
+                "Björlingh", "Johannesson", "Basse", "Forslin", "Berglund",
+                "Andersson","Svensson","Johnsson","Gustavsson","Persson",
+                "Björn","Ormtunga","Rehnvall","Von Anka","Kenobi","Kenobi"
+            };
 
             int i = 0;
             foreach (string email in emails)
@@ -234,6 +246,7 @@ namespace LexiconLMSPortal.Migrations
                             }
                         }
                     },
+
                     Documents = new List<DocumentModels>
                     {
                         new DocumentModels
@@ -244,6 +257,7 @@ namespace LexiconLMSPortal.Migrations
                             Contents = Encoding.UTF8.GetBytes("How to use try catch"),
                             ContentType = "txt",
                         },
+
                         new DocumentModels
                         {
                             Name = "Example exceptions.txt",
@@ -264,10 +278,19 @@ namespace LexiconLMSPortal.Migrations
                     {
                         new ActivityModels
                         {
+                            Name = "Lecture",
+                            Description = "MVC-controllers and its relations to the view and model",
+                            StartDate = new DateTime(2017, 10, 09, 9, 30, 0),
+                            EndDate = new DateTime(2017, 10, 09, 12, 0,0),
+
+                        },
+
+                        new ActivityModels
+                        {
                             Name = "Controller excercise",
                             Description = "Practice creating MVC-controllers",
-                            StartDate = new DateTime(2017, 10, 09, 9, 30, 0),
-                            EndDate = new DateTime(2017, 10, 09, 17, 0,0),
+                            StartDate = new DateTime(2017, 10, 09, 14, 0, 0),
+                            EndDate = new DateTime(2017, 10, 09, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
                                 new DocumentModels
@@ -280,11 +303,21 @@ namespace LexiconLMSPortal.Migrations
                                 }
                             }
                         },
+
+                        new ActivityModels
+                        {
+                            Name = "Lecture",
+                            Description = "MVC-Models and its relations",
+                            StartDate = new DateTime(2017, 10, 10, 9, 0, 0),
+                            EndDate = new DateTime(2017, 10, 10, 12, 0,0),
+
+                        },
+
                         new ActivityModels
                         {
                             Name = "Models excercise",
                             Description = "Practice creating MVC-Models",
-                            StartDate = new DateTime(2017, 10, 10, 9, 30, 0),
+                            StartDate = new DateTime(2017, 10, 10, 13, 0, 0),
                             EndDate = new DateTime(2017, 10, 10, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
@@ -298,11 +331,21 @@ namespace LexiconLMSPortal.Migrations
                                 }
                             }
                         },
+
+                        new ActivityModels
+                        {
+                            Name = "Lecture",
+                            Description = "MVC-View and its relations",
+                            StartDate = new DateTime(2017, 10, 11, 9, 0, 0),
+                            EndDate = new DateTime(2017, 10, 11, 12, 0,0),
+
+                        },
+
                         new ActivityModels
                         {
                             Name = "View excercise",
                             Description = "Practice creating MVC-View",
-                            StartDate = new DateTime(2017, 10, 11, 9, 30, 0),
+                            StartDate = new DateTime(2017, 10, 11, 13, 0, 0),
                             EndDate = new DateTime(2017, 10, 11, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
@@ -315,11 +358,22 @@ namespace LexiconLMSPortal.Migrations
                                     ContentType = "txt",
                                 }
                             }
-                        },new ActivityModels
+                        },
+
+                        new ActivityModels
+                        {
+                            Name = "Lecture",
+                            Description = "EntityFrameWork",
+                            StartDate = new DateTime(2017, 10, 12, 9, 0, 0),
+                            EndDate = new DateTime(2017, 10, 12, 12, 0,0),
+
+                        },
+
+                        new ActivityModels
                         {
                             Name = "MVC EntityFrameWork",
                             Description = "Framework that entity",
-                            StartDate = new DateTime(2017, 10, 12, 9, 30, 0),
+                            StartDate = new DateTime(2017, 10, 12, 13, 0, 0),
                             EndDate = new DateTime(2017, 10, 12, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
@@ -333,11 +387,21 @@ namespace LexiconLMSPortal.Migrations
                                 }
                             }
                         },
+
+                        new ActivityModels
+                        {
+                            Name = "Lecture",
+                            Description = "How does CRUD work",
+                            StartDate = new DateTime(2017, 10, 13, 9, 0, 0),
+                            EndDate = new DateTime(2017, 10, 12, 12, 0,0),
+
+                        },
+
                         new ActivityModels
                         {
                             Name = "CRUD",
                             Description = "Basic CRUD Stuff",
-                            StartDate = new DateTime(2017, 10, 13, 9, 30, 0),
+                            StartDate = new DateTime(2017, 10, 13, 13, 0, 0),
                             EndDate = new DateTime(2017, 10, 13, 17, 0, 0),
                             Documents = new List<DocumentModels>
                             {
@@ -351,6 +415,7 @@ namespace LexiconLMSPortal.Migrations
                                 }
                             }
                         },
+
                         new ActivityModels
                         {
                             Name = "Code Along",
@@ -368,7 +433,9 @@ namespace LexiconLMSPortal.Migrations
                                     ContentType = "txt",
                                 }
                             }
-                        },new ActivityModels
+                        },
+
+                        new ActivityModels
                         {
                             Name = "Project",
                             Description = "Don't forget to return the model",
@@ -398,6 +465,7 @@ namespace LexiconLMSPortal.Migrations
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
                         },
+
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
@@ -407,14 +475,38 @@ namespace LexiconLMSPortal.Migrations
                             ContentType = "txt",
                         }
                     }
-                }
+                },
+                new ModuleModels
+                {
+                    Name = "HTML",
+                    Description = "Refresher to Html",
+                    StartDate = new DateTime(2017, 10, 02),
+                    EndDate = new DateTime(2017, 10, 06),
+                    Activities = new List<ActivityModels>
+                    {
+                        new ActivityModels
+                        {
+                                Name = "CSS",
+                                Description = "Basic CSS Stuff",
+                                StartDate = new DateTime(2017, 10, 02, 9, 0, 0),
+                                EndDate = new DateTime(2017, 10, 02, 17, 0, 0),
+                        }
+                    }
+                 }
             };
+
             courses[0].Students.Add(students.ElementAt(0));
-            courses[1].Students.Add(students.ElementAt(1));
+            for (int e = 1; e < 14; e++)
+            {
+                courses[1].Students.Add(students.ElementAt(e));
+            }
+            
+            
 
             courses[0].Modules.Add(modules[0]);
             courses[0].Modules.Add(modules[1]);
             courses[1].Modules.Add(modules[2]);
+            courses[1].Modules.Add(modules[3]);
 
             context.SaveChanges();
         }

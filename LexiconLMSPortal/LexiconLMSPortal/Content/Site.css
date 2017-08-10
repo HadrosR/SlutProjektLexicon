@@ -295,11 +295,19 @@ textarea {
 /*Documents*/
 /*Course List */
 
+.RemovepaddigBottom {
+    padding-bottom:0px;
+}
+
+#StudentListTeacher {
+    margin-bottom: 0px;
+}
+
 .ListRow {
     margin-bottom: 20px;
-    margin-right:0px;
+    margin-right: 0px;
     margin-left: 0px;
-    display:flex;
+    display: flex;
     background-color: white;
 }
 
@@ -323,6 +331,17 @@ textarea {
     color: white;
     border: 1px solid #822100;
 }
+
+.ListModulNameHead {
+    background-color: #BA141A;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+    overflow-wrap: break-word;
+    color: white;
+    border: 1px solid #822100;
+}
+
 
 .ListActivityName {
     background-color: #0072C5;
@@ -467,7 +486,7 @@ textarea {
 .tuesdayCol {
     margin: 5px;
     margin-right: 0px;
-    background-color: #0072C6;
+    background-color: #00188F;
     color: white;
 }
 

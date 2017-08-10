@@ -40,7 +40,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date-picker2", onkeydown = "return false", onpaste = "return false" } })
                             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -62,8 +62,22 @@
         $(".date-picker").datepicker({
             changeMonth: true,
             changeYear: true,
+            minDate: '-10y',
             yearRange: "-10:+10",
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'yy-mm-dd',
+            onSelect: function (selected) {
+                $(".date-picker2").datepicker("option", "minDate", selected)
+            }
+        });
+        $(".date-picker2").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            minDate: '-10y',
+            yearRange: "-10:+10",
+            dateFormat: 'yy-mm-dd',
+            onSelect: function (selected) {
+                $(".date-picker").datepicker("option", "maxDate", selected)
+            }
         });
 
     });
