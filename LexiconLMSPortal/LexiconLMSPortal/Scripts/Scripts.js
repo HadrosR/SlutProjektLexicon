@@ -6,16 +6,15 @@
 
     var openModal;
 
-    $('body').on('show.bs.collapse', '.panel-collapse', function (e){
+    $('body').on('show.bs.collapse', '.panel-collapse', function (e) {
 
         var a = $(e.currentTarget).parent().find(".glyphicon-menu-down").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-    })
+    });
 
     $('body').on('hide.bs.collapse', '.panel-collapse', function (e) {
 
         var a = $(e.currentTarget).parent().find(".glyphicon-menu-up").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-        console.log(a);
-    })
+    });
 
     // Collapse Module Accordion ALTERNATIVE
     //$("body").on("click", ".module-accordion-heading", function (e) {
@@ -28,11 +27,21 @@
 
     //});
 
+    // Add loading spinner on ajax request start
+    $(document).ajaxStart(function () { overlay.delay(500).fadeIn(200); });
+
     // Ajax Request
     var ajaxFormSubmit = function (e) {
         e.preventDefault();
 
         var $form = $(this);
+
+        var open = $form.data("lms-open-modal");
+
+        if (open != true)
+        {
+            open = false;
+        }
 
         if (!$form.validate()) {
             return;
@@ -40,6 +49,7 @@
 
         var options;
 
+        // For file upload
         if ($form.attr("enctype") === "multipart/form-data")
         {
             options = {
@@ -57,23 +67,31 @@
                 url: $form.attr("action"),
                 type: $form.attr("method"),
                 data: $form.serialize(),
-
             };
         }
 
         $.ajax(options).done(function (data) {
+            // Close modal
+            if (open != true) {
+                openModal.modal('hide');
+            }
+            else {
+                // Clear fields
+                $($form).closest('form').find("input[type=text], textarea").val("");
+            }
+
+            // Clear overlay and update contents
             overlay.clearQueue();
             overlay.hide(0, function () {
-
-                openModal.modal('hide');
                 var $target = $($form.attr("data-lms-target"));
                 $target.replaceWith(data);
-                $('#alertBox').slideDown().delay(2000).slideUp();
-            })          
+                $('#alertBox').slideDown().delay(5000).slideUp();
+            })
+        }).error(function (e) {
+            overlay.clearQueue();
+            overlay.hide();
         });
-    };
-
-    $(document).ajaxStart(function () { overlay.delay(500).fadeIn(200); } )
+    }
 
     // Add Ajax functionality to form
     $("body").on("submit", "form[data-lms-ajax='true']", ajaxFormSubmit);
