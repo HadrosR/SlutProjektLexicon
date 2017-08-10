@@ -40,9 +40,21 @@ namespace LexiconLMSPortal.Migrations
 
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(context);
             UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
-            string[] emails = new[] { "larare1@lexicon.se", "larare2@lexicon.se", "elev1@hotmail.com", "elev2@gmail.com" };
-            string[] firstName = new[] { "Dimitris", "Mats", "Sebastian", "Henrik" };
-            string[] lastName = new[] { "Björlingh", "Johannesson", "Basse", "Forslin" };
+            string[] emails = new[] {
+                "larare1@lexicon.se", "larare2@lexicon.se", "elev1@hotmail.com", "elev2@gmail.com","elev3@gmail.com",
+                "elev4@gmail.com","elev5@gmail.com","elev6@gmail.com","elev7@gmail.com","elev8@gmail.com",
+                "elev9@gmail.com","elev10@gmail.com","elev11@gmail.com","elev12@gmail.com","elev13@gmail.com","elev14@gmail.com"
+            };
+            string[] firstName = new[] {
+                "Dimitris", "Mats", "Sebastian", "Henrik","Victor",
+                "Erik", "Alex", "Adam", "Benjamin", "Jonas",
+                "Peter", "Anton", "Mattias", "Joakim", "Obi-Wan","Ben"
+            };
+            string[] lastName = new[] {
+                "Björlingh", "Johannesson", "Basse", "Forslin", "Berglund",
+                "Andersson","Svensson","Johnsson","Gustavsson","Persson",
+                "Björn","Ormtunga","Rehnvall","Von Anka","Kenobi","Kenobi"
+            };
 
             int i = 0;
             foreach (string email in emails)
@@ -484,7 +496,12 @@ namespace LexiconLMSPortal.Migrations
             };
 
             courses[0].Students.Add(students.ElementAt(0));
-            courses[1].Students.Add(students.ElementAt(1));
+            for (int e = 1; e < 14; e++)
+            {
+                courses[1].Students.Add(students.ElementAt(e));
+            }
+            
+            
 
             courses[0].Modules.Add(modules[0]);
             courses[0].Modules.Add(modules[1]);
