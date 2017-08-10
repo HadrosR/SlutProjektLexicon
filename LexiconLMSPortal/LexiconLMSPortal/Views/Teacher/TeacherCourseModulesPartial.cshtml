@@ -17,7 +17,7 @@
                             </h4>
                         </div>
                         <div class="col-md-8 ListDateED">
-                            <div class="col-md-5">@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div>
+                            <div class="col-md-5"><div class="vertical-align"><span class="glyphicon glyphicon-calendar calendar-icon"></span>@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div></div>
                             <div class="col-md-4">@Html.Action("DocumentModuleList", "Document", new { id = item.Id })</div>
                             <div class="col-md-3" style="text-align:right; margin-right:0; padding-right:2px;">
                                 <a class="ajax-link-edit" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>

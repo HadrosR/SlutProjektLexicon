@@ -4,12 +4,12 @@
 }
 
 <div id="TeacherListPartial">
-    <div class="UserList">
+    <div class="UserList RemovepaddigBottom">
         <div>
             <div class="UserListText">Teachers</div>
             <div class="UserListTopButton"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.Action("AddTeacher", "Teacher")" data-target="#AddTeacherModal"><span class="glyphicon glyphicon-plus-sign"></span> Teacher</a></div>
         </div>
-        <ul class="list-group StopRoundedBorders">
+        <ul class="list-group StopRoundedBorders"id="StudentListTeacher">
             @foreach (var item in Model)
             {
                 <li class="list-group-item UserListMainBody">
