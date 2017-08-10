@@ -188,9 +188,8 @@ namespace LexiconLMSPortal.Controllers
             }
 
             Calendar cal = new GregorianCalendar();
-
-            // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
-            DateTime datevalue = new DateTime(2017, 10, 09);
+            
+            DateTime datevalue = DateTime.Now;
             DayOfWeek firstDay = DayOfWeek.Monday;
             CalendarWeekRule rule;
             rule = CalendarWeekRule.FirstFourDayWeek;
