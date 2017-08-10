@@ -342,7 +342,7 @@ textarea {
     border: 1px solid #822100;
 }
 
-.ListModulNameHead h1{
+.ListModulNameHead h1,h2{
     margin-top:10px;
 }
 
@@ -459,6 +459,7 @@ textarea {
 
 #alertBox {
     display: none;
+    padding:5px;
 }
 
 /*Here Goes Some CSS For the Student Schedule*/
@@ -698,4 +699,12 @@ textarea {
     100% {
         transform: rotate(360deg);
     }
+}
+
+textarea {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: none;
+    height: 6em;
 }
