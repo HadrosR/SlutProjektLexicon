@@ -16,7 +16,7 @@
                     <div style="margin:5px;">
                         @if (User.IsInRole("Teacher"))
                         {
-                            <a style="display:inline; float:right; padding-left:10px;" class="ajax-link-remove" data-target="#DeleteDocumentModal" href="@Url.RouteUrl("Default", new {controller = "Document", action = "RemoveDocumentModule", id = doc.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                            <a style="display:inline; float:right; padding-left:10px;" class="ajax-link" data-target="#DeleteDocumentModal" href="@Url.RouteUrl("Default", new {controller = "Document", action = "RemoveDocumentModule", id = doc.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         }
                         <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })"><span class="glyphicon glyphicon-file" style="display:inline-block;"></span> @Html.DisplayFor(model => doc.Name)</a>
                     </div>

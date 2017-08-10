@@ -18,20 +18,13 @@
                     </div>
                     @*Prints all the start and end date to the center of the "button"*@
                     <div class="col-md-6 ListDateED">
-                        <div class="col-md-9">
-                            <div class="text-center">
-                                Starts:
-                                @Html.DisplayFor(modelItem => item.StartDate)
-                            </div>
-                            <div class="text-center">
-                                Ends:
-                                @Html.DisplayFor(modelItem => item.EndDate)
-                            </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="vertical-align"><span class="glyphicon glyphicon-calendar calendar-icon"></span>@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div>
                         </div>
                         <div class="text-right col-md-3">
                             @*2 icons for edit and delete*@
-                            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteCourse", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteCourseModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditCourse", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#EditCourseModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+                            <a href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteCourse", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#DeleteCourseModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                         </div>
                     </div>
 

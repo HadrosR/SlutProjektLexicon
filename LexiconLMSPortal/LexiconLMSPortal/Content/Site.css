@@ -43,7 +43,7 @@ textarea {
     opacity: 1;
     /* customizable */
     background: #6e3694;
-    border-color: #6e3694;
+    border-color: #451764;
     left: 101%;
 }
 
@@ -659,4 +659,39 @@ textarea {
 .vertical-align {
     display:flex;
     align-items:center;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2); /* Black background with opacity */
+    z-index: 1040; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+    display:none;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #d11a1a; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1.4s linear infinite;
+    margin:auto;
+    margin-top:20%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

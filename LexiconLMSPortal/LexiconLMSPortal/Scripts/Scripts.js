@@ -1,4 +1,8 @@
 ﻿$(document).ready(function () {
+    // Add overlay with loader
+    $("body").append("<div id='overlay'><div class='loader'></div></div>");
+
+    var overlay = $("#overlay");
 
     var openModal;
 
@@ -57,18 +61,19 @@
             };
         }
 
-        $('body').on('click', '#sendButton', function () { 
-            $(document).ajaxSuccess(function () {
-                $('#alertBox').slideDown().delay(2000).slideUp();
-            })
-        });
-
         $.ajax(options).done(function (data) {
-            openModal.modal('hide');
-            var $target = $($form.attr("data-lms-target"));
-            $target.replaceWith(data);            
+            overlay.clearQueue();
+            overlay.hide(0, function () {
+
+                openModal.modal('hide');
+                var $target = $($form.attr("data-lms-target"));
+                $target.replaceWith(data);
+                $('#alertBox').slideDown().delay(2000).slideUp();
+            })          
         });
     };
+
+    $(document).ajaxStart(function () { overlay.delay(500).fadeIn(200); } )
 
     // Add Ajax functionality to form
     $("body").on("submit", "form[data-lms-ajax='true']", ajaxFormSubmit);
@@ -85,58 +90,17 @@
         }
 
         $.ajax(options).done(function (data) {
-            var $target = $($(link).data("target"));
-            openModal.replaceWith(data);
+            overlay.clearQueue();
+            overlay.hide(0, function () {
+                var $target = $($(link).data("target"));
+                openModal.replaceWith(data);
 
-            openModal = $($(link).data("target"));
+                openModal = $($(link).data("target"));
 
-            openModal.modal('show');
+                openModal.modal('show');
 
-            $.validator.unobtrusive.parse(openModal.find("form"));
-        });
-    });
-
-    // Ajax Edit Links
-    $("body").on("click", ".ajax-link-edit", function (e) {
-        e.preventDefault();
-        openModal = $($(this).data("target"));
-        var link = $(this);
-
-        var options = {
-            url: link.attr("href"),
-            type: "GET"
-        }
-
-        $.ajax(options).done(function (data) {
-            var $target = $($(link).data("target"));
-            openModal.replaceWith(data);
-
-            openModal = $($(link).data("target"));
-
-            openModal.modal('show');
-
-            $.validator.unobtrusive.parse(openModal.find("form"));
-        });
-    });
-
-    // Ajax Remove Links
-    $("body").on("click", ".ajax-link-remove", function (e) {
-        e.preventDefault();
-        openModal = $($(this).data("target"));
-        var link = $(this);
-
-        var options = {
-            url: link.attr("href"),
-            type: "GET"
-        }
-
-        $.ajax(options).done(function (data) {
-            var $target = $($(link).data("target"));
-            openModal.replaceWith(data);
-
-            openModal = $($(link).data("target"));
-
-            openModal.modal('show');
+                $.validator.unobtrusive.parse(openModal.find("form"));
+            });
         });
     });
 });

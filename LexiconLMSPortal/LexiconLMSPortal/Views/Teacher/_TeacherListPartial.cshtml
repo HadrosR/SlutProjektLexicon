@@ -15,8 +15,8 @@
                 <li class="list-group-item UserListMainBody">
                     <div class="UserListBottomLeft">@Html.DisplayFor(modelItem => item.FullName)</div>
                     <div class="UserListBottomRight">
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditTeacher", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditTeacherModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteTeacher", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteTeacherModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditTeacher", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#EditTeacherModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteTeacher", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#DeleteTeacherModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                     </div>
                 </li>
             }
