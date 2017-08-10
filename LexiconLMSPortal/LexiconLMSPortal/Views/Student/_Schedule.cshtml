@@ -1,8 +1,11 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ScheduleViewModel
 
-<h2>@ViewBag.Course</h2>
-<br />
-<h4 style="margin-bottom: 8px">Week: @ViewBag.Week</h4>
+<div class="row ListRow">
+    <div class="col-xs-4 ListActivityName">
+        <h4 style="margin-bottom: 8px; margin-left: 7.5%">Week: @ViewBag.Week</h4>
+    </div>
+    <div class="col-xs-8 ListDateED"></div>
+</div>
 @*<form action="@Url.Action("Schedule", "Student", new { weekModifier = 1})" method="post">
     <button type="submit" name="forward">Next Week</button>
 </form>
@@ -10,6 +13,7 @@
     <button type="submit" name="backward">Previous Week</button>
 </form>*@
 <div class="row">
+   <div class="col-md-1"></div>
     <div class="col-md-2 schedulecol mondayCol">
         <h3>Monday</h3>@ViewBag.MondayDate
         @foreach (var item in Model.Monday)
