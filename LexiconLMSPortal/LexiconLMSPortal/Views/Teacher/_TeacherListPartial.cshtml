@@ -4,19 +4,19 @@
 }
 
 <div id="TeacherListPartial">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div style="float:left; font-size: 20px;">Teachers</div>
-            <div style="text-align:right;"><a class="ajax-link btn btn-default" href="@Url.Action("AddTeacher", "Teacher")" data-target="#AddTeacherModal"><span class="glyphicon glyphicon-plus-sign"></span> Teacher</a></div>
+    <div class="UserList RemovepaddigBottom">
+        <div>
+            <div class="UserListText UserListTopTeacher">Teachers</div>
+            <div class="UserListTopButton"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.Action("AddTeacher", "Teacher")" data-target="#AddTeacherModal"><span class="glyphicon glyphicon-plus-sign"></span> Teacher</a></div>
         </div>
-        <ul class="list-group">
+        <ul class="list-group StopRoundedBorders"id="StudentListTeacher">
             @foreach (var item in Model)
             {
-                <li class="list-group-item">
-                    <div style="float:left;">@Html.DisplayFor(modelItem => item.FullName)</div>
-                    <div style="text-align:right">
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditTeacher", id = item.Id })" class="ajax-link-edit TeacherLinkIcon" data-target="#EditTeacherModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteTeacher", id = item.Id })" class="ajax-link-remove TeacherLinkIcon" data-target="#DeleteTeacherModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                <li class="list-group-item UserListMainBody">
+                    <div class="UserListBottomLeft">@Html.DisplayFor(modelItem => item.FullName)</div>
+                    <div class="UserListBottomRight">
+                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "EditTeacher", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#EditTeacherModal"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
+                        <a href="@Url.RouteUrl("Default", new { controller = "Teacher", action = "DeleteTeacher", id = item.Id })" class="ajax-link TeacherLinkIcon" data-target="#DeleteTeacherModal"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
                     </div>
                 </li>
             }

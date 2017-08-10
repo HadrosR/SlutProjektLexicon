@@ -189,6 +189,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -206,7 +207,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\ActivityModels.cs" />
+    <Compile Include="Models\Classes\DocumentModels.cs" />
     <Compile Include="Models\ViewModels\CreateActivityViewModel.cs" />
+    <Compile Include="Models\ViewModels\CreateDocumentViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateSudentViewModel.cs" />
     <Compile Include="Models\Classes\ModuleModels.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
@@ -214,6 +217,10 @@
     <Compile Include="Models\Classes\CourseModels.cs" />
     <Compile Include="Models\ViewModels\CourseViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateModuleViewModel.cs" />
+    <Compile Include="Models\ViewModels\DeleteDocumentViewModel.cs" />
+    <Compile Include="Models\ViewModels\DocumentActivityViewModel.cs" />
+    <Compile Include="Models\ViewModels\DocumentCourseViewModel.cs" />
+    <Compile Include="Models\ViewModels\DocumentModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\EditModuleViewModel.cs" />
     <Compile Include="Models\ViewModels\EditStudentViewModel.cs" />
@@ -235,6 +242,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\logo-lexicon%402x.gif" />
     <Content Include="Content\images\logo-lexicon-small%402x.gif" />
     <Content Include="Content\images\logo-lexicon-small.gif" />
@@ -285,6 +293,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\AutomaticSelectFirstInput.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -430,6 +439,13 @@
     <Content Include="Views\Teacher\_DeleteStudentPartialFullList.cshtml" />
     <Content Include="Views\Teacher\_FullStudentListPartial.cshtml" />
     <Content Include="Views\Teacher\EditCoursePartial.cshtml" />
+    <Content Include="Views\Student\_StudentCourseActivitiesPartial.cshtml" />
+    <Content Include="Views\Student\_StudentCourseModulesPartial.cshtml" />
+    <Content Include="Views\Document\CreateDocumentPartial.cshtml" />
+    <Content Include="Views\Document\DocumentCoursePartial.cshtml" />
+    <Content Include="Views\Document\DocumentModulePartial.cshtml" />
+    <Content Include="Views\Document\DocumentActivityPartial.cshtml" />
+    <Content Include="Views\Document\DeleteDocumentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

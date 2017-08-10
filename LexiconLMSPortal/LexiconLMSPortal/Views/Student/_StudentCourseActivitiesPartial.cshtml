@@ -1,15 +1,15 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewModel
 
-<div id="@Html.Raw("TeacherCourseActivitiesPartial" + Model.Id)">
-    
-        @foreach (var activity in Model.Activities)
-        {
-            <div class="panel-default teacher-activity">
-                <div tooltip="@Html.DisplayFor(modelItem => activity.Description)">
+<div id="@Html.Raw("StudentCourseActivitiesPartial" + Model.Id)">
+
+    @foreach (var activity in Model.Activities)
+    {
+    <div class="panel-default student-activity">
+        <div tooltip="@Html.DisplayFor(modelItem => activity.Description)">
 
                     <div class="row ListRow">
                         <div class="col-xs-4 ListActivityName">@Html.DisplayFor(modelItem => activity.Name)</div>
-                        <div class="col-md-8 ListDateED">
+                        <div class="col-xs-8 ListDateED">
                             <div class="col-xs-6">
                                 <div class="vertical-align">
                                     <span class="glyphicon glyphicon-calendar calendar-icon"></span>
@@ -19,12 +19,8 @@
                                 </div>
                             </div>
                             <div class="col-xs-4">@Html.Action("DocumentActivityList", "Document", new { id = activity.Id })</div>
-                            <div class="col-xs-2" style="text-align:right;">
-                                <a class="ajax-link" data-target="#EditActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditActivity", id = activity.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                                <a class="ajax-link" data-target="#DeleteActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteActivity", id = activity.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
-                            </div>
+                            <div class="col-xs-2" style="text-align:right;"></div>
                         </div>
-                        
                     </div>
                 </div>
             </div>

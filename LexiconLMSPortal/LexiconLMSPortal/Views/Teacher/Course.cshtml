@@ -3,18 +3,29 @@
     ViewBag.Title = Model.Name;
 }
 
-<h1>@Html.DisplayFor(model => model.Name)</h1>
-<p>@Html.DisplayFor(model => model.Description)</p>
+<div class="row ListRow"  style="margin-top: 2%">
+    <div class="col-md-5 ListModulNameHead">
+        <h1>@Html.DisplayFor(model => model.Name)</h1>
+    </div>
+    <div class="col-md-7 ListDateED" style="padding-left:1%">
+        <p>@Html.DisplayFor(model => model.Description)</p>
+    </div>
+</div>
 
 <hr />
 
 <div class="row">
     <div class="col-xs-8">
-        <div class="panel panel-default">
+        <!-- Documents -->
+        @Html.Action("DocumentCourseList", "Document", new { id = Model.Id})
+
+        <!-- Modules -->
+
+        <div class="ListBlock panel-default">
             <div class="panel-body">
                 <div style="font-size:20px; padding-bottom:10px; ">
                     <div style="float:left; padding-top:5px;">Modules</div>
-                    <div style="text-align:right;"><a class="ajax-link btn btn-default" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus-sign"></span> Module</a></div>
+                    <div style="text-align:right;"><a class="ajax-link btn btn-default ListCreateButton" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateModule", id = Model.Id })" data-target="#CreateModuleModal"><span class="glyphicon glyphicon-plus-sign"></span> Module</a></div>
                 </div>
                 @Html.Action("TeacherCourseModulesPartial", "Teacher")
             </div>
@@ -27,17 +38,8 @@
 
 
 <!-- modal placeholders-->
-<div id="TheModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div id="modal-content">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
+<div id="CreateStudentModal"></div>
 <div id="EditStudentModal"></div>
 <div id="DeleteStudentModal"></div>
 
@@ -48,3 +50,6 @@
 <div id="CreateActivityModal"></div>
 <div id="EditActivityModal"></div>
 <div id="DeleteActivityModal"></div>
+
+<div id="CreateDocumentModal"></div>
+<div id="DeleteDocumentModal"></div>

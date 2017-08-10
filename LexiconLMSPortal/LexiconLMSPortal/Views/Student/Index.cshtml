@@ -1,13 +1,21 @@
-﻿@model LexiconLMSPortal.Models.ViewModels.ActivityViewModel
+﻿@model LexiconLMSPortal.Models.ViewModels.CourseViewModel
 @{
-    ViewBag.Title = "Student Index";
+    ViewBag.Title = "Schedule";
 }
-
+<div class="row ListRow" style="margin-top: 2%">
+    <div class="col-md-5 ListModulNameHead">
+        <h1>@ViewBag.Course</h1>
+    </div>
+    <div class="col-md-7 ListDateED" style="padding-left:1%">
+        <h5>@Html.DisplayFor(model => model.Description)</h5>
+    </div>
+</div>
+<hr />
 <div class="row">
-    <div class="col-xs-9">
+    <div class="col-sm-9">
         @Html.Action("Schedule", "Student")
     </div>
-    <div id="SList" class="col-xs-3">
+    <div id="SList" class=" col-xs-3 col-sm-3">
         @Html.Action("_StudentListPartial", "Student")
     </div>
 </div>

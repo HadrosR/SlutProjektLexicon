@@ -27,7 +27,7 @@ namespace LexiconLMSPortal.Controllers
             var courseID = userManager.FindByName(User.Identity.Name).CourseId.Id;
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
             var students = db.Courses.FirstOrDefault(t => t.Id == courseID).Students;
-
+            students = students.OrderBy(n => n.FirstName).ToList();
             foreach (var s in students)
             {
                 sl.Add(new _StudentListPartial
@@ -70,7 +70,28 @@ namespace LexiconLMSPortal.Controllers
         // GET: Student Index
         public ActionResult Index()
         {
-            return View();
+            string student = User.Identity.Name;
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+            ApplicationUser currentUser = userManager.FindByName(student);
+
+            int CourseID = currentUser.CourseId.Id;
+            var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
+
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+            //Shows the name of the coruse for the student
+            ViewBag.Course = course.Name;
+
+            CourseViewModel cvm = new CourseViewModel {
+                Description = course.Description
+            };
+
+
+            return View(cvm);
         }
 
         // GET: Student modul view 
@@ -90,9 +111,25 @@ namespace LexiconLMSPortal.Controllers
             //Finds the right course with ID
             var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
 
+            // Wrong id check
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Create a ModulesViewViewModel
+            CourseViewModel vm = new CourseViewModel
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Description = course.Description,
+                StartDate = course.StartDate,
+                EndDate = course.EndDate
+            };
+
             //Sends the course name to a viewbag
-            ViewBag.Course = course.Name;
-            return View();
+            //ViewBag.course = course.Name;
+            return View("ModuleStudent", vm);
         }
 
         //GET ModulList for students
@@ -135,7 +172,7 @@ namespace LexiconLMSPortal.Controllers
         }
 
         //Returns the Scedule in a partialview
-        public ActionResult Schedule()
+        public ActionResult Schedule(int? weekModifier = 0)
         {
             string student = User.Identity.Name;
             UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
@@ -150,14 +187,9 @@ namespace LexiconLMSPortal.Controllers
                 return HttpNotFound();
             }
 
-            //Shows the name of the coruse for the student
-            ViewBag.Course = course.Name;
-
             Calendar cal = new GregorianCalendar();
-
-            // This should be "DateTime datevalue = DateTime.Now" but for presentation purpurses its hard coded :P
-            DateTime datevalue = new DateTime(2017, 10, 09);
-
+            
+            DateTime datevalue = DateTime.Now;
             DayOfWeek firstDay = DayOfWeek.Monday;
             CalendarWeekRule rule;
             rule = CalendarWeekRule.FirstFourDayWeek;
@@ -179,49 +211,57 @@ namespace LexiconLMSPortal.Controllers
                     Description = s.Description,
                     StartDate = s.StartDate,
                     EndDate = s.EndDate
+                    
                 });
-
-                afk[x] = s.StartDate;
+            }
+            var list = savm.OrderBy(m => m.StartDate);
+            foreach (var item in list)
+            {
+                afk[x] = item.StartDate;
                 x++;
             }
-
             ScheduleViewModel schedule = new ScheduleViewModel();
 
             //Loops through the array of activities and puts them in seperate model list for there specific day
             for (int i = 0; i < savm.Count; i++)
             {
                 DateTime activityDate = afk[i];
-
                 //Gets what week it is "now"
-                int weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay);
+                int? weekNbr = cal.GetWeekOfYear(datevalue, rule, firstDay) + weekModifier;
                 //Gets the week of the activity
-                int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);                
+                int activityWeekNbr = cal.GetWeekOfYear(afk[i], rule, firstDay);
+                ViewBag.Week = weekNbr;
 
                 if (activityWeekNbr == weekNbr)
                 {
                     if (afk[i].DayOfWeek == DayOfWeek.Monday)
                     {
-                            schedule.Monday.Add(savm.ElementAt(i));
+                        ViewBag.MondayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Monday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
                     {
-                            schedule.Tuesday.Add(savm.ElementAt(i));
+                        ViewBag.TuedayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Tuesday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
                     {
-                            schedule.Wednesday.Add(savm.ElementAt(i));
+                        ViewBag.WednesdayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Wednesday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
                     {
-                            schedule.Thursday.Add(savm.ElementAt(i));
+                        ViewBag.ThursDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Thursday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Friday)
                     {
-                            schedule.Friday.Add(savm.ElementAt(i));
+                        ViewBag.FridayDate = afk[i].Date.ToString("dd/MM");
+                        schedule.Friday.Add(list.ElementAt(i));
                     }
                 }
-            }
-            return PartialView("_Schedule", schedule);
+            }            
+            return PartialView("_Schedule",schedule);
         }
 
         protected override void Dispose(bool disposing)
@@ -232,5 +272,95 @@ namespace LexiconLMSPortal.Controllers
             }
             base.Dispose(disposing);
         }
+        
+        public ActionResult _StudentCourseModulesPartial(int? id)
+        {
+            
+            //Gets the users name
+            string student = User.Identity.Name;
+            UserStore<Models.Identity.ApplicationUser> userStore = new UserStore<Models.Identity.ApplicationUser>(db);
+            UserManager<Models.Identity.ApplicationUser> userManager = new UserManager<Models.Identity.ApplicationUser>(userStore);
+
+            //Finds the user in the database
+            ApplicationUser currentUser = userManager.FindByName(student);
+
+            //Finds the course by the students courseID
+            int CourseID = currentUser.CourseId.Id;
+
+            //Finds the right course with ID
+            var course = db.Courses.FirstOrDefault(c => c.Id == CourseID);
+            course.Modules = course.Modules.OrderBy(n => n.StartDate).ToList();
+
+            // Get the specifik course
+            //var course = db.Courses.FirstOrDefault(n => n.Id == id);
+
+            // Wrong id check
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Create a ModulesViewViewModel
+            ModulesViewViewModel vm = new ModulesViewViewModel
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Description = course.Description,
+                Modules = new List<ModulesViewModel>()
+            };
+
+            // Add viewmodels for every module
+            foreach (var m in course.Modules)
+            {
+                List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
+                vm.Modules.Add(new ModulesViewModel
+                {
+                    Id = m.Id,
+                    Name = m.Name,
+                    Description = m.Description,
+                    StartDate = m.StartDate,
+                    EndDate = m.EndDate,
+
+                });
+
+            }
+            return PartialView("_StudentCourseModulesPartial", vm);
+        }
+
+        public ActionResult _StudentCourseActivitiesPartial(int id)
+        {
+            // Get the specifik module
+            var module = db.Modules.FirstOrDefault(n => n.Id == id);
+            module.Activities = module.Activities.OrderBy(n => n.StartDate).ToList();
+            // List to store activities
+            List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
+
+            // Info about the module
+            ModulesViewModel vm = new ModulesViewModel()
+            {
+                Id = id,
+                Name = module.Name,
+                Description = module.Description,
+                StartDate = module.StartDate,
+                EndDate = module.EndDate,
+                Activities = newActivityList
+            };
+
+            //Add viewmodels for every activity in a module
+            foreach (var t in module.Activities)
+            {
+                newActivityList.Add(new ActivityViewModel
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                    Description = t.Description,
+                    StartDate = t.StartDate,
+                    EndDate = t.EndDate
+                });
+            }
+
+            return PartialView("_StudentCourseActivitiesPartial", vm);
+        }
+        
     }
 }

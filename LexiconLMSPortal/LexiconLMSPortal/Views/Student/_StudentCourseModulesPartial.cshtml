@@ -1,9 +1,9 @@
 ﻿@model LexiconLMSPortal.Models.ViewModels.ModulesViewViewModel
 
-<div id="TeacherCourseModulesPartial">
+<div id="StudentCourseModulesPartial">
     <div class="panel-group" id="module-accordion" role="tablist" aria-multiselectable="true">
         @{int moduleid = 0; }
-        @foreach (var item in Model.Modules)    
+        @foreach (var item in Model.Modules)
         {
             <div class="panel panel-default module-accordion-div">
                 <div class="module-accordion-heading" role="tab" id="@Html.Raw("heading" + moduleid)" tooltip="@Html.DisplayFor(modelItem => item.Description)" style="position:relative">
@@ -16,12 +16,10 @@
                                 </a>
                             </h4>
                         </div>
-                        <div class="col-md-8 ListDateED">
-                            <div class="col-md-5"><div class="vertical-align"><span class="glyphicon glyphicon-calendar calendar-icon"></span>@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div></div>
-                            <div class="col-md-4">@Html.Action("DocumentModuleList", "Document", new { id = item.Id })</div>
-                            <div class="col-md-3" style="text-align:right; margin-right:0; padding-right:2px;">
-                                <a class="ajax-link" data-target="#EditModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "EditModule", id = item.Id })"><span class="glyphicon glyphicon-pencil edit-button"></span></a>
-                                <a class="ajax-link" data-target="#DeleteModuleModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "DeleteModule", id = item.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                        <div class="col-xs-8 ListDateED">
+                            <div class="col-xs-5"><div class="vertical-align"><span class="glyphicon glyphicon-calendar calendar-icon"></span>@Html.DisplayFor(modelItem => item.StartDate) <br /> @Html.DisplayFor(modelItem => item.EndDate)</div></div>
+                            <div class="col-xs-4">@Html.Action("DocumentModuleList", "Document", new { id = item.Id })</div>
+                            <div class="col-xs-3" style="text-align:right; margin-right:0; padding-right:2px;">
                                 <span style="border-left: solid 1px gray; padding:8px; margin-left:5px;" class="glyphicon glyphicon-menu-down"></span>
                             </div>
                         </div>
@@ -31,10 +29,9 @@
                 <div id="@Html.Raw("collapse" + moduleid)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("heading" + moduleid)">
                     <div style="padding:0px 15px; padding-bottom:15px;">
                         <div style="padding-bottom:12px;">
-                            <div style="float:right"><a class="ajax-link btn btn-default ListCreateButton" data-target="#CreateActivityModal" href="@Url.RouteUrl("Default", new {controller = "Teacher", action = "CreateActivity", id = item.Id })"><span class="glyphicon glyphicon-plus-sign"></span> Activity</a></div>
                             <div style="font-size:16px; padding-top:6px;">Activities</div>
                         </div>
-                            @Html.Action("TeacherCourseActivitiesPartial", "Teacher", new { id = item.Id })
+                        @Html.Action("_StudentCourseActivitiesPartial", "Student", new { id = item.Id })
                     </div>
                 </div>
             </div>

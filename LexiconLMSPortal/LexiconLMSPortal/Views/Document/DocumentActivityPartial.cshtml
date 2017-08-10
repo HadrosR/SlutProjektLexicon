@@ -1,0 +1,50 @@
+﻿@model LexiconLMSPortal.Models.ViewModels.DocumentActivityViewModel
+
+<!-- Documents -->
+<div id="@Html.Raw("DocumentActivityPartial" + Model.ActivityId)">
+    <div class="dropdown">
+        <button id="dLabel" class="btn btn-default document-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Documents
+            <span class="badge">@Model.Documents.Count</span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="min-width:240px">
+            @{ int count = 0;}
+            @foreach (var doc in Model.Documents)
+            {
+                <li>
+                    <div style="margin:5px;">
+                        @if (User.IsInRole("Teacher"))
+                        {
+                            <a style="display:inline; float:right; padding-left:10px;" class="ajax-link" data-target="#DeleteDocumentModal" href="@Url.RouteUrl("Default", new {controller = "Document", action = "RemoveDocumentActivity", id = doc.Id })"><span class="glyphicon glyphicon-remove-circle delete-button"></span></a>
+                        }
+                        <a style="display:inline;" target="_blank" href="@Url.RouteUrl("Default", new {controller = "Document", action = "GetFile", id = doc.Id })"><span class="glyphicon glyphicon-file"></span> @Html.DisplayFor(model => doc.Name)</a>
+                    </div>
+                </li>
+
+                count++;
+
+                if (User.IsInRole("Student"))
+                {
+                    if (count != Model.Documents.Count)
+                    {
+                        <li role="separator" class="divider"></li>
+                    }
+                }
+                else
+                {
+                    <li role="separator" class="divider"></li>
+                }
+            }
+            @if (User.IsInRole("Teacher"))
+            {
+                <li>
+                    <div style="margin:5px;">
+                        <a class="ajax-link" href="@Url.RouteUrl("Default", new {controller = "Document", action = "AddDocumentActivity", id = Model.ActivityId })" data-target="#CreateDocumentModal"><span class="glyphicon glyphicon-plus-sign"></span> Add Document</a>
+                    </div>
+                </li>
+            }
+            <li>
+        </ul>
+    </div>
+</div>

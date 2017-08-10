@@ -242,8 +242,9 @@ namespace LexiconLMSPortal.Controllers
 
                 });
             }
+            var sortres = aktivCourses.OrderBy(n => n.StartDate);
 
-            return PartialView("CourseListView", aktivCourses);
+            return PartialView("CourseListView", sortres);
         }
 
         // GET: Teacher
@@ -418,7 +419,8 @@ namespace LexiconLMSPortal.Controllers
                 Name = course.Name,
                 Description = course.Description,
                 StartDate = course.StartDate,
-                EndDate = course.EndDate
+                EndDate = course.EndDate,
+                Documents = course.Documents
             };
 
             return View("Course", vm);
@@ -431,7 +433,7 @@ namespace LexiconLMSPortal.Controllers
 
             // Checks the database for all users with the role of "Teacher"
             var teachers = context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(context.Roles.FirstOrDefault(z => z.Name == "Teacher").Id)).ToList();
-
+            teachers = teachers.OrderBy(n => n.FirstName).ToList();
             //All the users that was found above are put in to a list
             foreach (var t in teachers)
             {
@@ -456,6 +458,7 @@ namespace LexiconLMSPortal.Controllers
 
             var course = context.Courses.FirstOrDefault(t => t.Id == id);
             var students = course.Students;
+            students = students.OrderBy(n => n.FirstName).ToList();
 
             foreach (var s in students)
             {
@@ -481,7 +484,6 @@ namespace LexiconLMSPortal.Controllers
         public ActionResult _FullStudentListPartial(string sortOrder,string search)
         {
             List<_StudentListPartial> sl = new List<_StudentListPartial>();
-
             //Creates variables that saves the users input of a sortorder
             ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name" : "";
             ViewBag.EmailSort = sortOrder == "email" ? "email_des" : "email";
@@ -505,7 +507,7 @@ namespace LexiconLMSPortal.Controllers
                         });
                         break;
                     default:
-                        if (s.Email.Contains(search) || s.CourseId.Name.Contains(search) || s.FirstName.Contains(search) || s.LastName.Contains(search))
+                        if (/*s.Email.Contains(search) || s.CourseId.Name.Contains(search) || */s.FirstName.ToUpper().Contains(search.ToUpper()) || s.LastName.ToUpper().Contains(search.ToUpper()))
                         {
                             sl.Add(new _StudentListPartial
                             {
@@ -555,7 +557,7 @@ namespace LexiconLMSPortal.Controllers
                 CourseModel_Id = id
             };
 
-            return View("CreateStudent", csvm);
+            return PartialView("CreateStudent", csvm);
         }
 
         //POST: CreateStudent
@@ -563,7 +565,7 @@ namespace LexiconLMSPortal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateStudent([Bind(Include = "Id,FirstName,LastName,Email,Password,CourseModel_Id")] CreateSudentViewModel createSudentViewModel)
         {
-            var course = context.Courses.FirstOrDefault(d => d.Id == createSudentViewModel.Id);
+            var course = context.Courses.FirstOrDefault(d => d.Id == createSudentViewModel.CourseModel_Id);
 
             if (ModelState.IsValid)
             {
@@ -647,6 +649,25 @@ namespace LexiconLMSPortal.Controllers
 
             var result = userManager.Update(student);
 
+            // Want to change password?
+            if (editStudentViewModel.Password != null || editStudentViewModel.Password != "")
+            {
+
+                //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+
+                PasswordHasher ph = new PasswordHasher();
+
+                string hashed = ph.HashPassword(editStudentViewModel.Password);
+
+                var updatedUserPw = context.Users.Find(student.Id);
+
+                updatedUserPw.PasswordHash = hashed;
+
+                context.Entry(updatedUserPw).State = EntityState.Modified;
+
+                context.SaveChanges();
+            }
+
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
@@ -719,6 +740,25 @@ namespace LexiconLMSPortal.Controllers
             student.UserName = editStudentViewModel.Email;
 
             var result = userManager.Update(student);
+
+            // Want to change password?
+            if (editStudentViewModel.Password != null || editStudentViewModel.Password != "")
+            {
+                
+                //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+
+                PasswordHasher ph = new PasswordHasher();
+
+                string hashed = ph.HashPassword(editStudentViewModel.Password);
+
+                var updatedUserPw = context.Users.Find(student.Id);
+
+                updatedUserPw.PasswordHash = hashed;
+
+                context.Entry(updatedUserPw).State = EntityState.Modified;
+
+                context.SaveChanges();
+            }
 
             if (!result.Succeeded)
             {
@@ -848,7 +888,7 @@ namespace LexiconLMSPortal.Controllers
         {
             // Get the specifik course
             var course = context.Courses.FirstOrDefault(n => n.Id == id);
-
+            course.Modules = course.Modules.OrderBy(n => n.StartDate).ToList();
             // Wrong id check
             if (course == null)
             {
@@ -875,7 +915,7 @@ namespace LexiconLMSPortal.Controllers
                     Description = m.Description,
                     StartDate = m.StartDate,
                     EndDate = m.EndDate,
-
+                    Documents = m.Documents.ToList(),
                 });
 
             }
@@ -886,7 +926,7 @@ namespace LexiconLMSPortal.Controllers
         {
             // Get the specifik module
             var module = context.Modules.FirstOrDefault(n => n.Id == id);
-
+            module.Activities = module.Activities.OrderBy(n => n.StartDate).ToList();
             // List to store activities
             List<ActivityViewModel> newActivityList = new List<ActivityViewModel>();
 
@@ -913,7 +953,6 @@ namespace LexiconLMSPortal.Controllers
                     EndDate = t.EndDate
                 });
             }
-
             return PartialView("TeacherCourseActivitiesPartial", vm);
         }
 

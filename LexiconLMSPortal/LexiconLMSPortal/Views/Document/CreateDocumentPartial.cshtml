@@ -1,0 +1,33 @@
+﻿@model LexiconLMSPortal.Models.ViewModels.CreateDocumentViewModel
+
+<div id="CreateDocumentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateDocument">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Add Document</h4>
+            </div>
+            @*The form for the create action*@
+            <form method="post" action="@Url.Action("AddDocument", "Document", Model)" enctype="multipart/form-data" class="form-group" data-lms-ajax="true" data-lms-target="@Html.Raw("#Document"+ViewBag.Target+"Partial"+Model.Id)">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        @Html.Label("File", new { @class = "control-label" })
+                        <div>
+                            <input type="file" id="File" name="upload" data-val="true" data-val-required="A file is required." />
+                        </div>
+                    </div>
+
+                </div>
+                @*Button to submit or cancel*@
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default modal-close-btn" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary form-group modal-accept-btn">Add</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
