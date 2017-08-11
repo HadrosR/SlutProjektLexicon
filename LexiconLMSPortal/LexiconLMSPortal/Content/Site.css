@@ -464,6 +464,10 @@ textarea {
 
 /*Here Goes Some CSS For the Student Schedule*/
 
+
+.SDate{
+    padding-bottom:5px;
+}
 .schedulecol {
     padding: 0px;
     text-align: center;

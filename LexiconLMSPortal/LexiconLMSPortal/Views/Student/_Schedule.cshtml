@@ -15,7 +15,8 @@
 <div class="row">
    <div class="col-md-1"></div>
     <div class="col-md-2 schedulecol mondayCol">
-        @ViewBag.MondayDate<h3>Monday</h3>
+        <h3>Monday</h3>
+        <div class="SDate">@ViewBag.MondayDate</div>
         @foreach (var item in Model.Monday)
         {
             <div class="ScheduleCell">
@@ -28,7 +29,8 @@
         }
     </div>
     <div class="col-md-2 schedulecol  tuesdayCol">
-        @ViewBag.TuedayDate<h3>Tuesday</h3>
+        <h3>Tuesday</h3>
+        <div class="SDate">@ViewBag.TuedayDate</div>
         @foreach (var item in Model.Tuesday)
         {
             <div class="ScheduleCell">
@@ -41,7 +43,8 @@
         }
     </div>
     <div class="col-md-2 schedulecol  wednesdayCol">
-        @ViewBag.WednesdayDate<h3>Wednesday</h3>
+        <h3>Wednesday</h3>
+        <div class="SDate">@ViewBag.WednesdayDate</div>
         @foreach (var item in Model.Wednesday)
         {
             <div class="ScheduleCell">
@@ -54,7 +57,8 @@
         }
     </div>
     <div class="col-md-2 schedulecol thurdayCol">
-        @ViewBag.ThursDate<h3>Thursday</h3>
+        <h3>Thursday</h3>
+        <div class="SDate">@ViewBag.ThursDate</div>
         @foreach (var item in Model.Thursday)
         {
             <div class="ScheduleCell">
@@ -67,7 +71,8 @@
         }
     </div>
     <div class="col-md-2 schedulecol fridayCol">
-        @ViewBag.FridayDate<h3>Friday</h3>
+        <h3>Friday</h3>
+        <div class="SDate">@ViewBag.FridayDate</div>
         @foreach (var item in Model.Friday)
         {
             <div class="ScheduleCell">
