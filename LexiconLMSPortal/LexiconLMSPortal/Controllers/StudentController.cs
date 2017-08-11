@@ -236,27 +236,27 @@ namespace LexiconLMSPortal.Controllers
                 {
                     if (afk[i].DayOfWeek == DayOfWeek.Monday)
                     {
-                        ViewBag.MondayDate = afk[i].Date.ToString("dd/MM");
+                        ViewBag.MondayDate = afk[i].Date.ToString("dd MMM");
                         schedule.Monday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Tuesday)
                     {
-                        ViewBag.TuedayDate = afk[i].Date.ToString("dd/MM");
+                        ViewBag.TuedayDate = afk[i].Date.ToString("dd MMM");
                         schedule.Tuesday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Wednesday)
                     {
-                        ViewBag.WednesdayDate = afk[i].Date.ToString("dd/MM");
+                        ViewBag.WednesdayDate = afk[i].Date.ToString("dd MMM");
                         schedule.Wednesday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Thursday)
                     {
-                        ViewBag.ThursDate = afk[i].Date.ToString("dd/MM");
+                        ViewBag.ThursDate = afk[i].Date.ToString("dd MMM");
                         schedule.Thursday.Add(list.ElementAt(i));
                     }
                     else if (afk[i].DayOfWeek == DayOfWeek.Friday)
                     {
-                        ViewBag.FridayDate = afk[i].Date.ToString("dd/MM");
+                        ViewBag.FridayDate = afk[i].Date.ToString("dd MMM");
                         schedule.Friday.Add(list.ElementAt(i));
                     }
                 }
