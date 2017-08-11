@@ -109,7 +109,6 @@ namespace LexiconLMSPortal.Controllers
                     var document = new DocumentModels
                     {
                         Name = upload.FileName,
-                        Owner = um.FindByName(User.Identity.Name),
                         TimeStamp = DateTime.Now,
                         ContentType = upload.ContentType,
                     };
