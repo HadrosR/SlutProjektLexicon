@@ -97,7 +97,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "C# Syntax Document.txt",
-                            Owner = adminUser,
+   
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An introduction to the C# syntax"),
                             ContentType = "txt",
@@ -105,7 +105,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Visual Studio 2017 instructions.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017"),
                             ContentType = "txt",
@@ -126,7 +126,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "ASP.NET Introduction Document.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An introduction to ASP.NET"),
                             ContentType = "txt",
@@ -134,7 +134,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Another Visual Studio 2017 instructions.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017 again"),
                             ContentType = "txt",
@@ -154,7 +154,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "HTML Introduction Document.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An introduction to HTML"),
                             ContentType = "txt",
@@ -162,7 +162,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Another Visual Studio 2017 instructions.txt",
-                            Owner = adminUser,
+  
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017 again"),
                             ContentType = "txt",
@@ -182,7 +182,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "ASP.NET Introduction Document.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An introduction to ASP.NET"),
                             ContentType = "txt",
@@ -190,7 +190,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Another Visual Studio 2017 instructions.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A guide on how to install Visual Studio 2017 again"),
                             ContentType = "txt",
@@ -228,7 +228,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, loops.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, loops"),
                                     ContentType = "txt",
@@ -246,7 +246,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Garage excercise instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Garage excercise instructions"),
                                     ContentType = "txt",
@@ -259,7 +259,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "A little loop example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("Code snippets of C# loops"),
                             ContentType = "txt",
@@ -267,7 +267,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Advanced loop example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("Code snippet of advanced usage of loops"),
                             ContentType = "txt",
@@ -294,7 +294,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, exceptions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, exceptions"),
                                     ContentType = "txt",
@@ -308,7 +308,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Try Catch excercise.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("How to use try catch"),
                             ContentType = "txt",
@@ -317,7 +317,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "Example exceptions.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A list of example exceptions"),
                             ContentType = "txt",
@@ -352,7 +352,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, controller.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
                                     ContentType = "txt",
@@ -380,7 +380,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, models.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
                                     ContentType = "txt",
@@ -408,7 +408,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, views.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
                                     ContentType = "txt",
@@ -436,7 +436,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, entity framework.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
                                     ContentType = "txt",
@@ -464,7 +464,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, CRUD.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
                                     ContentType = "txt",
@@ -483,7 +483,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Code along instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
                                     ContentType = "txt",
@@ -502,7 +502,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Project instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
                                     ContentType = "txt",
@@ -516,7 +516,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC Presentation.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
@@ -525,7 +525,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                             ContentType = "txt",
@@ -577,7 +577,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, controller.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
                                     ContentType = "txt",
@@ -605,7 +605,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, models.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
                                     ContentType = "txt",
@@ -633,7 +633,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, views.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
                                     ContentType = "txt",
@@ -661,7 +661,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, entity framework.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
                                     ContentType = "txt",
@@ -689,7 +689,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, CRUD.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
                                     ContentType = "txt",
@@ -708,7 +708,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Code along instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
                                     ContentType = "txt",
@@ -727,7 +727,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Project instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
                                     ContentType = "txt",
@@ -741,7 +741,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC Presentation.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
@@ -750,7 +750,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                             ContentType = "txt",
@@ -785,7 +785,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, controller.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
                                     ContentType = "txt",
@@ -813,7 +813,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, models.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
                                     ContentType = "txt",
@@ -841,7 +841,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, views.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
                                     ContentType = "txt",
@@ -869,7 +869,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, entity framework.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
                                     ContentType = "txt",
@@ -897,7 +897,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, CRUD.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
                                     ContentType = "txt",
@@ -916,7 +916,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Code along instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
                                     ContentType = "txt",
@@ -935,7 +935,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Project instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
                                     ContentType = "txt",
@@ -949,7 +949,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC Presentation.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
@@ -958,7 +958,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                             ContentType = "txt",
@@ -1010,7 +1010,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, controller.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
                                     ContentType = "txt",
@@ -1038,7 +1038,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, models.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
                                     ContentType = "txt",
@@ -1066,7 +1066,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, views.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
                                     ContentType = "txt",
@@ -1094,7 +1094,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, entity framework.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
                                     ContentType = "txt",
@@ -1122,7 +1122,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, CRUD.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
                                     ContentType = "txt",
@@ -1141,7 +1141,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Code along instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
                                     ContentType = "txt",
@@ -1160,7 +1160,6 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Project instructions.txt",
-                                    Owner = adminUser,
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
                                     ContentType = "txt",
@@ -1174,7 +1173,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC Presentation.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
@@ -1183,7 +1182,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
-                            Owner = adminUser,
+  
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                             ContentType = "txt",
@@ -1218,7 +1217,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, controller.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
                                     ContentType = "txt",
@@ -1246,7 +1245,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, models.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
                                     ContentType = "txt",
@@ -1274,7 +1273,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, views.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
                                     ContentType = "txt",
@@ -1302,7 +1301,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, entity framework.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
                                     ContentType = "txt",
@@ -1330,7 +1329,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, CRUD.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
                                     ContentType = "txt",
@@ -1349,7 +1348,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Code along instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
                                     ContentType = "txt",
@@ -1368,7 +1367,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Project instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
                                     ContentType = "txt",
@@ -1382,7 +1381,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC Presentation.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
@@ -1391,7 +1390,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                             ContentType = "txt",
@@ -1443,7 +1442,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, controller.txt",
-                                    Owner = adminUser,
+ 
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, controller"),
                                     ContentType = "txt",
@@ -1471,7 +1470,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, models.txt",
-                                    Owner = adminUser,
+ 
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, models"),
                                     ContentType = "txt",
@@ -1499,7 +1498,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, views.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, views"),
                                     ContentType = "txt",
@@ -1527,7 +1526,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, entity framework.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, entity framework"),
                                     ContentType = "txt",
@@ -1555,7 +1554,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Excercise instructions, CRUD.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Excercise instructions, CRUD"),
                                     ContentType = "txt",
@@ -1574,7 +1573,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Code along instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Code along instructions"),
                                     ContentType = "txt",
@@ -1593,7 +1592,7 @@ namespace LexiconLMSPortal.Migrations
                                 new DocumentModels
                                 {
                                     Name = "Project instructions.txt",
-                                    Owner = adminUser,
+
                                     TimeStamp = DateTime.Now,
                                     Contents = Encoding.UTF8.GetBytes("Project instructions"),
                                     ContentType = "txt",
@@ -1607,7 +1606,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC Presentation.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("A presentation of the ASP.MVC system"),
                             ContentType = "txt",
@@ -1616,7 +1615,7 @@ namespace LexiconLMSPortal.Migrations
                         new DocumentModels
                         {
                             Name = "MVC code example.txt",
-                            Owner = adminUser,
+
                             TimeStamp = DateTime.Now,
                             Contents = Encoding.UTF8.GetBytes("An example usage of Models, Views and Controllers"),
                             ContentType = "txt",
