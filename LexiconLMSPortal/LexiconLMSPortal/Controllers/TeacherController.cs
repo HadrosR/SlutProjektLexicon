@@ -650,22 +650,24 @@ namespace LexiconLMSPortal.Controllers
             var result = userManager.Update(student);
 
             // Want to change password?
-            if (editStudentViewModel.Password != null || editStudentViewModel.Password != "")
+            if (editStudentViewModel.Password != null)
             {
+                if(editStudentViewModel.Password != "")
+                {
+                    //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
 
-                //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+                    PasswordHasher ph = new PasswordHasher();
 
-                PasswordHasher ph = new PasswordHasher();
+                    string hashed = ph.HashPassword(editStudentViewModel.Password);
 
-                string hashed = ph.HashPassword(editStudentViewModel.Password);
+                    var updatedUserPw = context.Users.Find(student.Id);
 
-                var updatedUserPw = context.Users.Find(student.Id);
+                    updatedUserPw.PasswordHash = hashed;
 
-                updatedUserPw.PasswordHash = hashed;
+                    context.Entry(updatedUserPw).State = EntityState.Modified;
 
-                context.Entry(updatedUserPw).State = EntityState.Modified;
-
-                context.SaveChanges();
+                    context.SaveChanges();
+                }
             }
 
             if (!result.Succeeded)
@@ -742,22 +744,25 @@ namespace LexiconLMSPortal.Controllers
             var result = userManager.Update(student);
 
             // Want to change password?
-            if (editStudentViewModel.Password != null || editStudentViewModel.Password != "")
+            if (editStudentViewModel.Password != null)
             {
-                
-                //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
+                if (editStudentViewModel.Password != "")
+                {
 
-                PasswordHasher ph = new PasswordHasher();
+                    //result = userManager.ChangePassword(teacher.Id, teacher.PasswordHash, edited.Password);
 
-                string hashed = ph.HashPassword(editStudentViewModel.Password);
+                    PasswordHasher ph = new PasswordHasher();
 
-                var updatedUserPw = context.Users.Find(student.Id);
+                    string hashed = ph.HashPassword(editStudentViewModel.Password);
 
-                updatedUserPw.PasswordHash = hashed;
+                    var updatedUserPw = context.Users.Find(student.Id);
 
-                context.Entry(updatedUserPw).State = EntityState.Modified;
+                    updatedUserPw.PasswordHash = hashed;
 
-                context.SaveChanges();
+                    context.Entry(updatedUserPw).State = EntityState.Modified;
+
+                    context.SaveChanges();
+                }
             }
 
             if (!result.Succeeded)
